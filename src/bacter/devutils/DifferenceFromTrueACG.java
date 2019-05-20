@@ -39,12 +39,14 @@ public class DifferenceFromTrueACG {
         double burninPerc = 10.0;
         double boundaryTol = 0.25;
         double ageTol = 0.25;
+        double minSupportClade = 0.5;
+        double minSupportConv = 0.5;
         File logFile, truthFile, outFile, summaryFile;
         boolean useCOFormat = false;
     }
 
     public static void printUsageAndExit(int exitCode) {
-        System.out.println("Usage: DifferenceFromTrueACG [-burnin b] [-boundaryTol t] [-ageTol t] [-co] truth.tree log.trees output_file");
+        System.out.println("Usage: DifferenceFromTrueACG [-burnin b] [-boundaryTol t] [-ageTol t] [-minSupportClade t] [-minSupportConv t] [-co] truth.tree log.trees output_file summary_file");
         System.exit(exitCode);
     }
 
@@ -85,6 +87,30 @@ public class DifferenceFromTrueACG {
                         options.boundaryTol = Double.valueOf(args[i]);
                     } catch (NumberFormatException e) {
                         System.out.println("Argument to -boundaryTol must be a number.");
+                        printUsageAndExit(1);
+                    }
+                    break;
+
+                case "minSupportClade":
+                    i += 1;
+                    if (i>=args.length)
+                        printUsageAndExit(1);
+                    try {
+                        options.minSupportClade = Double.valueOf(args[i]);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Argument to -minSupportClade must be a number.");
+                        printUsageAndExit(1);
+                    }
+                    break;
+
+                case "minSupportConv":
+                    i += 1;
+                    if (i>=args.length)
+                        printUsageAndExit(1);
+                    try {
+                        options.minSupportConv = Double.valueOf(args[i]);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Argument to -minSupportConv must be a number.");
                         printUsageAndExit(1);
                     }
                     break;
@@ -319,10 +345,10 @@ public class DifferenceFromTrueACG {
             ps.println("trueCladeCount recoveredCladeCount trueConvCount recoveredConvCount");
 
             int recoveredTrueClades = countRecoveredTrueClades(cladeHist,
-                    logReader.getCorrectedACGCount(), 0.5);
+                    logReader.getCorrectedACGCount(), options.minSupportClade);
 
             int recoveredTrueConvs = countRecoveredTrueConvs(convHist,
-                    logReader.getCorrectedACGCount(), 0.5);
+                    logReader.getCorrectedACGCount(), options.minSupportConv);
 
             ps.println(trueACG.getNodeCount() + "\t" +
                     recoveredTrueClades + "\t" +
