@@ -213,10 +213,10 @@ public class DifferenceFromTrueACG {
         int count = 0;
         for (Conversion trueConv : trueACG.getConversions(trueACG.getConvertibleLoci().get(0))) {
             Clade trueFromClade = trueClades[trueConv.getNode1().getNr()];
-            Clade trueToClade = trueClades[trueConv.getNode1().getNr()];
+            Clade trueToClade = trueClades[trueConv.getNode2().getNr()];
             for (Conversion conv : acg.getConversions(acg.getConvertibleLoci().get(0)))  {
                 Clade fromClade = clades[conv.getNode1().getNr()];
-                Clade toClade = clades[conv.getNode1().getNr()];
+                Clade toClade = clades[conv.getNode2().getNr()];
 
                 if (fromClade.equals(trueFromClade) && toClade.equals(trueToClade)) {
                     if (    Math.abs(trueConv.getStartSite()-conv.getStartSite())/trueConv.getSiteCount() <= boundaryTol
