@@ -49,7 +49,7 @@ public class SummarizedVsTrueACG {
     }
 
     public static void printUsageAndExit(int exitCode) {
-        System.out.println("Usage: DifferenceFromTrueACG [-burnin b] truth.tree log.trees true_alignment_file output_summarized_ACG output_compare_summarized_clades output_compare_summarized_conversions output_compare_true_conversions");
+        System.out.println("Usage: SummarizedVsTrueACG [-burnin b] truth.tree log.trees true_alignment_file output_summarized_ACG output_compare_summarized_clades output_compare_summarized_conversions output_compare_true_conversions");
         System.exit(exitCode);
     }
 
