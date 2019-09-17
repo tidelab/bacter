@@ -213,14 +213,14 @@ public class DifferenceFromTrueACG {
         int count = 0;
         for (Conversion trueConv : trueACG.getConversions(trueACG.getConvertibleLoci().get(0))) {
             Clade trueFromClade = trueClades[trueConv.getNode1().getNr()];
-            Clade trueToClade = trueClades[trueConv.getNode1().getNr()];
+            Clade trueToClade = trueClades[trueConv.getNode2().getNr()];
             for (Conversion conv : acg.getConversions(acg.getConvertibleLoci().get(0)))  {
                 Clade fromClade = clades[conv.getNode1().getNr()];
-                Clade toClade = clades[conv.getNode1().getNr()];
+                Clade toClade = clades[conv.getNode2().getNr()];
 
                 if (fromClade.equals(trueFromClade) && toClade.equals(trueToClade)) {
-                    if (    Math.abs(trueConv.getStartSite()-conv.getStartSite())/trueConv.getSiteCount() <= boundaryTol
-                            && Math.abs(trueConv.getEndSite()-conv.getEndSite())/trueConv.getSiteCount() <= boundaryTol
+                    if (    1.0*Math.abs(trueConv.getStartSite()-conv.getStartSite())/trueConv.getSiteCount() <= boundaryTol
+                            && 1.0*Math.abs(trueConv.getEndSite()-conv.getEndSite())/trueConv.getSiteCount() <= boundaryTol
 //                            && Math.abs(trueConv.getHeight1()-conv.getHeight1())/trueConv.getHeight1() <= ageTol
                         //&& Math.abs(trueConv.getHeight2()-conv.getHeight2())/trueConv.getHeight2() <= ageTol
                     )
