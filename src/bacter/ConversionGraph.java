@@ -489,12 +489,6 @@ public class ConversionGraph extends Tree {
             }
         }
 
-        acg.regionLists = new HashMap<>();
-        for (Locus locus : acg.loci)
-            acg.regionLists.put(locus, new RegionList(acg, locus));
-
-        acg.cfEventList = new CFEventList(acg);
-
         return acg;
     }
 

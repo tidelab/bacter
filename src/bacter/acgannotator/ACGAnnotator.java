@@ -42,8 +42,6 @@ import java.util.List;
  */
 public class ACGAnnotator {
 
-    private ConversionGraph acgBest;
-
     private enum SummaryStrategy { MEAN, MEDIAN }
 
     private static class ACGAnnotatorOptions {
@@ -100,6 +98,7 @@ public class ACGAnnotator {
 
         System.out.println("\nIdentifying MCC CF topology...");
 
+        ConversionGraph acgBest = null;
         double bestScore = Double.NEGATIVE_INFINITY;
 
         for (ConversionGraph acg : logReader ) {
@@ -110,6 +109,9 @@ public class ACGAnnotator {
                 bestScore = score;
             }
         }
+
+        if (acgBest == null)
+            throw new IllegalStateException("Failed to find best tree topology.");
 
         // Remove conversions
 
@@ -145,6 +147,7 @@ public class ACGAnnotator {
                 options.convSupportThresh /100.0,
                 options.summaryStrategy);
 
+
         // Write output
 
         System.out.println("\nWriting output to " + options.outFile.getName()
@@ -174,25 +177,6 @@ public class ACGAnnotator {
         }
 
         System.out.println("\nDone!");
-    }
-
-    public ACGAnnotator(File inFile,File outFile, double burninPercentage, double convSupportThresh) throws IOException {
-
-        ACGAnnotatorOptions options=new ACGAnnotatorOptions();
-        options.inFile=inFile;
-        options.outFile=outFile;
-        options.burninPercentage=burninPercentage;
-        options.convSupportThresh=convSupportThresh;
-
-        ACGAnnotator acgAnnotator=new ACGAnnotator(options);
-        this.acgBest=acgAnnotator.getSummarizedACG();
-
-    }
-    //Method to return a summarized ACG
-    public ConversionGraph getSummarizedACG() {
-
-        return this.acgBest;
-
     }
 
     private void printBitSetHeader(PrintStream ps, BitSet bitSet) {
@@ -289,8 +273,8 @@ public class ACGAnnotator {
      * @param root root of clonal frame to annotate
      * @param summaryStrategy strategy used when summarizing CF node ages/heights
      */
-    protected static void annotateCF(ACGCladeSystem cladeSystem,
-                                     Node root, SummaryStrategy summaryStrategy) {
+    protected void annotateCF(ACGCladeSystem cladeSystem,
+                              Node root, SummaryStrategy summaryStrategy) {
 
         cladeSystem.applyToClades(root, (node, bits) -> {
             List<Object[]> rawHeights =
@@ -327,11 +311,11 @@ public class ACGAnnotator {
      * @param threshold significance threshold
      * @param summaryStrategy strategy used when summarizing event ages/heights
      */
-    protected static void summarizeConversions(ACGCladeSystem cladeSystem,
-                                               ConversionGraph acg,
-                                               int nACGs,
-                                               double threshold,
-                                               SummaryStrategy summaryStrategy) {
+    protected void summarizeConversions(ACGCladeSystem cladeSystem,
+                                        ConversionGraph acg,
+                                        int nACGs,
+                                        double threshold,
+                                        SummaryStrategy summaryStrategy) {
 
         BitSet[] bitSets = cladeSystem.getBitSets(acg);
         for (int fromNr=0; fromNr<acg.getNodeCount(); fromNr++) {

@@ -62,9 +62,6 @@ public class ACGCoalescent extends TreeDistribution {
     public Input<Boolean> wholeLocusConversionsInput = new Input<>(
             "wholeLocusConversionsOnly",
             "Only allow whole loci to be converted.", false);
-    public Input<Boolean> wholeGenomeInput = new Input<>(
-            "wholeGenome",
-            "", false);
 
     ConversionGraph acg;
     PopulationFunction popFunc;
@@ -99,8 +96,7 @@ public class ACGCoalescent extends TreeDistribution {
         double poissonMean = rhoInput.get().getValue()
                 *acg.getClonalFrameLength()
                 *(acg.getTotalConvertibleSequenceLength()
-                + ( wholeGenomeInput.get() ? 0 :  acg.getConvertibleLoci().size()*(deltaInput.get().getValue()-1.0) )
-        );
+                +acg.getConvertibleLoci().size()*(deltaInput.get().getValue()-1.0));
 
         // Probability of conversion count:
         if (poissonMean>0.0) {
