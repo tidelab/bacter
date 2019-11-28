@@ -1,0 +1,49 @@
+Testsuite: bacter.xmltests.AddRemoveDetourTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 38.054 sec
+------------- Standard Output ---------------
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file addRemoveDetourTest5taxon.trees
+Writing file addRemoveDetourTest5taxon_trimmed.trees
+Writing file addRemoveDetourTest5taxon.converted
+Writing file addRemoveDetourTest5taxon.stats
+
+Operator                                              Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)            -     601839      66029    0.03333    0.90113 
+bacter.operators.AddRemoveDetour(addRemoveDetour)          -     279696    6387310    0.33333    0.04195 
+bacter.operators.ACGScaler(scale)                          -     476220     190190    0.03333    0.71461 
+bacter.operators.ACGValidityWrapper(Uniform)               -    1463225    5202575    0.33333    0.21951 
+bacter.operators.ACGValidityWrapper(STS)                   -     132533    3201375    0.16667    0.03975 
+bacter.operators.ACGValidityWrapper(STXnarrow)             -     139513     527530    0.03333    0.20915 
+bacter.operators.ACGValidityWrapper(STXwide)               -      60025     604539    0.03333    0.09032 
+bacter.operators.ACGValidityWrapper(WB)                    -      10707     656695    0.03333    0.01604 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 37.0 seconds
+acg.CFheight : 1.6118061213099906 +- 0.08098242544204545, ESS = 179.069142239423, expectation is 1.606 +- 0.2
+acg.CFlength : 4.213245067909218 +- 0.16836706451525127, ESS = 211.72105545910688, expectation is 4.181 +- 0.5
+acg.nConv : 21.195878006777402 +- 0.9194713319430133, ESS = 212.1577449523286, expectation is 21.0 +- 0.5
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -543.8023288848613
+------------- ---------------- ---------------
+
+Testcase: test5Taxon took 38.046 sec

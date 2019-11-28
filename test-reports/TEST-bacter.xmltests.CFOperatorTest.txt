@@ -1,0 +1,207 @@
+Testsuite: bacter.xmltests.CFOperatorTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 191.184 sec
+------------- Standard Output ---------------
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file CFSubtreeExchangeTest5taxon.trees
+Writing file CFSubtreeExchangeTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     167346      18196    0.01852    0.90193 
+bacter.operators.ACGScaler(scale)                        -     132044      53568    0.01852    0.71140 
+bacter.operators.ACGValidityWrapper(Uniform)             -     395308    1455544    0.18519    0.21358 
+bacter.operators.CFSubtreeExchange(CFSTXnarrow)          -     716616    1135449    0.18519    0.38693 
+bacter.operators.CFSubtreeExchange(CFSTXwide)            -     685609    1166064    0.18519    0.37026 
+bacter.operators.ACGValidityWrapper(STS)                 -      73467    1778412    0.18519    0.03967 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -      37344     147919    0.01852    0.20157 
+bacter.operators.ACGValidityWrapper(STXwide)             -      16700     168616    0.01852    0.09012 
+bacter.operators.ACGValidityWrapper(WB)                  -      28880    1822919    0.18519    0.01560 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 29.223 seconds
+acg.CFheight : 1.5637329455774724 +- 0.07005611773707504, ESS = 181.76271574750564, expectation is 1.606 +- 0.2
+acg.CFlength : 4.195677308178226 +- 0.16587736845387938, ESS = 181.04821822530175, expectation is 4.181 +- 0.5
+acg.nConv : 21.164092878569047 +- 0.9092261499521279, ESS = 176.70778999029494, expectation is 21.0 +- 0.5
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file CFUniformTest5taxon.trees
+Writing file CFUniformTest5taxon.cf
+Writing file CFUniformTest5taxon.converted
+Writing file CFUniformTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     450197      49540    0.05000    0.90087 
+bacter.operators.ACGScaler(scale)                        -     357426     143105    0.05000    0.71409 
+bacter.operators.CFUniform(Uniform)                      -    2842497    2156402    0.50000    0.56862 
+bacter.operators.ACGValidityWrapper(STS)                 -      98994    2401205    0.25000    0.03959 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -     104511     395810    0.05000    0.20889 
+bacter.operators.ACGValidityWrapper(STXwide)             -      46686     453511    0.05000    0.09334 
+bacter.operators.ACGValidityWrapper(WB)                  -       8197     491920    0.05000    0.01639 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 38.274 seconds
+acg.CFheight : 1.6011345553640228 +- 0.02168547092065851, ESS = 2437.069437177813, expectation is 1.606 +- 0.2
+acg.CFlength : 4.1698393841266 +- 0.050573816902180845, ESS = 2223.009431136168, expectation is 4.181 +- 0.5
+acg.nConv : 21.02688590156649 +- 0.2793365901101659, ESS = 2096.159750082965, expectation is 21.0 +- 0.5
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file CFWilsonBaldingTest5taxon.trees
+Writing file CFWilsonBaldingTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     309993      33967    0.03448    0.90125 
+bacter.operators.ACGScaler(scale)                        -     246338      98391    0.03448    0.71458 
+bacter.operators.ACGValidityWrapper(Uniform)             -     759154    2690693    0.34483    0.22005 
+bacter.operators.ACGValidityWrapper(STS)                 -      68386    1655651    0.17241    0.03967 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -      71931     273337    0.03448    0.20833 
+bacter.operators.ACGValidityWrapper(STXwide)             -      31967     312584    0.03448    0.09278 
+bacter.operators.CFWilsonBalding(CFWB)                   -     917196    2530413    0.34483    0.26604 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 35.492 seconds
+acg.CFheight : 1.6378204973552457 +- 0.05907286839212962, ESS = 316.12575348919484, expectation is 1.606 +- 0.2
+acg.CFlength : 4.26988813878465 +- 0.1283258926881138, ESS = 340.2215850956952, expectation is 4.181 +- 0.5
+acg.nConv : 21.57171425397178 +- 0.6973407797495645, ESS = 345.1603511460413, expectation is 21.0 +- 0.5
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file CFConversionSwapTest5taxon.trees
+Writing file CFConversionSwapTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     310450      34246    0.03448    0.90065 
+bacter.operators.ACGScaler(scale)                        -     246281      97510    0.03448    0.71637 
+bacter.operators.ACGValidityWrapper(Uniform)             -     774326    2673457    0.34483    0.22459 
+bacter.operators.ACGValidityWrapper(STS)                 -      68767    1655475    0.17241    0.03988 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -      73989     270776    0.03448    0.21461 
+bacter.operators.ACGValidityWrapper(STXwide)             -      32915     311158    0.03448    0.09566 
+bacter.operators.CFConversionSwap(CFCS)                  -    1939873    1510778    0.34483    0.56218 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 49.868 seconds
+acg.CFheight : 1.581177741975511 +- 0.011898104451229815, ESS = 7647.352808471946, expectation is 1.606 +- 0.2
+acg.CFlength : 4.109875541742858 +- 0.029423848456381345, ESS = 6224.882077612377, expectation is 4.181 +- 0.5
+acg.nConv : 20.588156871458725 +- 0.1679535019009966, ESS = 5558.5198467844275, expectation is 21.0 +- 0.5
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file CFSubtreeSlideTest5taxon.trees
+Writing file CFSubtreeSlideTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     204271      22838    0.02273    0.89944 
+bacter.operators.ACGScaler(scale)                        -     162551      64329    0.02273    0.71646 
+bacter.operators.ACGValidityWrapper(Uniform)             -     513683    1757515    0.22727    0.22617 
+bacter.operators.CFSubtreeSlide(CFSTS)                   -    1771944     499377    0.22727    0.78014 
+bacter.operators.ACGValidityWrapper(STS)                 -      89743    2183463    0.22727    0.03948 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -      48762     179081    0.02273    0.21402 
+bacter.operators.ACGValidityWrapper(STXwide)             -      21689     206153    0.02273    0.09519 
+bacter.operators.CFWilsonBalding(WB)                     -     615239    1659363    0.22727    0.27048 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 36.951 seconds
+acg.CFheight : 1.5663502026183629 +- 0.02577443239879769, ESS = 1698.1624775621915, expectation is 1.606 +- 0.2
+acg.CFlength : 4.085034382994398 +- 0.059085548054704846, ESS = 1600.1868026998961, expectation is 4.181 +- 0.5
+acg.nConv : 20.460726585934896 +- 0.3154680915856491, ESS = 1594.0939248373472, expectation is 21.0 +- 0.5
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -226.29404809767806
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -549.1908111303743
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -85.72179972629368
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -81.51682979010246
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -299.4818179577087
+------------- ---------------- ---------------
+
+Testcase: testCFSTX took 30.271 sec
+Testcase: testCFUniform took 38.373 sec
+Testcase: testCFWB took 35.567 sec
+Testcase: testCFCS took 49.944 sec
+Testcase: testCFSTS took 37.021 sec

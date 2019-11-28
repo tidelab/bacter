@@ -1,0 +1,9 @@
+Testsuite: bacter.model.pop.SkylinePopulationFunctionTest
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.15 sec
+
+Testcase: test3 took 0.119 sec
+Testcase: test4 took 0.006 sec
+Testcase: test5 took 0.004 sec
+Testcase: test6 took 0.004 sec
+Testcase: test1 took 0.004 sec
+Testcase: test2 took 0.003 sec

@@ -1,0 +1,60 @@
+Testsuite: bacter.SerializationDeserializationTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.316 sec
+------------- Standard Output ---------------
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+(((((1:0.07581602661351446)#0:0.07581602661351446,2:0.1516320532270289)13:0.020873255921980027,#0[&conv=0, region={100,200}, locus="locus", relSize=0.112472, affectedSites=101, uselessSiteFraction=0.00000]:0.09668928253549448):0.020873255921980027,((((((3:0.047419043175260994,4:0.047419043175260994)14:0.008952390061456483,5:0.05637143323671748)15:0.037165505090584944,6:0.09353693832730242)16:0.013330625419148201,7:0.10686756374645062)17:0.04225166985283413,(((8:0.01825455442302282,(9:0.00912727721151141)#1:0.00912727721151141)18:0.028541663901738273,10:0.046796218324761094)19:0.01874698282020043,11:0.06554320114496152)20:0.08357603245432323)21:0.024817387908291827,12:0.17393662150757658)22:0.01944194356341239)23:1.0,#1[&conv=1, region={300,400}, locus="locus", relSize=0.112472, affectedSites=101, uselessSiteFraction=0.00000]:1.1842512878594775):0.0;
+------------- ---------------- ---------------
+
+Testcase: testXML took 0.273 sec
+Testcase: testString took 0.023 sec
+Testcase: testExtendedNewick took 0.011 sec

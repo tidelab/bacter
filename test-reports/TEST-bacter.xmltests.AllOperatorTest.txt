@@ -1,0 +1,171 @@
+Testsuite: bacter.xmltests.AllOperatorTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 224.998 sec
+------------- Standard Output ---------------
+t1 = 0.0 (0.0)
+t2 = 0.1 (0.1)
+t3 = 0.2 (0.2)
+t4 = 0.3 (0.3)
+t5 = 0.4 (0.4)
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -283.94631108683325 
+Writing file allOperatorTestSeriallySampled.trees
+Writing file allOperatorTestSeriallySampled.cf
+Writing file allOperatorTestSeriallySampled.converted
+Writing file allOperatorTestSeriallySampled.stats
+
+Operator                                                              Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.ACGScaler(scale)                                          -      50474      90282    0.01408    0.35859 
+bacter.operators.AddRemoveConversion(addRemove)                            -     128236      12915    0.01408    0.90850 
+bacter.operators.AddRemoveDetour(addRemoveDetour)                          -       6459     133802    0.01408    0.04605 
+bacter.operators.AddRemoveRedundantConversion(addRemoveRedundant)          -       3896     137169    0.01408    0.02762 
+bacter.operators.MergeSplitConversion(mergeSplit)                          -        289     140741    0.01408    0.00205 
+bacter.operators.ConvertedEdgeHop(CEhop)                                   -      52865      88573    0.01408    0.37377 
+bacter.operators.ConvertedEdgeFlip(CEflip)                                 -      38759     102335    0.01408    0.27470 
+bacter.operators.ConvertedEdgeSlide(CEslide)                               -     121912      19268    0.01408    0.86352 
+bacter.operators.ConvertedRegionSwap(CRswap)                               -     140671         87    0.01408    0.99938 
+bacter.operators.ConvertedRegionShift(CRshift)                             -     138801       1678    0.01408    0.98806 
+bacter.operators.ConvertedRegionBoundaryShift(CRBshift)                    -      87636      53224    0.01408    0.62215 
+bacter.operators.CFUniform(CFUniform)                                      -     777857     630388    0.14085    0.55236 
+bacter.operators.CFWilsonBalding(CFWB)                                     -     368135    1040216    0.14085    0.26139 
+bacter.operators.CFConversionSwap(CFCS)                                    -     784801     622165    0.14085    0.55780 
+bacter.operators.CFSubtreeSlide(CFSTS)                                     -     953739     455956    0.14085    0.67656 
+bacter.operators.CFSubtreeExchange(CFSTXnarrow)                            -     459640     947584    0.14085    0.32663 
+bacter.operators.CFSubtreeExchange(CFSTXwide)                              -     408195    1001253    0.14085    0.28961 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 64.751 seconds
+acg.CFheight : 1.9123718492126882 +- 0.011705866274014648, ESS = 8434.16066339019, expectation is 1.909 +- 0.2
+acg.CFlength : 4.670963022928277 +- 0.026733925526261016, ESS = 7960.333069542481, expectation is 4.655 +- 0.5
+acg.nConv : 23.33918453505166 +- 0.15476604810184957, ESS = 6877.272874032418, expectation is 23.381 +- 0.5
+t1 = 0.0 (0.0)
+t2 = 0.1 (0.1)
+t3 = 0.2 (0.2)
+t4 = 0.3 (0.3)
+t5 = 0.4 (0.4)
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -162.1732077118446 
+Writing file allOperatorTestShortSSML.trees
+Writing file allOperatorTestShortSSML.stats
+
+Operator                                                              Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.ACGScaler(scale)                                          -      36252     104505    0.01408    0.25755 
+bacter.operators.AddRemoveConversion(addRemove)                            -     131282       9857    0.01408    0.93016 
+bacter.operators.AddRemoveDetour(addRemoveDetour)                          -       6919     133379    0.01408    0.04932 
+bacter.operators.AddRemoveRedundantConversion(addRemoveRedundant)          -      23879     117085    0.01408    0.16940 
+bacter.operators.MergeSplitConversion(mergeSplit)                          -       5779     135639    0.01408    0.04086 
+bacter.operators.ConvertedEdgeHop(CEhop)                                   -      52924      87616    0.01408    0.37658 
+bacter.operators.ConvertedEdgeFlip(CEflip)                                 -      38662     102208    0.01408    0.27445 
+bacter.operators.ConvertedEdgeSlide(CEslide)                               -     120853      19262    0.01408    0.86253 
+bacter.operators.ConvertedRegionSwap(CRswap)                               -     140977          2    0.01408    0.99999 
+bacter.operators.ConvertedRegionShift(CRshift)                             -     140787          0    0.01408    1.00000 
+bacter.operators.ConvertedRegionBoundaryShift(CRBshift)                    -     140394          0    0.01408    1.00000 
+bacter.operators.CFUniform(CFUniform)                                      -     685673     723684    0.14085    0.48651 
+bacter.operators.CFWilsonBalding(CFWB)                                     -     300710    1107024    0.14085    0.21361 
+bacter.operators.CFConversionSwap(CFCS)                                    -     644233     764305    0.14085    0.45738 
+bacter.operators.CFSubtreeSlide(CFSTS)                                     -     875347     532695    0.14085    0.62168 
+bacter.operators.CFSubtreeExchange(CFSTXnarrow)                            -     363224    1046745    0.14085    0.25761 
+bacter.operators.CFSubtreeExchange(CFSTXwide)                              -     380755    1027345    0.14085    0.27040 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 96.863 seconds
+acg.CFheight : 1.9083730557188536 +- 0.014157154089998783, ESS = 5808.276073797098, expectation is 1.601 +- 0.2
+acg.CFlength : 4.659854104982936 +- 0.04012731972586599, ESS = 3615.868144927571, expectation is 4.17 +- 0.5
+acg.nConv : 40.15264970558827 +- 0.40306784818983726, ESS = 2893.8542149221585, expectation is 39.61 +- 0.5
+t1 = 0.0 (0.0)
+t2 = 0.1 (0.1)
+t3 = 0.2 (0.2)
+t4 = 0.3 (0.3)
+t5 = 0.4 (0.4)
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -297.60758065373886 
+Writing file allOperatorTestSSMultiLocus.trees
+Writing file allOperatorTestSSMultiLocus.stats
+
+Operator                                                              Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.ACGScaler(scale)                                          -      49919      90644    0.01408    0.35514 
+bacter.operators.AddRemoveConversion(addRemove)                            -     128569      12764    0.01408    0.90969 
+bacter.operators.AddRemoveDetour(addRemoveDetour)                          -       6316     133955    0.01408    0.04503 
+bacter.operators.AddRemoveRedundantConversion(addRemoveRedundant)          -       6052     134858    0.01408    0.04295 
+bacter.operators.MergeSplitConversion(mergeSplit)                          -        511     140834    0.01408    0.00362 
+bacter.operators.ConvertedEdgeHop(CEhop)                                   -      53142      88274    0.01408    0.37578 
+bacter.operators.ConvertedEdgeFlip(CEflip)                                 -      38795     102571    0.01408    0.27443 
+bacter.operators.ConvertedEdgeSlide(CEslide)                               -     121010      19429    0.01408    0.86166 
+bacter.operators.ConvertedRegionSwap(CRswap)                               -     140522        105    0.01408    0.99925 
+bacter.operators.ConvertedRegionShift(CRshift)                             -     137714       2979    0.01408    0.97883 
+bacter.operators.ConvertedRegionBoundaryShift(CRBshift)                    -     105157      35404    0.01408    0.74812 
+bacter.operators.CFUniform(CFUniform)                                      -     776722     632121    0.14085    0.55132 
+bacter.operators.CFWilsonBalding(CFWB)                                     -     367238    1041373    0.14085    0.26071 
+bacter.operators.CFConversionSwap(CFCS)                                    -     783982     625743    0.14085    0.55612 
+bacter.operators.CFSubtreeSlide(CFSTS)                                     -     950606     456656    0.14085    0.67550 
+bacter.operators.CFSubtreeExchange(CFSTXnarrow)                            -     458558     948362    0.14085    0.32593 
+bacter.operators.CFSubtreeExchange(CFSTXwide)                              -     408885    1000231    0.14085    0.29017 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 62.282 seconds
+acg.CFheight : 1.9154663891161332 +- 0.011991191845123903, ESS = 8192.817466853041, expectation is 1.909 +- 0.2
+acg.CFlength : 4.673588126971881 +- 0.027873874811652332, ESS = 7541.09902873508, expectation is 4.655 +- 0.5
+acg.nConv : 23.72803021886457 +- 0.16777123978444267, ESS = 6140.6857459453795, expectation is 23.381 +- 0.5
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -552.1950543699958
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -251.95433101566132
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -136.35350783514815
+------------- ---------------- ---------------
+
+Testcase: testSerialSample took 65.584 sec
+Testcase: testShortMultiLocus took 97.006 sec
+Testcase: testMultiLocus took 62.399 sec
