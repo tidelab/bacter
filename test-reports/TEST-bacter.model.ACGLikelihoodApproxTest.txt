@@ -1,0 +1,32 @@
+Testsuite: bacter.model.ACGLikelihoodApproxTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.251 sec
+------------- Standard Output ---------------
+t1: 20 4
+t2: 20 4
+t3: 20 4
+Alignment(null)
+  3 taxa
+  20 sites
+  3 patterns
+
+t1: 20 4
+t2: 20 4
+t3: 20 4
+Alignment(null)
+  3 taxa
+  20 sites
+  1 patterns
+
+t1: 20 4
+t2: 20 4
+t3: 20 4
+Alignment(null)
+  3 taxa
+  20 sites
+  1 patterns
+
+------------- ---------------- ---------------
+
+Testcase: testPairwiseDistances took 0.19 sec
+Testcase: testTreeHeightMap took 0.049 sec
+Testcase: testACGHeightMap took 0.004 sec

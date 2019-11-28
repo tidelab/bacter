@@ -1,0 +1,5 @@
+Testsuite: bacter.MarginalTreeTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 sec
+
+Testcase: testNonOverlapping took 0.14 sec
+Testcase: testOverlapping took 0.013 sec

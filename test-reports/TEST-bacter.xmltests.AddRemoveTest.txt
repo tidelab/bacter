@@ -1,0 +1,171 @@
+Testsuite: bacter.xmltests.AddRemoveTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 149.409 sec
+------------- Standard Output ---------------
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -59.53107589942641 
+Writing file addRemoveDynamicPopSize5taxon.trees
+Writing file addRemoveDynamicPopSize5taxon.cf
+Writing file addRemoveDynamicPopSize5taxon.converted
+Writing file addRemoveDynamicPopSize5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     457888      41511    0.05000    0.91688 
+bacter.operators.ACGScaler(scale)                        -     296017     203670    0.05000    0.59240 
+bacter.operators.ACGValidityWrapper(Uniform)             -     850567    4149207    0.50000    0.17012 
+bacter.operators.ACGValidityWrapper(STS)                 -     495580    2005688    0.25000    0.19813 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -      74662     426410    0.05000    0.14900 
+bacter.operators.ACGValidityWrapper(STXwide)             -      34908     464960    0.05000    0.06983 
+bacter.operators.ACGValidityWrapper(WB)                  -       4612     494321    0.05000    0.00924 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 44.049 seconds
+acg.CFheight : 9.288926549289751 +- 0.28918817182432077, ESS = 178.6194688346183, expectation is 8.84 +- 0.01
+acg.CFlength : 25.94685296913259 +- 0.5504357994999692, ESS = 308.2155427926695, expectation is 25.312 +- 0.5
+acg.nConv : 26.179868903455173 +- 0.6153058649047005, ESS = 330.7861313601957, expectation is 25.464 +- 0.5
+t1 = 0.0 (0.0)
+t2 = 0.1 (0.1)
+t3 = 0.2 (0.2)
+t4 = 0.3 (0.3)
+t5 = 0.4 (0.4)
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -283.94631108683325 
+Writing file addRemoveSerialSamplingTest5taxon.trees
+Writing file addRemoveSerialSamplingTest5taxon.cf
+Writing file addRemoveSerialSamplingTest5taxon.converted
+Writing file addRemoveSerialSamplingTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -    1137219     112987    0.05000    0.90963 
+bacter.operators.ACGScaler(scale)                        -     446760     804449    0.05000    0.35706 
+bacter.operators.ACGValidityWrapper(Uniform)             -    2419600   10080648    0.50000    0.19356 
+bacter.operators.ACGValidityWrapper(STS)                 -     243051    6005101    0.25000    0.03890 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -     198503    1053655    0.05000    0.15853 
+bacter.operators.ACGValidityWrapper(STXwide)             -      77644    1171991    0.05000    0.06213 
+bacter.operators.ACGValidityWrapper(WB)                  -      12033    1236360    0.05000    0.00964 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 57.625 seconds
+acg.CFheight : 1.90721691270084 +- 0.0915696837849265, ESS = 138.5285836607936, expectation is 2.07 +- 0.1
+acg.CFlength : 4.697653230095415 +- 0.19166580451378729, ESS = 163.5133181802, expectation is 5.0 +- 0.2
+acg.nConv : 23.61872805653082 +- 0.9951199103214653, ESS = 180.87326824908644, expectation is 25.19 +- 1.0
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -247.17535990657333 
+Writing file addRemoveTest2taxon.trees
+Writing file addRemoveTest2taxon.cf
+Writing file addRemoveTest2taxon.converted
+Writing file addRemoveTest2taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -    3945496    1053152    0.50000    0.78931 
+bacter.operators.ACGScaler(scale)                        -    4028023     973330    0.50000    0.80539 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 25.566 seconds
+acg.CFheight : 0.9620461290760591 +- 0.019363026163413132, ESS = 2350.441051440664, expectation is 1.008 +- 0.05
+acg.CFlength : 1.9240922581521183 +- 0.038726052326826264, ESS = 2350.441051440664, expectation is 2.015 +- 0.05
+acg.nConv : 9.638706810354405 +- 0.19869094304531043, ESS = 2514.5756227084835, expectation is 10.104 +- 0.3
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file addRemoveTest5taxon.trees
+Writing file addRemoveTest5taxon.cf
+Writing file addRemoveTest5taxon.converted
+Writing file addRemoveTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     450920      48757    0.05000    0.90242 
+bacter.operators.ACGScaler(scale)                        -     357577     142988    0.05000    0.71435 
+bacter.operators.ACGValidityWrapper(Uniform)             -    1056777    3944068    0.50000    0.21132 
+bacter.operators.ACGValidityWrapper(STS)                 -      99400    2399030    0.25000    0.03978 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -      98100     402319    0.05000    0.19604 
+bacter.operators.ACGValidityWrapper(STXwide)             -      46568     453364    0.05000    0.09315 
+bacter.operators.ACGValidityWrapper(WB)                  -       7788     492345    0.05000    0.01557 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 20.911 seconds
+acg.CFheight : 1.55878741247459 +- 0.06432030255181015, ESS = 221.490863996408, expectation is 1.606 +- 0.2
+acg.CFlength : 4.134313417633361 +- 0.13168109030240935, ESS = 276.86819422714825, expectation is 4.181 +- 0.5
+acg.nConv : 20.818131318742363 +- 0.703784967091878, ESS = 283.9856153185554, expectation is 21.0 +- 0.5
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -583.9150585999574
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -397.24868641736754
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -171.75947014579
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -683.9337501772534
+------------- ---------------- ---------------
+
+Testcase: test5TaxonDynamicPopSize took 44.897 sec
+Testcase: test5TaxonSerialSampling took 57.864 sec
+Testcase: test2Taxon took 25.646 sec
+Testcase: test5Taxon took 20.991 sec

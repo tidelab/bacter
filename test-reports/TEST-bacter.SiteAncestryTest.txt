@@ -1,0 +1,8 @@
+Testsuite: bacter.SiteAncestryTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 sec
+
+Testcase: testSplit1 took 0.002 sec
+Testcase: testSplit2 took 0.001 sec
+Testcase: testSplit3 took 0 sec
+Testcase: testMerge1 took 0.001 sec
+Testcase: testMerge2 took 0.001 sec

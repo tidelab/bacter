@@ -1,0 +1,50 @@
+Testsuite: bacter.xmltests.SimulatedACGTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 75.655 sec
+------------- Standard Output ---------------
+Writing file simulateACGs2taxon.converted
+Writing file simulateACGs2taxon.stats
+Writing file simulateACGs2taxon.trees
+acg.CFheight : 1.003039483661055 +- 0.0033439198506433703, ESS = 90001.0, expectation is 1.0 +- 0.01
+acg.CFlength : 2.00607896732211 +- 0.006687839701286741, ESS = 90001.0, expectation is 2.0 +- 0.01
+acg.nConv : 10.087321251986088 +- 0.03540717649897925, ESS = 89061.4483565924, expectation is 10.0 +- 0.05
+t1 = 0.0 (0.0)
+t2 = 0.1 (0.1)
+t3 = 0.2 (0.2)
+t4 = 0.3 (0.3)
+t5 = 0.4 (0.4)
+Writing file simulateACGs5taxonMultiLocus.converted
+Writing file simulateACGs5taxonMultiLocus.stats
+Writing file simulateACGs5taxonMultiLocus.trees
+acg.CFheight : 1.9144008143443216 +- 0.003580571845323856, ESS = 90001.0, expectation is 1.917 +- 0.01
+acg.CFlength : 4.669866253604458 +- 0.007982352926183389, ESS = 90001.0, expectation is 4.672 +- 0.01
+acg.nConv : 23.583171298096687 +- 0.04347808786472215, ESS = 90001.0, expectation is 23.614 +- 0.05
+Writing file simulateACGs5taxon.converted
+Writing file simulateACGs5taxon.stats
+Writing file simulateACGs5taxon.trees
+acg.CFheight : 1.5962376492603236 +- 0.0036052259865921132, ESS = 88471.44053187802, expectation is 1.606 +- 0.01
+acg.CFlength : 4.159579674934818 +- 0.008036542770201834, ESS = 88313.68959326344, expectation is 4.181 +- 0.01
+acg.nConv : 20.862879301341096 +- 0.042706174568041086, ESS = 90001.0, expectation is 21.0 +- 0.05
+Writing file simulateACGs5taxonDynamicPopSize.converted
+Writing file simulateACGs5taxonDynamicPopSize.stats
+Writing file simulateACGs5taxonDynamicPopSize.trees
+acg.CFheight : 8.857523058464595 +- 0.012213004744051896, ESS = 90001.0, expectation is 8.84 +- 0.01
+acg.CFlength : 25.32808362727247 +- 0.030972640050457134, ESS = 90001.0, expectation is 25.312 +- 0.01
+acg.nConv : 25.451361651537205 +- 0.03548500758175306, ESS = 90001.0, expectation is 25.464 +- 0.05
+t1 = 0.0 (0.0)
+t2 = 0.1 (0.1)
+t3 = 0.2 (0.2)
+t4 = 0.3 (0.3)
+t5 = 0.4 (0.4)
+Writing file simulateACGs5taxonSerialSampling.converted
+Writing file simulateACGs5taxonSerialSampling.stats
+Writing file simulateACGs5taxonSerialSampling.trees
+acg.CFheight : 1.913533771278636 +- 0.0035881603000533237, ESS = 88980.95563565148, expectation is 1.909 +- 0.01
+acg.CFlength : 4.664884016755879 +- 0.007989682162513275, ESS = 89025.01691554765, expectation is 4.655 +- 0.01
+acg.nConv : 23.438239575115833 +- 0.04334263248255399, ESS = 88866.88464546556, expectation is 23.381 +- 0.05
+------------- ---------------- ---------------
+
+Testcase: test2Taxon took 9.6 sec
+Testcase: test5TaxonMultiLocus took 15.645 sec
+Testcase: test5Taxon took 14.89 sec
+Testcase: test5TaxonDynamicPopSize took 19.233 sec
+Testcase: test5TaxonSerialSampling took 16.278 sec

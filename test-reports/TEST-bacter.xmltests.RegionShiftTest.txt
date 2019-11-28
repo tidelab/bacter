@@ -1,0 +1,93 @@
+Testsuite: bacter.xmltests.RegionShiftTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 96.302 sec
+------------- Standard Output ---------------
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file regionShiftTest5taxon.trees
+Writing file regionShiftTest5taxon.cf
+Writing file regionShiftTest5taxon.converted
+Writing file regionShiftTest5taxon.stats
+
+Operator                                            Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)          -     819481      90558    0.04545    0.90049 
+bacter.operators.ACGScaler(scale)                        -     653251     256547    0.04545    0.71802 
+bacter.operators.ConvertedRegionSwap(CRswap)             -     905177       3499    0.04545    0.99615 
+bacter.operators.ConvertedRegionShift(CRshift)           -     896514      11891    0.04545    0.98691 
+bacter.operators.ACGValidityWrapper(Uniform)             -    1998915    7089644    0.45455    0.21994 
+bacter.operators.ACGValidityWrapper(STS)                 -     179540    4363147    0.22727    0.03952 
+bacter.operators.ACGValidityWrapper(STXnarrow)           -     190149     721405    0.04545    0.20860 
+bacter.operators.ACGValidityWrapper(STXwide)             -      85250     824667    0.04545    0.09369 
+bacter.operators.ACGValidityWrapper(WB)                  -      14915     895451    0.04545    0.01638 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 47.298 seconds
+acg.CFheight : 1.534200051038159 +- 0.05157115294539544, ESS = 357.1099737598637, expectation is 1.606 +- 0.2
+acg.CFlength : 4.031410129114562 +- 0.1056221828111157, ESS = 437.71441248233816, expectation is 4.181 +- 0.5
+acg.nConv : 20.255985778567858 +- 0.5605062924248151, ESS = 454.0722466853965, expectation is 21.0 +- 0.5
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file boundaryShiftTest5taxon.trees
+Writing file boundaryShiftTest5taxon.cf
+Writing file boundaryShiftTest5taxon.converted
+Writing file boundaryShiftTest5taxon.stats
+
+Operator                                                   Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)                 -     819328      90127    0.04545    0.90090 
+bacter.operators.ACGScaler(scale)                               -     649357     259731    0.04545    0.71429 
+bacter.operators.ConvertedRegionSwap(CRswap)                    -     906819       3957    0.04545    0.99566 
+bacter.operators.ConvertedRegionBoundaryShift(CRshift)          -     565515     342644    0.04545    0.62270 
+bacter.operators.ACGValidityWrapper(Uniform)                    -    2002087    7088344    0.45455    0.22024 
+bacter.operators.ACGValidityWrapper(STS)                        -     180265    4363487    0.22727    0.03967 
+bacter.operators.ACGValidityWrapper(STXnarrow)                  -     191405     719884    0.04545    0.21004 
+bacter.operators.ACGValidityWrapper(STXwide)                    -      86192     822643    0.04545    0.09484 
+bacter.operators.ACGValidityWrapper(WB)                         -      15164     893052    0.04545    0.01670 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 47.788 seconds
+acg.CFheight : 1.6057460755239106 +- 0.06330945226217892, ESS = 275.3060979427115, expectation is 1.606 +- 0.2
+acg.CFlength : 4.201785365460673 +- 0.12348928157836611, ESS = 356.090068639889, expectation is 4.181 +- 0.5
+acg.nConv : 21.067996222432086 +- 0.649808845192222, ESS = 370.4669567063202, expectation is 21.0 +- 0.5
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -88.80983970309666
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -491.7911528549219
+------------- ---------------- ---------------
+
+Testcase: testRegionShift took 48.359 sec
+Testcase: testBoundaryShift took 47.933 sec

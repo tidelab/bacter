@@ -1,0 +1,7 @@
+Testsuite: bacter.util.IntRangesTest
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 sec
+
+Testcase: testUnion took 0.002 sec
+Testcase: testPartition took 0 sec
+Testcase: testDisjoint took 0 sec
+Testcase: testIntersection took 0 sec

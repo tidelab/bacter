@@ -29,6 +29,9 @@ import beast.evolution.tree.coalescent.PopulationFunction;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.PoissonDistributionImpl;
 
+
+
+
 import java.util.List;
 import java.util.Random;
 
@@ -62,6 +65,9 @@ public class ACGCoalescent extends TreeDistribution {
     public Input<Boolean> wholeLocusConversionsInput = new Input<>(
             "wholeLocusConversionsOnly",
             "Only allow whole loci to be converted.", false);
+    public Input<Boolean> circularGenomeInput = new Input<>(
+            "circularGenome",
+            "The alignment is a circular genome", false);
 
     ConversionGraph acg;
     PopulationFunction popFunc;
@@ -96,7 +102,8 @@ public class ACGCoalescent extends TreeDistribution {
         double poissonMean = rhoInput.get().getValue()
                 *acg.getClonalFrameLength()
                 *(acg.getTotalConvertibleSequenceLength()
-                +acg.getConvertibleLoci().size()*(deltaInput.get().getValue()-1.0));
+                + ( acg.circularGenomeModeOn() ? 0 :  acg.getConvertibleLoci().size()*(deltaInput.get().getValue()-1.0) )
+        );
 
         // Probability of conversion count:
         if (poissonMean>0.0) {
@@ -195,7 +202,10 @@ public class ACGCoalescent extends TreeDistribution {
         thisLogP += Math.log(1.0/popFunc.getPopSize(conv.getHeight2()));
 
         // Probability of start site:
-        if (conv.getStartSite()==0) {
+        if (acg.circularGenomeModeOn()) {
+            thisLogP += Math.log(1 / acg.getTotalConvertibleSequenceLength());
+        } else
+            if (conv.getStartSite()==0) {
             thisLogP += Math.log(deltaInput.get().getValue()
                     / (acg.getConvertibleLoci().size() * (deltaInput.get().getValue() - 1)
                     + acg.getTotalConvertibleSequenceLength()));
@@ -209,6 +219,11 @@ public class ACGCoalescent extends TreeDistribution {
         }
 
         // Probability of end site:
+        if (acg.circularGenomeModeOn()) {
+            thisLogP += (conv.getEndSite()-conv.getStartSite())
+                    *Math.log(1.0 - 1.0/deltaInput.get().getValue())
+                    -Math.log(deltaInput.get().getValue());
+        } else
         if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
             thisLogP += (conv.getLocus().getSiteCount()-1-conv.getStartSite())
                     *Math.log(1.0 - 1.0/deltaInput.get().getValue());
@@ -242,5 +257,12 @@ public class ACGCoalescent extends TreeDistribution {
     @Override
     public void sample(State state, Random random) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static void main(String[] args) {
+        int test;
+        test=11;
+        test= (int) Math.floor(test/2);
+        System.out.println(test);
     }
 }

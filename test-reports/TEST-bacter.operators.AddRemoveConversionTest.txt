@@ -1,0 +1,11 @@
+Testsuite: bacter.operators.AddRemoveConversionTest
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 sec
+------------- Standard Output ---------------
+logP1 = -16.961510009134905
+logP2 = -16.961510009134905
+logP1 = 0.0
+logP2 = 0.0
+------------- ---------------- ---------------
+
+Testcase: testHR took 0.075 sec
+Testcase: testProbability took 0.003 sec
