@@ -21,16 +21,20 @@ import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
 import beast.core.Description;
+import beast.core.Distribution;
 import beast.core.Input;
 import beast.core.State;
 import beast.core.parameter.RealParameter;
 import beast.evolution.tree.TreeDistribution;
 import beast.evolution.tree.coalescent.PopulationFunction;
+import beast.math.Binomial;
+import beast.math.GammaFunction;
+//import beast.math.distributions.Beta;
+import beast.util.Randomizer;
+import cern.jet.random.Distributions;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.PoissonDistributionImpl;
-
-
-
+import org.apache.commons.math3.special.Beta;
 
 import java.util.List;
 import java.util.Random;
@@ -203,7 +207,7 @@ public class ACGCoalescent extends TreeDistribution {
 
         // Probability of start site:
         if (acg.circularGenomeModeOn()) {
-            thisLogP += Math.log(1 / acg.getTotalConvertibleSequenceLength());
+            thisLogP += Math.log(1.0 / acg.getTotalConvertibleSequenceLength());
         } else
             if (conv.getStartSite()==0) {
             thisLogP += Math.log(deltaInput.get().getValue()
@@ -220,9 +224,14 @@ public class ACGCoalescent extends TreeDistribution {
 
         // Probability of end site:
         if (acg.circularGenomeModeOn()) {
-            thisLogP += (conv.getEndSite()-conv.getStartSite())
-                    *Math.log(1.0 - 1.0/deltaInput.get().getValue())
-                    -Math.log(deltaInput.get().getValue());
+            int halfGenomeLength = (int) Math.floor(acg.getTotalConvertibleSequenceLength() * 0.5);
+            int kBetaBinom = (conv.getStartSite() <= conv.getEndSite()) ? (conv.getEndSite() - conv.getStartSite()) : (acg.getTotalConvertibleSequenceLength() - conv.getStartSite() + conv.getEndSite());
+            double aBetaBinom = halfGenomeLength/(halfGenomeLength - deltaInput.get().getValue());
+            double bBetaBinom = halfGenomeLength/deltaInput.get().getValue();
+            thisLogP += GammaFunction.lnGamma(halfGenomeLength+1) - GammaFunction.lnGamma(kBetaBinom+1) - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
+                    + GammaFunction.lnGamma(kBetaBinom + aBetaBinom) + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
+                    - GammaFunction.lnGamma(halfGenomeLength+aBetaBinom+bBetaBinom)  + GammaFunction.lnGamma(aBetaBinom+bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+            // thisLogP += Math.log(Binomial.choose(halfGenomeLength, kBetaBinom)) + Beta.logBeta(aBetaBinom+kBetaBinom, bBetaBinom+halfGenomeLength-kBetaBinom) - Beta.logBeta(aBetaBinom, bBetaBinom);
         } else
         if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
             thisLogP += (conv.getLocus().getSiteCount()-1-conv.getStartSite())
@@ -260,9 +269,17 @@ public class ACGCoalescent extends TreeDistribution {
     }
 
     public static void main(String[] args) {
-        int test;
-        test=11;
-        test= (int) Math.floor(test/2);
-        System.out.println(test);
+
+        int n = 2768;
+        int k = 36;
+        double delt = 410.0;
+        double alpha = n/(n-delt);
+        double beta = n/delt;
+        double probConvGamma = GammaFunction.lnGamma(n+1) - GammaFunction.lnGamma(k+1) - GammaFunction.lnGamma(n - k + 1)
+                + GammaFunction.lnGamma(k + alpha) + GammaFunction.lnGamma(n - k + beta) - GammaFunction.lnGamma(beta)
+                - GammaFunction.lnGamma(n+alpha+beta)  + GammaFunction.lnGamma(alpha+beta) - GammaFunction.lnGamma(alpha);
+        double probConvBeta = Math.log(Binomial.choose(n, k)) + Beta.logBeta(alpha+k, beta+n-k) - Beta.logBeta(alpha, beta);
+        System.out.println(probConvGamma);
+        System.out.println(probConvBeta);
     }
 }
