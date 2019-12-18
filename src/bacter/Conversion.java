@@ -16,6 +16,7 @@
  */
 package bacter;
 
+import beast.core.Input;
 import beast.evolution.alignment.Alignment;
 import beast.evolution.tree.Node;
 
@@ -31,7 +32,14 @@ import java.util.Objects;
  * @author Tim Vaughan <tgvaughan@gmail.com>
  */
 public class Conversion {
-    
+
+    public Input<Boolean> circularGenomeInput = new Input<>(
+            "circularGenome",
+            "The alignment is a circular genome", false);
+
+    protected boolean circularGenomeMode = circularGenomeInput.get();
+
+
     protected ConversionGraph acg;
 
     /**
@@ -257,7 +265,7 @@ public class Conversion {
         if (!node2.isRoot() && node2.getParent().getHeight()<height2)
             return false;
         
-        if (startSite>endSite)
+        if (startSite>endSite && !circularGenomeMode) //todo: check implementation regarding circular genome
             return false;
 
         if (endSite<0 || startSite<0)

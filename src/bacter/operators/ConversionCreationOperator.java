@@ -84,7 +84,7 @@ public abstract class ConversionCreationOperator extends EdgeCreationOperator {
      * @param conv Conversion object where these sites are stored.
      * @return log probability density of chosen attachment.
      */
-    protected double drawAffectedRegionUnrestricted(Conversion conv) {
+    protected double drawAffectedRegionUnrestricted(Conversion conv) {  //todo: adjust for circular genome mode!
         double logP = 0.0;
 
         // Total effective number of possible start sites
@@ -146,7 +146,7 @@ public abstract class ConversionCreationOperator extends EdgeCreationOperator {
      * @param conv conversion region is associated with
      * @return log probability density
      */
-    protected double getAffectedRegionProbUnrestricted(Conversion conv) {
+    protected double getAffectedRegionProbUnrestricted(Conversion conv) {  //todo: adjust for circular genome mode!
         double logP = 0.0;
 
         // Total effective number of possible start sites
