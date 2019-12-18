@@ -45,6 +45,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.math3.util.CombinatoricsUtils;
+import org.apache.commons.math3.random.MersenneTwister;
+
 /**
  * @author Tim Vaughan <tgvaughan@gmail.com>
  */
@@ -75,9 +78,6 @@ public class SimulatedACG extends ConversionGraph {
             "outputFileName",
             "If provided, simulated ARG is additionally written to this file.");
 
-    public Input<Boolean> circularGenomeInput = new Input<>(
-            "circularGenome",
-            "The alignment is a circular genome", false);
 
     private double rho, delta;
     private PopulationFunction popFunc;
@@ -99,7 +99,7 @@ public class SimulatedACG extends ConversionGraph {
         // by hasDateTrait() and hence simulateClonalFrame(), expects a
         // tree with nodes.
         super.initAndValidate();
-        
+
         if (clonalFrameInput.get() == null)
             simulateClonalFrame();
         else
@@ -285,6 +285,10 @@ public class SimulatedACG extends ConversionGraph {
             }
         } else {
             for (int i = 0; i < Nconv; i++) {
+                MersenneTwister rgn = new MersenneTwister();
+                rgn.setSeed(Randomizer.getSeed());
+                BetaDistribution beta_dist = new BetaDistribution(rgn,1, 1,1.0E-9D);
+                double s = beta_dist.sample();
                 /*
                 org.apache.commons.math3.distribution.BetaDistribution beta_dist = new BetaDistribution(Randomizer, getTotalConvertibleSequenceLength()/(getTotalConvertibleSequenceLength()-delta), getTotalConvertibleSequenceLength()/delta);
                 double probSuccess = beta_dist.sample();
