@@ -103,6 +103,7 @@ public class RegionList {
         objects in the likelihood code.
         */
         List<Conversion> convOrderedByStart = new ArrayList<>();
+
         acg.getConversions(locus).forEach(conversion -> {
             if (affectedSiteList.affectedSiteCount.get(conversion)>0)
                 convOrderedByStart.add(conversion.getCopy());
@@ -115,7 +116,17 @@ public class RegionList {
 
         Set<Conversion> activeConversions = Sets.newHashSet();
 
+        //todo: revise and check adjustment (circular genome)
         int lastBoundary = 0;
+        boolean convOverlap = false;
+        boolean noConv = true;
+        boolean firstStep = false;
+        if (acg.circularGenomeModeOn() && !convOrderedByStart.isEmpty()) {
+            lastBoundary = Math.max(convOrderedByEnd.get(convOrderedByEnd.size() - 1).getEndSite() + 1, convOrderedByStart.get(convOrderedByStart.size() - 1).getStartSite());
+            convOverlap = (convOrderedByEnd.get(0).getEndSite() + 1) < (convOrderedByStart.get(0).getStartSite());
+            noConv = false;
+            firstStep = !convOverlap;
+        }
 
         while (!convOrderedByStart.isEmpty() || !convOrderedByEnd.isEmpty()) {
 
@@ -132,24 +143,37 @@ public class RegionList {
                 nextEnd = Integer.MAX_VALUE;
 
             int nextBoundary = Math.min(nextStart, nextEnd);
-            if (nextBoundary > lastBoundary) {
-                Region region = new Region(lastBoundary, nextBoundary, activeConversions);
+            if (convOverlap) {
+                activeConversions.add(convOrderedByEnd.get(0));
+                Region region = new Region(lastBoundary, nextBoundary, activeConversions, acg.getTotalConvertibleSequenceLength());
                 regions.add(region);
+                activeConversions.remove(convOrderedByEnd.get(0));
+                convOrderedByEnd.remove(0);
+            }
+            if (nextBoundary > lastBoundary || firstStep) {
+                Region region = new Region(lastBoundary, nextBoundary, activeConversions, acg.getTotalConvertibleSequenceLength());
+                regions.add(region);
+                firstStep = false;
             }
 
             if (nextStart < nextEnd) {
                 activeConversions.add(convOrderedByStart.get(0));
                 convOrderedByStart.remove(0);
                 lastBoundary = nextStart;
-            } else {
+            } else if (!convOverlap) {
                 activeConversions.remove(convOrderedByEnd.get(0));
                 convOrderedByEnd.remove(0);
                 lastBoundary = nextEnd;
+            } else {
+                lastBoundary = nextBoundary;
+                convOverlap = false;
+                firstStep = true;
             }
         }
 
-        if (lastBoundary < locus.getSiteCount()) {
-            Region region = new Region(lastBoundary, locus.getSiteCount(), new HashSet<>());
+        if ((lastBoundary < locus.getSiteCount()) && noConv) {
+            Region region = new Region(lastBoundary, locus.getSiteCount(), new HashSet<>(), acg.getTotalConvertibleSequenceLength());
+            //Region region = new Region(lastBoundary, locus.getSiteCount(), new HashSet<>());
             regions.add(region);
         }
 

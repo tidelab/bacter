@@ -21,7 +21,10 @@ import bacter.Locus;
 import beast.core.Description;
 import beast.core.Input;
 import beast.evolution.tree.Node;
+import beast.math.GammaFunction;
 import beast.util.Randomizer;
+import org.apache.commons.math3.distribution.BetaDistribution;
+import org.apache.commons.math3.random.MersenneTwister;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -199,26 +202,37 @@ public class AddRemoveRedundantConversion extends ACGOperator {
 
         Locus locus = acg.getConvertibleLoci().get(Randomizer.nextInt(acg.getConvertibleLoci().size()));
         conv.setLocus(locus);
-        logP += Math.log(1.0/acg.getConvertibleLoci().size());
+        logP += Math.log(1.0 / acg.getConvertibleLoci().size());
 
-        if (!acg.wholeLocusModeOn()) {  //todo: check if needs adjustment for circular genome mode!
-            int site1 = Randomizer.nextInt(locus.getSiteCount());
-            int site2 = Randomizer.nextInt(locus.getSiteCount());
+        if (acg.circularGenomeModeOn()) {                                       //todo: check adjustment (circular genome)
+            int startSite = Randomizer.nextInt(locus.getSiteCount());
+            int convLength = Randomizer.nextInt((int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1) * 0.5) + 1);
+            int endSite = ((startSite + convLength) >= acg.getTotalConvertibleSequenceLength()) ? (startSite - acg.getTotalConvertibleSequenceLength() - convLength) : (startSite + convLength);
+            logP += Math.log(1.0 / locus.getSiteCount());
+            logP += Math.log(2.0 / locus.getSiteCount());
+            conv.setStartSite(startSite);
+            conv.setEndSite(endSite);
+        } else {
+            if (!acg.wholeLocusModeOn()) {
+                int site1 = Randomizer.nextInt(locus.getSiteCount());
+                int site2 = Randomizer.nextInt(locus.getSiteCount());
 
-            if (site1 < site2) {
-                conv.setStartSite(site1);
-                conv.setEndSite(site2);
+                if (site1 < site2) {
+                    conv.setStartSite(site1);
+                    conv.setEndSite(site2);
+                } else {
+                    conv.setStartSite(site2);
+                    conv.setEndSite(site1);
+                }
+
+                logP += 2.0 * Math.log(1.0 / locus.getSiteCount());
+                if (site1 != site2)
+                    logP += Math.log(2.0);
             } else {
-                conv.setStartSite(site2);
-                conv.setEndSite(site1);
+                conv.setStartSite(0);
+                conv.setEndSite(locus.getSiteCount() - 1);
             }
 
-            logP += 2.0 * Math.log(1.0 / locus.getSiteCount());
-            if (site1 != site2)
-                logP += Math.log(2.0);
-        } else {
-            conv.setStartSite(0);
-            conv.setEndSite(locus.getSiteCount()-1);
         }
 
         return logP;
@@ -227,8 +241,12 @@ public class AddRemoveRedundantConversion extends ACGOperator {
     private double getAffectedRegionProb(Conversion conv) {
         double logP = 0.0;
 
-        logP += Math.log(1.0/acg.getConvertibleLoci().size());  //todo: check if needs adjustment for circular genome mode!
+        logP += Math.log(1.0/acg.getConvertibleLoci().size());
 
+        if (acg.circularGenomeModeOn()) {                               //todo: check adjustment (circular genome)
+            logP += Math.log(1.0 / conv.getLocus().getSiteCount());
+            logP += Math.log(2.0 / conv.getLocus().getSiteCount());
+        }
         if (!acg.wholeLocusModeOn()) {
             logP += 2.0 * Math.log(1.0 / conv.getLocus().getSiteCount());
             if (conv.getStartSite() != conv.getEndSite())

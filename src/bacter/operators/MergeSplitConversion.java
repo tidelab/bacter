@@ -97,7 +97,18 @@ public class MergeSplitConversion extends ACGOperator {
         int maxEnd = conv1.getEndSite() > conv2.getEndSite()
             ? conv1.getEndSite() : conv2.getEndSite();
 
-        logHGF += 2.0*Math.log(0.5/(maxEnd-minStart+1));
+        if ((conv1.getEndSite() < minStart && conv2.getEndSite() > minStart)                                   //todo: check adjustment (circular genome)
+                || (conv1.getEndSite() > minStart && conv2.getEndSite() < minStart)) {
+            maxEnd = conv1.getEndSite() < conv2.getEndSite() ? conv1.getEndSite() : conv2.getEndSite();
+        }
+
+        int convLength = maxEnd >= minStart ? (maxEnd - minStart + 1) : (locus.getSiteCount() - minStart + maxEnd + 1);
+
+        if (acg.circularGenomeModeOn() && convLength > (int) (0.5 * acg.getTotalConvertibleSequenceLength())) {
+            return Double.NEGATIVE_INFINITY;
+        }
+
+        logHGF += 2.0*Math.log(0.5/(convLength));
 
         logHGF += Math.log(1.0/conv1.getNode1().getLength());
 
@@ -147,7 +158,11 @@ public class MergeSplitConversion extends ACGOperator {
 
         int m1 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
         int m2 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
-        
+
+        // The following accounts for the case of a circular genome
+        m1 = m1 < acg.getTotalConvertibleSequenceLength() ? m1 : m1 - acg.getTotalConvertibleSequenceLength();
+        m2 = m2 < acg.getTotalConvertibleSequenceLength() ? m2 : m2 - acg.getTotalConvertibleSequenceLength();
+
         if (Randomizer.nextBoolean()) {
             s1 = conv1.getStartSite();
             s2 = m1;
@@ -164,8 +179,11 @@ public class MergeSplitConversion extends ACGOperator {
             e2 = conv1.getEndSite();
         }
 
-        if (e1<s1 || e2<s2)
+        if (!acg.circularGenomeModeOn() && (e1<s1 || e2<s2))                        //todo: check adjustment (circular genome)
             return Double.NEGATIVE_INFINITY;
+
+        int convLength1 = e1 >= s1 ? (e1 - s1 + 1) : (locus.getSiteCount() - s1 + e1 + 1);
+        int convLength2 = e2 >= s2 ? (e2 - s2 + 1) : (locus.getSiteCount() - s2 + e2 + 1);
 
         logHGF -= 2.0*Math.log(0.5/(conv1.getSiteCount()));
 

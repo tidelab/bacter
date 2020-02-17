@@ -27,6 +27,7 @@ import beast.evolution.tree.Node;
 import beast.evolution.tree.Tree;
 import beast.evolution.tree.coalescent.PopulationFunction;
 import beast.math.Binomial;
+import beast.math.GammaFunction;
 import beast.util.Randomizer;
 import feast.nexus.NexusBlock;
 import feast.nexus.NexusBuilder;
@@ -45,6 +46,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
+import org.apache.commons.math3.special.Beta;
 import org.apache.commons.math3.util.CombinatoricsUtils;
 import org.apache.commons.math3.random.MersenneTwister;
 
@@ -282,47 +284,37 @@ public class SimulatedACG extends ConversionGraph {
                 }
                 endSite = startSite + (int) Randomizer.nextGeometric(1.0 / delta);
                 endSite = Math.min(endSite, affectedLocus.getSiteCount() - 1);
+
+                Conversion conv = new Conversion();
+                conv.setLocus(affectedLocus);
+                conv.setStartSite(startSite);
+                conv.setEndSite(endSite);
+                associateConversionWithCF(conv);
+                addConversion(conv);
             }
-        } else {
+        } else {                                                //todo: check adjustment (circular genome)
+            MersenneTwister rng = new MersenneTwister();
+            int numTrials = (int) Math.floor((getTotalConvertibleSequenceLength() - 1) * 0.5);
+            rng.setSeed(Randomizer.getSeed());
+            BetaDistribution beta_dist = new BetaDistribution(rng, numTrials/(numTrials-delta), numTrials/delta, 1.0E-9D);
+            int convLength;
+
             for (int i = 0; i < Nconv; i++) {
-                MersenneTwister rgn = new MersenneTwister();
-                rgn.setSeed(Randomizer.getSeed());
-                BetaDistribution beta_dist = new BetaDistribution(rgn,1, 1,1.0E-9D);
-                double s = beta_dist.sample();
-                /*
-                org.apache.commons.math3.distribution.BetaDistribution beta_dist = new BetaDistribution(Randomizer, getTotalConvertibleSequenceLength()/(getTotalConvertibleSequenceLength()-delta), getTotalConvertibleSequenceLength()/delta);
-                double probSuccess = beta_dist.sample();
-                org.apache.commons.math3.distribution.BinomialDistribution binom_dist = new BinomialDistribution(Randomizer, getTotalConvertibleSequenceLength(), probSuccess);
-                int convLength = binom_dist.sample();
-                */
-                ///*
-                // Choose alignment
                 startSite = Randomizer.nextInt(getTotalConvertibleSequenceLength());
-                //affectedLocus = getConvertibleLoci().get(0);
-                double RVunif1 = 1.0;
-                double RVunif2 = 1.0;
-                while (RVunif1 + RVunif2 > 1) {
-                    RVunif1 = Math.pow(Randomizer.nextDouble(), (getTotalConvertibleSequenceLength() * 0.5 - delta) / (getTotalConvertibleSequenceLength() * 0.5));
-                    RVunif2 = Math.pow(Randomizer.nextDouble(), (delta / (getTotalConvertibleSequenceLength() * 0.5)));
-                }
-                double probSuccess = RVunif1 / (RVunif1 + RVunif2); //random sample from Beta distribution
-                int numSuccess = 0;
-                for (int j = 0; j < getTotalConvertibleSequenceLength() * 0.5; j++) {
-                    numSuccess += (Randomizer.nextDouble() <= probSuccess) ? 1 : 0;
-                }
-                int convLength = numSuccess; //random sample from Beta-binomial distribution
-                //*/
-                endSite = ((startSite + convLength) > getTotalConvertibleSequenceLength()) ? (startSite - getTotalConvertibleSequenceLength() - convLength) : (startSite + convLength);
+
+                BinomialDistribution binom_dist = new BinomialDistribution(rng, numTrials, beta_dist.sample());
+                convLength = binom_dist.sample();
+                endSite = ((startSite + convLength) >= getTotalConvertibleSequenceLength()) ? (startSite - getTotalConvertibleSequenceLength() - convLength) : (startSite + convLength);
+
+                Conversion conv = new Conversion();
+                conv.setLocus(affectedLocus);
+                conv.setStartSite(startSite);
+                conv.setEndSite(endSite);
+                associateConversionWithCF(conv);
+                addConversion(conv);
             }
 
         }
-            Conversion conv = new Conversion();
-            conv.setLocus(affectedLocus);
-            conv.setStartSite(startSite);
-            conv.setEndSite(endSite);
-            associateConversionWithCF(conv);
-            addConversion(conv);
-        //}
     }
     
     /**
@@ -403,4 +395,37 @@ public class SimulatedACG extends ConversionGraph {
             }
         }
     }
+
+    public static void main(String[] args) {
+        int n = 6343; //3234;
+        double delta = 1200.0;
+
+        long startTime = System.nanoTime();
+        for (int i=0; i<100000; i++) {
+
+            MersenneTwister rng = new MersenneTwister();
+            rng.setSeed(Randomizer.getSeed());
+            BetaDistribution beta_dist = new BetaDistribution(rng, n / (n - delta), n / delta, 1.0E-9D);
+            BinomialDistribution binom_dist = new BinomialDistribution(rng, n, beta_dist.sample());
+            int convLength = binom_dist.sample();
+
+            /*
+            double RVunif1 = 1.0;
+            double RVunif2 = 1.0;
+            while (RVunif1 + RVunif2 > 1) {
+                RVunif1 = Math.pow(Randomizer.nextDouble(), (n * 0.5 - delta) / (n * 0.5));
+                RVunif2 = Math.pow(Randomizer.nextDouble(), (delta / (n * 0.5)));
+            }
+            double probSuccess = RVunif1 / (RVunif1 + RVunif2); //random sample from Beta distribution
+            int numSuccess = 0;
+            for (int j = 0; j < n * 0.5; j++) {
+                numSuccess += (Randomizer.nextDouble() <= probSuccess) ? 1 : 0;
+            }
+            */
+        }
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration/Math.pow(10,9));
+    }
+
 }
