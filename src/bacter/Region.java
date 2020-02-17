@@ -31,7 +31,16 @@ public class Region {
     public final int leftBoundary, rightBoundary;
     public final Set<Conversion> activeConversions;
 
+    private int acgTotalConvertibleSequenceLength = 0;
+
     final int hashCodeCached;
+
+    //todo: check adjustment (circular genome)
+    public Region(int leftBoundary, int rightBoundary, Set<Conversion> activeConversions, int acgTotalConvertibleSequenceLength) {
+        this(leftBoundary,  rightBoundary, activeConversions);
+        this.acgTotalConvertibleSequenceLength = acgTotalConvertibleSequenceLength;
+    }
+
 
     public Region(int leftBoundary, int rightBoundary, Set<Conversion> activeConversions) {
         this.leftBoundary = leftBoundary;
@@ -45,9 +54,10 @@ public class Region {
         hashCodeCached = result;
     }
 
+    //todo: check adjustment (circular genome)
     public int getRegionLength() {
-        return rightBoundary - leftBoundary;
-    }
+        return (rightBoundary > leftBoundary) ? rightBoundary - leftBoundary : rightBoundary - leftBoundary + acgTotalConvertibleSequenceLength;
+     }
 
     public boolean isClonalFrame() {
         return activeConversions.isEmpty();

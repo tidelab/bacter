@@ -85,7 +85,8 @@ public class AffectedSiteList {
                             inside, outside);
 
                     affectedSites.put(event.conversion, inside);
-                    affectedSiteCount.put(event.conversion, IntRanges.getTotalSites(inside));
+                    affectedSiteCount.put(event.conversion, IntRanges.getTotalSites(inside));           //exception of circular genome considered in getTotalSide method
+
                     affectedSiteFraction.put(event.conversion,
                             IntRanges.getTotalSites(inside) / (double) event.conversion.getSiteCount());
                     activeCFNodes.get(event.node).put(

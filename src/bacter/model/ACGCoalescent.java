@@ -35,6 +35,7 @@ import cern.jet.random.Distributions;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.PoissonDistributionImpl;
 import org.apache.commons.math3.special.Beta;
+import org.apache.commons.math3.util.CombinatoricsUtils;
 
 import java.util.List;
 import java.util.Random;
@@ -91,6 +92,28 @@ public class ACGCoalescent extends TreeDistribution {
                     "the treeIntervals input.");
 
         acg = (ConversionGraph)treeInput.get();
+
+        // The following condition makes sure that in the case of a circular genome
+        // the mean conversion length is smaller than half of the genome length
+        // (following the convention of defining the shorter sequence part as conversion).
+        if (circularGenomeInput.get()){
+            if (deltaInput.get().getValue() >= 0.5 * acg.getTotalConvertibleSequenceLength())
+                throw new IllegalArgumentException("Delta prior input " +
+                        "must be smaller than half of the genome length.");
+            if (deltaInput.get().getUpper()>= 0.5 * acg.getTotalConvertibleSequenceLength()) {
+                deltaInput.get().setUpper(0.5 * (acg.getTotalConvertibleSequenceLength() - 1.));                                //todo: check adjustment (circular genome)
+                System.out.println("Upper bound of delta is set to " + (0.5 * (acg.getTotalConvertibleSequenceLength() - 1.)));
+            }
+            if (!acg.circularGenomeModeOn()) {
+                throw new IllegalArgumentException("Error: Circular genome mode turned on in ACGCoalescent but not in ConversionGraph (acg). Aborting. ");
+            }
+        }
+
+        if (!circularGenomeInput.get() && acg.circularGenomeModeOn()) {
+            throw new IllegalArgumentException("Error: Circular genome mode turned on in ConversionGraph (acg) but not in ACGCoalescent. Aborting. ");
+        }
+
+        //acg = (ConversionGraph)treeInput.get();
         popFunc = popFuncInput.get();
     }
     
@@ -205,11 +228,10 @@ public class ACGCoalescent extends TreeDistribution {
         // Probability of single coalescence event
         thisLogP += Math.log(1.0/popFunc.getPopSize(conv.getHeight2()));
 
-        // Probability of start site:
+        // Probability of start site:               //todo: check adjustment (circular genome)
         if (acg.circularGenomeModeOn()) {
             thisLogP += Math.log(1.0 / acg.getTotalConvertibleSequenceLength());
-        } else
-            if (conv.getStartSite()==0) {
+        } else if (conv.getStartSite()==0) {
             thisLogP += Math.log(deltaInput.get().getValue()
                     / (acg.getConvertibleLoci().size() * (deltaInput.get().getValue() - 1)
                     + acg.getTotalConvertibleSequenceLength()));
@@ -223,17 +245,15 @@ public class ACGCoalescent extends TreeDistribution {
         }
 
         // Probability of end site:
-        if (acg.circularGenomeModeOn()) {
-            int halfGenomeLength = (int) Math.floor(acg.getTotalConvertibleSequenceLength() * 0.5);
-            int kBetaBinom = (conv.getStartSite() <= conv.getEndSite()) ? (conv.getEndSite() - conv.getStartSite()) : (acg.getTotalConvertibleSequenceLength() - conv.getStartSite() + conv.getEndSite());
+        if (acg.circularGenomeModeOn()) {                   //todo: check adjustment (circular genome)
+            int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength()) * 0.5); //max int being smaller than half of the genome length
+            int kBetaBinom = conv.getSiteCount();
             double aBetaBinom = halfGenomeLength/(halfGenomeLength - deltaInput.get().getValue());
             double bBetaBinom = halfGenomeLength/deltaInput.get().getValue();
             thisLogP += GammaFunction.lnGamma(halfGenomeLength+1) - GammaFunction.lnGamma(kBetaBinom+1) - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
                     + GammaFunction.lnGamma(kBetaBinom + aBetaBinom) + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
                     - GammaFunction.lnGamma(halfGenomeLength+aBetaBinom+bBetaBinom)  + GammaFunction.lnGamma(aBetaBinom+bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
-            // thisLogP += Math.log(Binomial.choose(halfGenomeLength, kBetaBinom)) + Beta.logBeta(aBetaBinom+kBetaBinom, bBetaBinom+halfGenomeLength-kBetaBinom) - Beta.logBeta(aBetaBinom, bBetaBinom);
-        } else
-        if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
+        } else if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
             thisLogP += (conv.getLocus().getSiteCount()-1-conv.getStartSite())
                     *Math.log(1.0 - 1.0/deltaInput.get().getValue());
         } else {
@@ -270,16 +290,21 @@ public class ACGCoalescent extends TreeDistribution {
 
     public static void main(String[] args) {
 
-        int n = 2768;
-        int k = 36;
+        int n = 3754;
+        int k = 456;
         double delt = 410.0;
         double alpha = n/(n-delt);
         double beta = n/delt;
-        double probConvGamma = GammaFunction.lnGamma(n+1) - GammaFunction.lnGamma(k+1) - GammaFunction.lnGamma(n - k + 1)
-                + GammaFunction.lnGamma(k + alpha) + GammaFunction.lnGamma(n - k + beta) - GammaFunction.lnGamma(beta)
-                - GammaFunction.lnGamma(n+alpha+beta)  + GammaFunction.lnGamma(alpha+beta) - GammaFunction.lnGamma(alpha);
-        double probConvBeta = Math.log(Binomial.choose(n, k)) + Beta.logBeta(alpha+k, beta+n-k) - Beta.logBeta(alpha, beta);
-        System.out.println(probConvGamma);
-        System.out.println(probConvBeta);
+
+        long startTime = System.nanoTime();
+        for(int j=0; j<1000000; j++) {
+            double probConvGamma = GammaFunction.lnGamma(n + 1) - GammaFunction.lnGamma(k + 1) - GammaFunction.lnGamma(n - k + 1)
+                    + GammaFunction.lnGamma(k + alpha) + GammaFunction.lnGamma(n - k + beta) - GammaFunction.lnGamma(beta)
+                    - GammaFunction.lnGamma(n + alpha + beta) + GammaFunction.lnGamma(alpha + beta) - GammaFunction.lnGamma(alpha);
+            //double probConvBeta = CombinatoricsUtils.binomialCoefficientLog(n, k) + Beta.logBeta(alpha+k, beta+n-k) - Beta.logBeta(alpha, beta);
+        }
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration/Math.pow(10,9));
     }
 }

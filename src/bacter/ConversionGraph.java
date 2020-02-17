@@ -435,7 +435,7 @@ public class ConversionGraph extends Tree {
 
             Locus locus = getLocusByID(elements[0]);
             if (locus == null)
-                throw new RuntimeException("Uknown locus id "
+                throw new RuntimeException("Unknown locus id "
                         + elements[0] + ".  Aborting.");
 
             Node node1 = getNode(Integer.parseInt(elements[1]));

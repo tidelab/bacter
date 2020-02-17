@@ -33,13 +33,6 @@ import java.util.Objects;
  */
 public class Conversion {
 
-    public Input<Boolean> circularGenomeInput = new Input<>(
-            "circularGenome",
-            "The alignment is a circular genome", false);
-
-    protected boolean circularGenomeMode = circularGenomeInput.get();
-
-
     protected ConversionGraph acg;
 
     /**
@@ -63,7 +56,7 @@ public class Conversion {
     protected Locus locus;
 
     /**
-     * Used by ACGAnnotator to incoroporate additional metadata into
+     * Used by ACGAnnotator to incorporate additional metadata into
      * the summary ACG.
      */
     public String newickMetaDataBottom, newickMetaDataMiddle, newickMetaDataTop;
@@ -236,8 +229,12 @@ public class Conversion {
     /**
      * @return total number of sites affected by this conversion.
      */
-    public int getSiteCount() {
-        return (int)(endSite - startSite + 1);
+    public int getSiteCount() {                                                 //todo: check adjustment (circular genome)
+        if (endSite >= startSite) {
+            return (int) (endSite - startSite + 1);
+        } else {
+            return (int) (acg.getTotalConvertibleSequenceLength() - startSite + endSite + 1); //accounts for the case of a circular genome
+        }
     }
     
     /**
@@ -265,7 +262,7 @@ public class Conversion {
         if (!node2.isRoot() && node2.getParent().getHeight()<height2)
             return false;
         
-        if (startSite>endSite && !circularGenomeMode) //todo: check implementation regarding circular genome
+        if (startSite>endSite && !acg.circularGenomeModeOn())           //todo: check adjustment (circular genome)
             return false;
 
         if (endSite<0 || startSite<0)

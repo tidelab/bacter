@@ -49,15 +49,26 @@ public class ConvertedRegionShift extends ACGOperator {
             *apertureSizeInput.get())/2;
 
         int delta = Randomizer.nextInt(radius*2 + 1) - radius;
-        
-        if (conv.getEndSite() + delta > conv.getLocus().getSiteCount() - 1)
-            return Double.NEGATIVE_INFINITY;
 
-        if (conv.getStartSite() + delta<0)
-            return Double.NEGATIVE_INFINITY;
-        
-        conv.setStartSite(conv.getStartSite()+delta);
-        conv.setEndSite(conv.getEndSite()+delta);
+        int newStart = conv.getStartSite()+delta;
+        int newEnd = conv.getEndSite()+delta;
+
+        if (!acg.circularGenomeModeOn()) {                                                      //todo: check adjustment (circular genome)
+            if (newEnd > conv.getLocus().getSiteCount() - 1)
+                return Double.NEGATIVE_INFINITY;
+            if (newStart < 0)
+                return Double.NEGATIVE_INFINITY;
+        } else {
+            if (newStart < 0 || newStart > acg.getTotalConvertibleSequenceLength()-1) {
+                newStart = newStart < 0 ? acg.getTotalConvertibleSequenceLength() + newStart : newStart-acg.getTotalConvertibleSequenceLength();
+            }
+            if (newEnd < 0 || newEnd > acg.getTotalConvertibleSequenceLength()-1) {
+                newEnd = newEnd < 0 ? acg.getTotalConvertibleSequenceLength() + newEnd : newEnd-acg.getTotalConvertibleSequenceLength() ;
+            }
+        }
+
+        conv.setStartSite(newStart);
+        conv.setEndSite(newEnd);
 
         assert !acg.isInvalid() : "CRS produced invalid state.";
         
