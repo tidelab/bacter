@@ -118,9 +118,7 @@ public class RegionList {
 
         //todo: revise and check adjustment (circular genome)
         int lastBoundary = 0;
-        boolean convOverlap = false;
-        boolean noConv = true;
-        boolean firstStep = false;
+        boolean convOverlap = false, firstStep = false, noConv = true;
         if (acg.circularGenomeModeOn() && !convOrderedByStart.isEmpty()) {
             lastBoundary = Math.max(convOrderedByEnd.get(convOrderedByEnd.size() - 1).getEndSite() + 1, convOrderedByStart.get(convOrderedByStart.size() - 1).getStartSite());
             convOverlap = (convOrderedByEnd.get(0).getEndSite() + 1) < (convOrderedByStart.get(0).getStartSite());
@@ -151,6 +149,9 @@ public class RegionList {
                 convOrderedByEnd.remove(0);
             }
             if (nextBoundary > lastBoundary || firstStep) {
+                if (nextBoundary == 0) {
+                    nextBoundary = locus.getSiteCount();
+                }
                 Region region = new Region(lastBoundary, nextBoundary, activeConversions, acg.getTotalConvertibleSequenceLength());
                 regions.add(region);
                 firstStep = false;

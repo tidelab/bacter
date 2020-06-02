@@ -132,26 +132,44 @@ public abstract class ConversionCreationOperator extends EdgeCreationOperator {
         if (!acg.circularGenomeModeOn()) {
             endSite = startSite + (int) Randomizer.nextGeometric(1.0 / deltaInput.get().getValue());
             endSite = Math.min(endSite, locus.getSiteCount() - 1);
-        } else {                                                                                //todo: check adjustment (circular genome)
+        } else if (!acg.endSiteBetaBinomOn()) {                                               //todo: check adjustment (circular genome)
+            int convLength;
+            convLength = acg.getTotalConvertibleSequenceLength();
+            while (convLength >= 0.5*acg.getTotalConvertibleSequenceLength()){
+                convLength = (int) Randomizer.nextGeometric(1.0 / deltaInput.get().getValue());
+            }
+            endSite = ((startSite + convLength) >= acg.getTotalConvertibleSequenceLength()) ?
+                    (startSite - acg.getTotalConvertibleSequenceLength() + convLength) : (startSite + convLength);
+
+        } else {                                                                              //todo: check adjustment (circular genome)
             MersenneTwister rng = new MersenneTwister();
-            int numTrials = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1) * 0.5);
+            int numTrials = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5);
             rng.setSeed(Randomizer.getSeed());
-            BetaDistribution beta_dist = new BetaDistribution(rng, numTrials/(numTrials-deltaInput.get().getValue()), numTrials/deltaInput.get().getValue(), 1.0E-9D);
+            BetaDistribution beta_dist = new BetaDistribution(rng, numTrials/(numTrials-deltaInput.get().getValue()),
+                    numTrials/deltaInput.get().getValue(), 1.0E-9D);
             int convLength;
             BinomialDistribution binom_dist = new BinomialDistribution(rng, numTrials, beta_dist.sample());
             convLength = binom_dist.sample();
-            endSite = ((startSite + convLength) >= acg.getTotalConvertibleSequenceLength()) ? (startSite - acg.getTotalConvertibleSequenceLength() - convLength) : (startSite + convLength);
+            endSite = ((startSite + convLength) >= acg.getTotalConvertibleSequenceLength()) ?
+                    (startSite - acg.getTotalConvertibleSequenceLength() + convLength) : (startSite + convLength);
         }
 
         // Probability of end site:
         if (acg.circularGenomeModeOn()) {                                                       //todo: check adjustment (circular genome)
-            int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1) * 0.5); //max int being smaller than half of the genome length
-            int kBetaBinom = (conv.getStartSite() <= conv.getEndSite()) ? (conv.getEndSite() + 1 - conv.getStartSite()) : (acg.getTotalConvertibleSequenceLength() - conv.getStartSite() + conv.getEndSite() + 1);
-            double aBetaBinom = halfGenomeLength/(halfGenomeLength - deltaInput.get().getValue());
-            double bBetaBinom = halfGenomeLength/deltaInput.get().getValue();
-            logP += GammaFunction.lnGamma(halfGenomeLength+1) - GammaFunction.lnGamma(kBetaBinom+1) - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
-                    + GammaFunction.lnGamma(kBetaBinom + aBetaBinom) + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
-                    - GammaFunction.lnGamma(halfGenomeLength+aBetaBinom+bBetaBinom)  + GammaFunction.lnGamma(aBetaBinom+bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+            if (acg.endSiteBetaBinomOn()) {
+                int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5); //max int being smaller than half of the genome length
+                int kBetaBinom = (startSite <= endSite) ? (endSite - startSite) : (acg.getTotalConvertibleSequenceLength() - startSite + endSite);
+                double aBetaBinom = halfGenomeLength / (halfGenomeLength - deltaInput.get().getValue());
+                double bBetaBinom = halfGenomeLength / deltaInput.get().getValue();
+                logP += GammaFunction.lnGamma(halfGenomeLength + 1) - GammaFunction.lnGamma(kBetaBinom + 1) - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
+                        + GammaFunction.lnGamma(kBetaBinom + aBetaBinom) + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
+                        - GammaFunction.lnGamma(halfGenomeLength + aBetaBinom + bBetaBinom) + GammaFunction.lnGamma(aBetaBinom + bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+            } else {
+                logP += ((startSite <= endSite) ? (endSite - startSite) : (acg.getTotalConvertibleSequenceLength() - startSite + endSite))
+                        *Math.log(1.0 - 1.0/deltaInput.get().getValue())
+                        -Math.log(deltaInput.get().getValue())
+                        -Math.log(1.0-Math.pow(1.0-1.0/deltaInput.get().getValue(), (int) Math.floor((acg.getTotalConvertibleSequenceLength()) * 0.5)));
+            }
         } else if (endSite == locus.getSiteCount()-1) {
             logP += (locus.getSiteCount()-1-startSite)
                     *Math.log(1.0 - 1.0/deltaInput.get().getValue());
@@ -191,13 +209,20 @@ public abstract class ConversionCreationOperator extends EdgeCreationOperator {
 
         // Probability of end site:
         if (acg.circularGenomeModeOn()) {                                    //todo: check adjustment (circular genome)
-            int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1) * 0.5); //max int being smaller than half of the genome length
-            int kBetaBinom = (conv.getStartSite() <= conv.getEndSite()) ? (conv.getEndSite() + 1 - conv.getStartSite()) : (acg.getTotalConvertibleSequenceLength() - conv.getStartSite() + conv.getEndSite() + 1);
-            double aBetaBinom = halfGenomeLength/(halfGenomeLength - deltaInput.get().getValue());
-            double bBetaBinom = halfGenomeLength/deltaInput.get().getValue();
-            logP += GammaFunction.lnGamma(halfGenomeLength+1) - GammaFunction.lnGamma(kBetaBinom+1) - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
-                    + GammaFunction.lnGamma(kBetaBinom + aBetaBinom) + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
-                    - GammaFunction.lnGamma(halfGenomeLength+aBetaBinom+bBetaBinom)  + GammaFunction.lnGamma(aBetaBinom+bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+            if (acg.endSiteBetaBinomOn()) {
+                int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5); //max int being smaller than half of the genome length
+                int kBetaBinom = conv.getSiteCount() - 1;
+                double aBetaBinom = halfGenomeLength / (halfGenomeLength - deltaInput.get().getValue());
+                double bBetaBinom = halfGenomeLength / deltaInput.get().getValue();
+                logP += GammaFunction.lnGamma(halfGenomeLength + 1) - GammaFunction.lnGamma(kBetaBinom + 1) - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
+                        + GammaFunction.lnGamma(kBetaBinom + aBetaBinom) + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
+                        - GammaFunction.lnGamma(halfGenomeLength + aBetaBinom + bBetaBinom) + GammaFunction.lnGamma(aBetaBinom + bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+            } else {
+                logP += (conv.getSiteCount() - 1)
+                        *Math.log(1.0 - 1.0/deltaInput.get().getValue())
+                        -Math.log(deltaInput.get().getValue())
+                        -Math.log(1.0-Math.pow(1.0-1.0/deltaInput.get().getValue(), (int) Math.floor((acg.getTotalConvertibleSequenceLength()) * 0.5)));
+            }
         } else if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
             logP += (conv.getLocus().getSiteCount()-1-conv.getStartSite())
                     *Math.log(1.0 - 1.0/deltaInput.get().getValue());

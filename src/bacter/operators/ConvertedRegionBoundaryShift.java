@@ -60,16 +60,18 @@ public class ConvertedRegionBoundaryShift extends ACGOperator {
         
         int radius = (int)Math.round(conv.getLocus().getSiteCount()
                 * apertureSizeInput.get())/2;
-        
-        int newLocus = currentLocus + Randomizer.nextInt(2*radius+1)-radius;
-        int convLength = moveStart ? (maxLocus - newLocus) : (newLocus - minLocus);
-        convLength = convLength < 0 ? (conv.getSiteCount() + convLength + 1) : convLength + 1;
 
-        if (acg.circularGenomeModeOn()) {                                                       //todo: check adjustment (circular genome)
-            if ((newLocus < 0 || newLocus > acg.getTotalConvertibleSequenceLength()-1)) {
+        int randShift = Randomizer.nextInt(2*radius+1)-radius;
+        int newLocus = currentLocus + randShift;
+        //int convLength = moveStart ? (maxLocus - newLocus) : (newLocus - minLocus);
+        //convLength = convLength < 0 ? (conv.getSiteCount() + convLength + 1) : convLength + 1;
+        int convLength = conv.getSiteCount() + (moveStart ? -1*randShift : randShift);
+
+        if (acg.circularGenomeModeOn()) {                                                       //todo: check adjustment circular genome
+            if ((newLocus < 0 || newLocus >= acg.getTotalConvertibleSequenceLength())) {
                 newLocus = (newLocus < 0 ? 1 : -1) * acg.getTotalConvertibleSequenceLength() + newLocus;
             }
-            if (convLength > acg.getTotalConvertibleSequenceLength() * 0.5) {
+            if (convLength >= acg.getTotalConvertibleSequenceLength() * 0.5) {
                 return Double.NEGATIVE_INFINITY;
             }
         } else if ((newLocus < minLocus || newLocus > maxLocus))

@@ -214,6 +214,7 @@ public class ACGLikelihood extends GenericTreeLikelihood {
 
             // Add new pattern set
             Multiset<int[]> patSet = LinkedHashMultiset.create();
+
             for (int j=region.leftBoundary; j<region.rightBoundary; j++) {
                 int [] pat = alignment.getPattern(alignment.getPatternIndex(j));
                 patSet.add(pat);

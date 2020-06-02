@@ -168,7 +168,7 @@ public abstract class CFOperator extends ConversionCreationOperator {
             acg.setRoot(srcNode.getParent());
 
             double L = 2.0*(destTime - volatileHeight);
-            double Nexp = L*rhoInput.get().getValue()                               //todo: check adjustment (circular genome)
+            double Nexp = L*rhoInput.get().getValue()                               //todo: check adjustment circular genome
                     *(acg.getTotalConvertibleSequenceLength()
                     +( acg.circularGenomeModeOn() ? 0 :  acg.getConvertibleLoci().size()*(deltaInput.get().getValue()-1.0) ) );
             int N = (int)Randomizer.nextPoisson(Nexp);

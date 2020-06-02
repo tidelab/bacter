@@ -30,16 +30,17 @@ public class ACGCoalescentCircularTest  extends TestBase {
 
         acg.assignFrom(tree);
         acg.initByName("locus", locus,
-                                "circularGenome", "true");
+                                "circularGenome", "true",
+                                "endSiteBetaBinom", "false");
 
 
         //Add a single recombination event
         acg.getNodesAsArray();
-        Node node1 = acg.getExternalNodes().get(2); //acg.getExternalNodes().get(0);
+        Node node1 = acg.getExternalNodes().get(0); //acg.getExternalNodes().get(0);
         Node node2 = node1.getParent();
         double height1 = 0.5*(node1.getHeight() + node1.getParent().getHeight());
         double height2 = 0.5*(node2.getHeight() + node2.getParent().getHeight());
-        int startLocus = 10;
+        int startLocus = 9;
         int endLocus = 2;
         Conversion recomb1 = new Conversion(node1, height1, node2, height2,
                 startLocus, endLocus, acg, locus);
@@ -59,7 +60,7 @@ public class ACGCoalescentCircularTest  extends TestBase {
 
         //Add a single recombination event
         startLocus = 3;
-        endLocus = 9;
+        endLocus = 8;
         Conversion recomb2 = new Conversion(node1, height1, node2, height2,
                 startLocus, endLocus, acg, locus);
         acg.deleteConversion(recomb1);

@@ -61,9 +61,9 @@ public abstract class TestBase {
     public Alignment getSimpleAlignment() throws Exception {
 
         List<Sequence> sequences = new ArrayList<>();
-        sequences.add(new Sequence("testtaxon", "TAATAA")); //"AATTAAAAATTAAA"));
-        sequences.add(new Sequence("testtaxon2", "TTATTA")); //"ATTTTTTATTTTTT"));
-        sequences.add(new Sequence("testtaxon3","TTTTTT"));
+        sequences.add(new Sequence("testtaxon", "TAATAATAATAA")); //"AATTAAAAATTAAA"));//
+        sequences.add(new Sequence("testtaxon2", "TTATTATTATTA")); //"ATTTTTTATTTTTT"));
+        sequences.add(new Sequence("testtaxon3","TTTTTTTTTTTT")); //"TTTTTTTTTTTTTT"));
         return new Alignment(sequences, "nucleotide");
 
     }
