@@ -90,6 +90,7 @@ public class Conversion {
         this.startSite = startSite;
         this.endSite = endSite;
         this.locus = locus;
+        this.acg = acg;                     //todo: check adjustment (circular genome)
     }
 
     /**
@@ -264,6 +265,10 @@ public class Conversion {
         
         if (startSite>endSite && !acg.circularGenomeModeOn())           //todo: check adjustment (circular genome)
             return false;
+
+        if (acg.circularGenomeModeOn() && getSiteCount() >= acg.getTotalConvertibleSequenceLength() * 0.5) {
+            return false;
+        }
 
         if (endSite<0 || startSite<0)
             return false;

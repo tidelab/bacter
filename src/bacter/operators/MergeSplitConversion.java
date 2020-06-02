@@ -97,14 +97,14 @@ public class MergeSplitConversion extends ACGOperator {
         int maxEnd = conv1.getEndSite() > conv2.getEndSite()
             ? conv1.getEndSite() : conv2.getEndSite();
 
-        if ((conv1.getEndSite() < minStart && conv2.getEndSite() > minStart)                                   //todo: check adjustment (circular genome)
+        if ((conv1.getEndSite() < minStart && conv2.getEndSite() > minStart)                                   //todo: check adjustment circular genome
                 || (conv1.getEndSite() > minStart && conv2.getEndSite() < minStart)) {
             maxEnd = conv1.getEndSite() < conv2.getEndSite() ? conv1.getEndSite() : conv2.getEndSite();
         }
 
         int convLength = maxEnd >= minStart ? (maxEnd - minStart + 1) : (locus.getSiteCount() - minStart + maxEnd + 1);
 
-        if (acg.circularGenomeModeOn() && convLength > (int) (0.5 * acg.getTotalConvertibleSequenceLength())) {
+        if (acg.circularGenomeModeOn() && convLength >= 0.5 * acg.getTotalConvertibleSequenceLength()) {
             return Double.NEGATIVE_INFINITY;
         }
 
@@ -159,7 +159,7 @@ public class MergeSplitConversion extends ACGOperator {
         int m1 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
         int m2 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
 
-        // The following accounts for the case of a circular genome
+        // The following accounts for the case of a circular genome                                     //todo: check adjustment for circular genome!
         m1 = m1 < acg.getTotalConvertibleSequenceLength() ? m1 : m1 - acg.getTotalConvertibleSequenceLength();
         m2 = m2 < acg.getTotalConvertibleSequenceLength() ? m2 : m2 - acg.getTotalConvertibleSequenceLength();
 
@@ -184,6 +184,9 @@ public class MergeSplitConversion extends ACGOperator {
 
         int convLength1 = e1 >= s1 ? (e1 - s1 + 1) : (locus.getSiteCount() - s1 + e1 + 1);
         int convLength2 = e2 >= s2 ? (e2 - s2 + 1) : (locus.getSiteCount() - s2 + e2 + 1);
+
+        if (acg.circularGenomeModeOn() && (convLength1 >= 0.5*locus.getSiteCount() || convLength2 >= 0.5*locus.getSiteCount()))
+            return Double.NEGATIVE_INFINITY;
 
         logHGF -= 2.0*Math.log(0.5/(conv1.getSiteCount()));
 

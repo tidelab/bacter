@@ -70,6 +70,11 @@ public class ConversionGraph extends Tree {
             "circularGenome",
             "The alignment is a circular genome", false);
 
+    public Input<Boolean> betaBinomialEndSiteInput = new Input<>(
+            "endSiteBetaBinom",
+            "The prior for the end site of a conversion is a beta-binomial distribution", false);
+
+
     /**
      * List of recombinations on graph.
      */
@@ -167,6 +172,17 @@ public class ConversionGraph extends Tree {
 
     public void setCircularGenomeMode(boolean newVal) {
         circularGenomeInput.setValue(newVal, this);
+    }
+
+    /**
+     * Set/Get endSiteBetaBinom value
+     */
+    public boolean endSiteBetaBinomOn() {
+        return betaBinomialEndSiteInput.get();
+    }
+
+    public void setEndSiteBetaBinomOn(boolean newVal) {
+        betaBinomialEndSiteInput.setValue(newVal, this);
     }
 
     /**

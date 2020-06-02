@@ -43,7 +43,7 @@ import java.util.Random;
 /**
  * @author Tim Vaughan <tgvaughan@gmail.com>
  */
-@Description("Appoximation to the coalescent with gene conversion.")
+@Description("Approximation to the coalescent with gene conversion.")
 public class ACGCoalescent extends TreeDistribution {
 
     public Input<PopulationFunction> popFuncInput = new Input<>(
@@ -101,8 +101,8 @@ public class ACGCoalescent extends TreeDistribution {
                 throw new IllegalArgumentException("Delta prior input " +
                         "must be smaller than half of the genome length.");
             if (deltaInput.get().getUpper()>= 0.5 * acg.getTotalConvertibleSequenceLength()) {
-                deltaInput.get().setUpper(0.5 * (acg.getTotalConvertibleSequenceLength() - 1.));                                //todo: check adjustment (circular genome)
-                System.out.println("Upper bound of delta is set to " + (0.5 * (acg.getTotalConvertibleSequenceLength() - 1.)));
+                deltaInput.get().setUpper(Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5));                                //todo: check adjustment (circular genome)
+                System.out.println("Upper bound of delta is set to " + (Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5)));
             }
             if (!acg.circularGenomeModeOn()) {
                 throw new IllegalArgumentException("Error: Circular genome mode turned on in ACGCoalescent but not in ConversionGraph (acg). Aborting. ");
@@ -245,14 +245,24 @@ public class ACGCoalescent extends TreeDistribution {
         }
 
         // Probability of end site:
-        if (acg.circularGenomeModeOn()) {                   //todo: check adjustment (circular genome)
-            int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength()) * 0.5); //max int being smaller than half of the genome length
-            int kBetaBinom = conv.getSiteCount();
-            double aBetaBinom = halfGenomeLength/(halfGenomeLength - deltaInput.get().getValue());
-            double bBetaBinom = halfGenomeLength/deltaInput.get().getValue();
-            thisLogP += GammaFunction.lnGamma(halfGenomeLength+1) - GammaFunction.lnGamma(kBetaBinom+1) - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
-                    + GammaFunction.lnGamma(kBetaBinom + aBetaBinom) + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
-                    - GammaFunction.lnGamma(halfGenomeLength+aBetaBinom+bBetaBinom)  + GammaFunction.lnGamma(aBetaBinom+bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+        if (acg.circularGenomeModeOn()) {
+            if (acg.endSiteBetaBinomOn()) {
+                int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5); //max int being smaller than half of the genome length
+                int kBetaBinom = conv.getSiteCount() - 1;
+                double aBetaBinom = halfGenomeLength / (halfGenomeLength - deltaInput.get().getValue());
+                double bBetaBinom = halfGenomeLength / deltaInput.get().getValue();
+                thisLogP += GammaFunction.lnGamma(halfGenomeLength + 1) - GammaFunction.lnGamma(kBetaBinom + 1)
+                        - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
+                        + GammaFunction.lnGamma(kBetaBinom + aBetaBinom)
+                        + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
+                        - GammaFunction.lnGamma(halfGenomeLength + aBetaBinom + bBetaBinom)
+                        + GammaFunction.lnGamma(aBetaBinom + bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+            } else {
+                thisLogP += (conv.getSiteCount() - 1)
+                        *Math.log(1.0 - 1.0/deltaInput.get().getValue())
+                        -Math.log(deltaInput.get().getValue())
+                        -Math.log(1.0-Math.pow(1.0-1.0/deltaInput.get().getValue(), (int) Math.floor((acg.getTotalConvertibleSequenceLength()) * 0.5)));
+            }
         } else if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
             thisLogP += (conv.getLocus().getSiteCount()-1-conv.getStartSite())
                     *Math.log(1.0 - 1.0/deltaInput.get().getValue());
@@ -264,7 +274,6 @@ public class ACGCoalescent extends TreeDistribution {
             else
                 return Double.NEGATIVE_INFINITY;
         }
-
         return thisLogP;
     }
 

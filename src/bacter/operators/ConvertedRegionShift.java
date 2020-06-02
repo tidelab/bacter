@@ -53,17 +53,17 @@ public class ConvertedRegionShift extends ACGOperator {
         int newStart = conv.getStartSite()+delta;
         int newEnd = conv.getEndSite()+delta;
 
-        if (!acg.circularGenomeModeOn()) {                                                      //todo: check adjustment (circular genome)
+        if (!acg.circularGenomeModeOn()) {                                                      //todo: check adjustment circular genome
             if (newEnd > conv.getLocus().getSiteCount() - 1)
                 return Double.NEGATIVE_INFINITY;
             if (newStart < 0)
                 return Double.NEGATIVE_INFINITY;
         } else {
-            if (newStart < 0 || newStart > acg.getTotalConvertibleSequenceLength()-1) {
-                newStart = newStart < 0 ? acg.getTotalConvertibleSequenceLength() + newStart : newStart-acg.getTotalConvertibleSequenceLength();
+            if (newStart < 0 || newStart >= acg.getTotalConvertibleSequenceLength()) {
+                newStart = (newStart < 0 ? 1 : -1) * acg.getTotalConvertibleSequenceLength() + newStart;
             }
-            if (newEnd < 0 || newEnd > acg.getTotalConvertibleSequenceLength()-1) {
-                newEnd = newEnd < 0 ? acg.getTotalConvertibleSequenceLength() + newEnd : newEnd-acg.getTotalConvertibleSequenceLength() ;
+            if (newEnd < 0 || newEnd >= acg.getTotalConvertibleSequenceLength()) {
+                newEnd = (newEnd < 0 ? 1 : -1) * acg.getTotalConvertibleSequenceLength() + newEnd;
             }
         }
 

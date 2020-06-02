@@ -204,10 +204,11 @@ public class AddRemoveRedundantConversion extends ACGOperator {
         conv.setLocus(locus);
         logP += Math.log(1.0 / acg.getConvertibleLoci().size());
 
-        if (acg.circularGenomeModeOn()) {                                       //todo: check adjustment (circular genome)
+        if (acg.circularGenomeModeOn()) {                                       //todo: check adjustment circular genome
             int startSite = Randomizer.nextInt(locus.getSiteCount());
-            int convLength = Randomizer.nextInt((int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1) * 0.5) + 1);
-            int endSite = ((startSite + convLength) >= acg.getTotalConvertibleSequenceLength()) ? (startSite - acg.getTotalConvertibleSequenceLength() - convLength) : (startSite + convLength);
+            int convLength = Randomizer.nextInt((int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5));
+            int endSite = ((startSite + convLength) >= acg.getTotalConvertibleSequenceLength()) ? (startSite - acg.getTotalConvertibleSequenceLength() + convLength) : (startSite + convLength);
+
             logP += Math.log(1.0 / locus.getSiteCount());
             logP += Math.log(2.0 / locus.getSiteCount());
             conv.setStartSite(startSite);

@@ -104,7 +104,7 @@ public class CFUniform extends ConversionCreationOperator {
             if (node.isRoot()) {
                 // Draw a number of conversions
                 double L = 2.0*(newHeight-oldHeight);
-                double Nexp = L*rhoInput.get().getValue()                   //todo: check adjustment (circular genome)
+                double Nexp = L*rhoInput.get().getValue()                   //todo: check adjustment circular genome
                         *(acg.getTotalConvertibleSequenceLength()+
                         (acg.circularGenomeModeOn() ? 0 : acg.getConvertibleLoci().size()*deltaInput.get().getValue()) );
                 int N = (int)Randomizer.nextPoisson(Nexp);
