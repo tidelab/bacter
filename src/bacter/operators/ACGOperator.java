@@ -36,6 +36,9 @@ public abstract class ACGOperator extends Operator {
             "acg",
             "Ancestral conversion graph.",
             Input.Validate.REQUIRED);
+
+    public Input<Integer> upperCCBoundInput = new Input<>("upperConvCountBound",
+            "Upper bound on conversion count.", Integer.MAX_VALUE);
     
     protected ConversionGraph acg;
 
