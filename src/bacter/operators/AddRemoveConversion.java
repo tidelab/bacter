@@ -40,7 +40,11 @@ public class AddRemoveConversion extends ConversionCreationOperator {
     public double proposal() {
         double logHGF = 0;
 
-        if (acg.getTotalConvCount() < upperCCBoundInput.get() && Randomizer.nextBoolean()) {
+        if (Randomizer.nextBoolean()) {
+            //Ariane's suggestion
+            if(acg.getTotalConvCount() >= upperCCBoundInput.get()){
+                return Double.NEGATIVE_INFINITY;
+            }
             
             // Add
             

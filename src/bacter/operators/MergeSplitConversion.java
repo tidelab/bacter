@@ -42,10 +42,17 @@ public class MergeSplitConversion extends ACGOperator {
 
         Locus locus = chooseLocus();
 
-        if (acg.getTotalConvCount() < upperCCBoundInput.get() && Randomizer.nextBoolean())
+        if (Randomizer.nextBoolean()) {
+            //Ariane's suggestion
+            if (acg.getTotalConvCount() >= upperCCBoundInput.get()) {
+                return Double.NEGATIVE_INFINITY;
+            }
+
             return splitProposal(locus);
+        }
         else
             return mergeProposal(locus);
+
     }
 
     /**

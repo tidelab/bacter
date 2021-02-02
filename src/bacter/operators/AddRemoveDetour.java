@@ -34,8 +34,14 @@ public class AddRemoveDetour extends ConversionCreationOperator {
     @Override
     public double proposal() {
 
-        if (acg.getTotalConvCount() < upperCCBoundInput.get() && Randomizer.nextBoolean())
+        if ( Randomizer.nextBoolean()) {
+            //Ariane's suggestion
+            if (acg.getTotalConvCount() >= upperCCBoundInput.get()) {
+                return Double.NEGATIVE_INFINITY;
+            }
+
             return addDetour();
+        }
         else
             return removeDetour();
     }
