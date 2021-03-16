@@ -39,7 +39,10 @@ public abstract class ACGOperator extends Operator {
 
     public Input<Integer> upperCCBoundInput = new Input<>("upperConvCountBound",
             "Upper bound on conversion count.", Integer.MAX_VALUE);
-    
+
+    public Input<Boolean> upperCCBoundEarlyRejectionInput = new Input<>("upperConvCountBoundEarlyRejection",
+            "Reject extention of upper bound early", false);
+
     protected ConversionGraph acg;
 
     @Override

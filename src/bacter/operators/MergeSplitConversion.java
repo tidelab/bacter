@@ -45,6 +45,14 @@ public class MergeSplitConversion extends ACGOperator {
         if (Randomizer.nextBoolean()) {
             //Ariane's suggestion
             if (acg.getTotalConvCount() >= upperCCBoundInput.get()) {
+                Randomizer.nextInt();
+                Randomizer.nextInt();
+                Randomizer.nextInt();
+                Randomizer.nextBoolean();
+                Randomizer.nextBoolean();
+                Randomizer.nextDouble();
+                Randomizer.nextDouble();
+                Randomizer.nextDouble();
                 return Double.NEGATIVE_INFINITY;
             }
 
@@ -137,8 +145,17 @@ public class MergeSplitConversion extends ACGOperator {
 
         double logHGF = 0.0;
 
-        if (acg.getConvCount(locus) == 0)
+        if (acg.getConvCount(locus) == 0){
+            Randomizer.nextInt();
+            Randomizer.nextInt();
+            Randomizer.nextInt();
+            Randomizer.nextBoolean();
+            Randomizer.nextBoolean();
+            Randomizer.nextDouble();
+            Randomizer.nextDouble();
+            Randomizer.nextDouble();
             return Double.NEGATIVE_INFINITY;
+        }
 
         Conversion conv1 = acg.getConversions(locus).get(
             Randomizer.nextInt(acg.getConvCount(locus)));
@@ -171,8 +188,13 @@ public class MergeSplitConversion extends ACGOperator {
             e2 = conv1.getEndSite();
         }
 
-        if (e1<s1 || e2<s2)
+        if (e1<s1 || e2<s2){
+            Randomizer.nextDouble();
+            Randomizer.nextDouble();
+            Randomizer.nextDouble();
             return Double.NEGATIVE_INFINITY;
+        }
+
 
         logHGF -= 2.0*Math.log(0.5/(conv1.getSiteCount()));
 
