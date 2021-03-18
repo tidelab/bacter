@@ -343,18 +343,24 @@ public class ACGAnnotator {
                         double[] height2s = new double[conversionSummary.summarizedConvCount()];
                         double[] startSites = new double[conversionSummary.summarizedConvCount()];
                         double[] endSites = new double[conversionSummary.summarizedConvCount()];
+                        double[] convLengths = new double[conversionSummary.summarizedConvCount()]; //TODO: check adjustment (circular genome)
                         for (int i=0; i<conversionSummary.summarizedConvCount(); i++) {
                             height1s[i] = conversionSummary.height1s.get(i);
                             height2s[i] = conversionSummary.height2s.get(i);
                             startSites[i] = conversionSummary.startSites.get(i);
                             endSites[i] = conversionSummary.ends.get(i);
+                            //TODO: check adjustment (circular genome)
+                            convLengths[i] = conversionSummary.ends.get(i) < conversionSummary.startSites.get(i) ? (conversionSummary.ends.get(i) - conversionSummary.startSites.get(i) + locus.getSiteCount()) : conversionSummary.ends.get(i) - conversionSummary.startSites.get(i);
                         }
 
                         if (summaryStrategy == SummaryStrategy.MEAN) {
                             conv.setHeight1(DiscreteStatistics.mean(height1s));
                             conv.setHeight2(DiscreteStatistics.mean(height2s));
                             conv.setStartSite((int)Math.round(DiscreteStatistics.mean(startSites)));
-                            conv.setEndSite((int) Math.round(DiscreteStatistics.mean(endSites)));
+                            //TODO: check adjustment (circular genome)
+                            int endCalc = (conv.getStartSite() + Math.round(DiscreteStatistics.mean(convLengths))) < locus.getSiteCount() ? (int) Math.round(DiscreteStatistics.mean(endSites)) : (conv.getStartSite() - locus.getSiteCount() + (int) Math.round(DiscreteStatistics.mean(convLengths)));
+                            conv.setEndSite(endCalc);
+                            //conv.setEndSite((int) Math.round(DiscreteStatistics.mean(endSites)));
                         } else {
                             conv.setHeight1(DiscreteStatistics.median(height1s));
                             conv.setHeight2(DiscreteStatistics.median(height2s));

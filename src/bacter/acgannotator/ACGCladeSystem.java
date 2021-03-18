@@ -133,6 +133,22 @@ public class ACGCladeSystem extends CladeSystem {
         double mergedConvHeight1 = 0.0;
         double mergedConvHeight2 = 0.0;
 
+        //TODO: check adjustment (circular genome)
+
+        int numFirst = 0;
+        boolean firstStep = true;
+        int minOverlapStart = Integer.MAX_VALUE;
+        for (Conversion conv : convOrderedByEnd) {
+            if (conv.getEndSite() < conv.getStartSite()) {
+                nActive += 1;
+                mergedConvCount += 1;
+                mergedConvHeight1 += conv.getHeight1();
+                mergedConvHeight2 += conv.getHeight2();
+                minOverlapStart = Math.min(minOverlapStart, conv.getStartSite());
+                currentMergedConv = conv.getStartSite() <= minOverlapStart ? conv : currentMergedConv;
+            }
+        }
+
         while (!convOrderedByStart.isEmpty() || !convOrderedByEnd.isEmpty()) {
 
             int nextStart = convOrderedByStart.isEmpty()
@@ -145,6 +161,15 @@ public class ACGCladeSystem extends CladeSystem {
 
             if (nextStart < nextEnd) {
                 nActive += 1;
+
+                if (nextStart == minOverlapStart) {
+                    if (currentMergedConv != null) {
+                        mergedList.get(0).setStartSite(currentMergedConv.getStartSite());
+                        mergedList.get(0).setHeight1((mergedConvHeight1 + mergedList.get(0).getHeight1()*numFirst/mergedConvCount+numFirst) );
+                        mergedList.get(0).setHeight2((mergedConvHeight2 + mergedList.get(0).getHeight2()*numFirst/mergedConvCount+numFirst));
+                    }
+                    break;
+                }
 
                 if (nActive == 1) {
                     currentMergedConv = convOrderedByStart.get(0).getCopy();
@@ -169,6 +194,11 @@ public class ACGCladeSystem extends CladeSystem {
                     currentMergedConv.setHeight1(mergedConvHeight1/mergedConvCount);
                     currentMergedConv.setHeight2(mergedConvHeight2 / mergedConvCount);
                     mergedList.add(currentMergedConv);
+                    if (firstStep) {
+                        numFirst = mergedConvCount;
+                        firstStep = false;
+                    }
+                    currentMergedConv = null;
                 }
 
                 convOrderedByEnd.remove(0);
@@ -197,7 +227,7 @@ public class ACGCladeSystem extends CladeSystem {
 
         List<ConversionSummary> convSummaryList = new ArrayList<>();
 
-        // Return empty list if on conversions meet the criteria.
+        // Return empty list if no conversions meet the criteria.
         if (!conversionLists.containsKey(bsPair)
                 || !conversionLists.get(bsPair).containsKey(locus))
             return convSummaryList;
@@ -218,6 +248,27 @@ public class ACGCladeSystem extends CladeSystem {
         ConversionSummary conversionSummary = null;
 
         BitSet includedACGindices = new BitSet();
+
+        //TODO: check adjustment (circular genome)
+
+        for (Conversion conv : convOrderedByStart) {
+            if (conv.getEndSite() < conv.getStartSite()) {
+                activeConversions.add(conv);
+                includedACGindices.set(conv.acgIndex);
+                //convOrderedByStart.remove(conv);
+            }
+        }
+
+        int overlapStartBound = Integer.MAX_VALUE;
+        boolean overlapRegion = false;
+        if (activeConversions.size() >= thresholdCount) {
+            overlapStartBound = activeConversions.get(thresholdCount - 1).getStartSite();
+            overlapRegion = true;
+            conversionSummary = new ConversionSummary();
+            convSummaryList.add(conversionSummary);
+            conversionSummary.addConvs(activeConversions);
+        }
+        int maxEndSite = convOrderedByEnd.get(convOrderedByEnd.size() -1).getEndSite();
 
         while (!convOrderedByStart.isEmpty() || !convOrderedByEnd.isEmpty()) {
 
@@ -248,6 +299,11 @@ public class ACGCladeSystem extends CladeSystem {
                 }
                 convOrderedByStart.remove(0);
             } else {
+                //TODO: check adjustment (circular genome)
+                if (overlapRegion && nextEnd > overlapStartBound && nextEnd == maxEndSite) {
+                    convSummaryList.get(0).addConvs(activeConversions);
+                    convSummaryList.get(0).nIncludedACGs += includedACGindices.cardinality();
+                }
                 activeConversions.remove(convOrderedByEnd.get(0));
                 if (activeConversions.size() == thresholdCount-1) {
                     assert conversionSummary != null;

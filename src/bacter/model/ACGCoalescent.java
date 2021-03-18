@@ -228,7 +228,7 @@ public class ACGCoalescent extends TreeDistribution {
         // Probability of single coalescence event
         thisLogP += Math.log(1.0/popFunc.getPopSize(conv.getHeight2()));
 
-        // Probability of start site:               //todo: check adjustment (circular genome)
+        // Probability of start site:               //TODO: check adjustment (circular genome)
         if (acg.circularGenomeModeOn()) {
             thisLogP += Math.log(1.0 / acg.getTotalConvertibleSequenceLength());
         } else if (conv.getStartSite()==0) {
