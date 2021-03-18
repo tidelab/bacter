@@ -71,7 +71,7 @@ public class ConvertedRegionBoundaryShift extends ACGOperator {
             if ((newLocus < 0 || newLocus >= acg.getTotalConvertibleSequenceLength())) {
                 newLocus = (newLocus < 0 ? 1 : -1) * acg.getTotalConvertibleSequenceLength() + newLocus;
             }
-            if (convLength >= acg.getTotalConvertibleSequenceLength() * 0.5) {
+            if (convLength >= acg.getTotalConvertibleSequenceLength() * 0.5 || convLength < 0) {
                 return Double.NEGATIVE_INFINITY;
             }
         } else if ((newLocus < minLocus || newLocus > maxLocus))

@@ -230,7 +230,7 @@ public class Conversion {
     /**
      * @return total number of sites affected by this conversion.
      */
-    public int getSiteCount() {                                                 //todo: check adjustment (circular genome)
+    public int getSiteCount() {
         if (endSite >= startSite) {
             return (int) (endSite - startSite + 1);
         } else {
@@ -266,9 +266,8 @@ public class Conversion {
         if (startSite>endSite && !acg.circularGenomeModeOn())           //todo: check adjustment (circular genome)
             return false;
 
-        if (acg.circularGenomeModeOn() && getSiteCount() >= acg.getTotalConvertibleSequenceLength() * 0.5) {
+        if (acg.circularGenomeModeOn() && getSiteCount() >= acg.getTotalConvertibleSequenceLength() * 0.5)
             return false;
-        }
 
         if (endSite<0 || startSite<0)
             return false;

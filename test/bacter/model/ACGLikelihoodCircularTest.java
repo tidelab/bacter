@@ -58,17 +58,23 @@ public class ACGLikelihoodCircularTest extends TestBase {
         Node node2 = node1.getParent();
         double height1 = 0.5*(node1.getHeight() + node1.getParent().getHeight());
         double height2 = 0.5*(node2.getHeight() + node2.getParent().getHeight());
-        int startLocus = 0; //9;
-        int endLocus = 5; //2;
+        int startLocus = 9;
+        int endLocus = 2;
 
         Conversion recomb1 = new Conversion(node1, height1, node2, height2,
                 startLocus, endLocus, acg, locus);
         acg.addConversion(recomb1);
 
+        //new
+        Conversion recomb12 = new Conversion(node1, height1, node2, height2,
+                0, 1, acg, locus);
+        acg.addConversion(recomb12);
+
         double logP = argLikelihood.calculateLogP();
 
         //Define recombination on other half of circular genome
         acg.deleteConversion(recomb1);
+        acg.deleteConversion(recomb12);
 
         startLocus = 3; //7;
         endLocus = 8; //13;
@@ -77,6 +83,11 @@ public class ACGLikelihoodCircularTest extends TestBase {
         acg.addConversion(recomb2);
         //acg.initAndValidate();
         //argLikelihood.initAndValidate();
+
+        //new
+        Conversion recomb22 = new Conversion(node1, height1, node2, height2,
+                6, 7, acg, locus);
+        acg.addConversion(recomb22);
 
         double logPOtherHalf = argLikelihood.calculateLogP();
 
