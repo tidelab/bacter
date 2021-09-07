@@ -91,7 +91,7 @@ public class AffectedSiteList {
                         List<Integer> helpOutside = new ArrayList<>();
                         IntRanges.partitionRanges(activeCFNodes.get(event.node).get(event.conversion.getLocus()),
                                 event.conversion.getStartSite(),
-                                acg.totalConvertibleSequenceLength,
+                                event.conversion.getLocus().getSiteCount(),
                                 inside, outside);
                         IntRanges.partitionRanges(activeCFNodes.get(event.node).get(event.conversion.getLocus()),
                                 0,

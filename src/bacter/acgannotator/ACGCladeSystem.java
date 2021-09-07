@@ -138,15 +138,20 @@ public class ACGCladeSystem extends CladeSystem {
         int numFirst = 0;
         boolean firstStep = true;
         int minOverlapStart = Integer.MAX_VALUE;
-        for (Conversion conv : convOrderedByEnd) {
+        int indConv = 0;
+        for (int i = 0; i < convOrderedByEnd.size(); i++) {
+            Conversion conv = convOrderedByStart.get(indConv);
             if (conv.getEndSite() < conv.getStartSite()) {
                 nActive += 1;
                 mergedConvCount += 1;
                 mergedConvHeight1 += conv.getHeight1();
                 mergedConvHeight2 += conv.getHeight2();
                 minOverlapStart = Math.min(minOverlapStart, conv.getStartSite());
-                currentMergedConv = conv.getStartSite() <= minOverlapStart ? conv : currentMergedConv;
+                currentMergedConv = conv.getStartSite() <= minOverlapStart ? conv.getCopy() : currentMergedConv;
+                convOrderedByStart.remove(indConv);
+                indConv -= 1;
             }
+            indConv += 1;
         }
 
         while (!convOrderedByStart.isEmpty() || !convOrderedByEnd.isEmpty()) {
@@ -161,15 +166,6 @@ public class ACGCladeSystem extends CladeSystem {
 
             if (nextStart < nextEnd) {
                 nActive += 1;
-
-                if (nextStart == minOverlapStart) {
-                    if (currentMergedConv != null) {
-                        mergedList.get(0).setStartSite(currentMergedConv.getStartSite());
-                        mergedList.get(0).setHeight1((mergedConvHeight1 + mergedList.get(0).getHeight1()*numFirst/mergedConvCount+numFirst) );
-                        mergedList.get(0).setHeight2((mergedConvHeight2 + mergedList.get(0).getHeight2()*numFirst/mergedConvCount+numFirst));
-                    }
-                    break;
-                }
 
                 if (nActive == 1) {
                     currentMergedConv = convOrderedByStart.get(0).getCopy();
@@ -202,6 +198,15 @@ public class ACGCladeSystem extends CladeSystem {
                 }
 
                 convOrderedByEnd.remove(0);
+            }
+
+            if (convOrderedByStart.isEmpty() && (nextEnd >= minOverlapStart)) {
+                if (currentMergedConv != null) {
+                    mergedList.get(0).setStartSite(currentMergedConv.getStartSite());
+                    mergedList.get(0).setHeight1((mergedConvHeight1 + mergedList.get(0).getHeight1()*numFirst)/(mergedConvCount+numFirst) );
+                    mergedList.get(0).setHeight2((mergedConvHeight2 + mergedList.get(0).getHeight2()*numFirst)/(mergedConvCount+numFirst) );
+                }
+                break;
             }
         }
 
@@ -301,8 +306,10 @@ public class ACGCladeSystem extends CladeSystem {
             } else {
                 //TODO: check adjustment (circular genome)
                 if (overlapRegion && nextEnd > overlapStartBound && nextEnd == maxEndSite) {
+                    convSummaryList.remove(conversionSummary);
+                    activeConversions.removeIf(conv -> (conv.getEndSite() < conv.getStartSite()));
                     convSummaryList.get(0).addConvs(activeConversions);
-                    convSummaryList.get(0).nIncludedACGs += includedACGindices.cardinality();
+                    convSummaryList.get(0).nIncludedACGs = includedACGindices.cardinality();
                 }
                 activeConversions.remove(convOrderedByEnd.get(0));
                 if (activeConversions.size() == thresholdCount-1) {

@@ -116,6 +116,7 @@ public class RegionList {
 
         Set<Conversion> activeConversions = Sets.newHashSet();
 
+        //todo: revise and check adjustment (circular genome)
         int numOverlap = 0;
         for (Conversion conv : convOrderedByEnd) {
             if (conv.getEndSite() < conv.getStartSite()) {
@@ -124,7 +125,6 @@ public class RegionList {
             }
         }
 
-        //todo: revise and check adjustment (circular genome)
         int lastBoundary = 0;
         //boolean convOverlap = numOverlap > 0;
         boolean firstStep = false, noConv = true;

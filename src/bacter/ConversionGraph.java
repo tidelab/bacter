@@ -66,13 +66,16 @@ public class ConversionGraph extends Tree {
     public Input<Boolean> wholeLocusConversionsInput = new Input<>(
             "wholeLocusConversionsOnly",
             "Force region boundaries to coincide with locus boundaries.", false);
-    public Input<Boolean> circularGenomeInput = new Input<>(
+    public Input<Boolean> circularGenomeInput = new Input<>(    //TODO: check adjustment for circular genome
             "circularGenome",
-            "The alignment is a circular genome", false);
+            "The alignment is a circular genome.", false);
 
     public Input<Boolean> betaBinomialEndSiteInput = new Input<>(
             "endSiteBetaBinom",
-            "The prior for the end site of a conversion is a beta-binomial distribution", false);
+            "The prior for the end site of a conversion is a beta-binomial distribution.", false);
+    public Input<Boolean> conversionsMaxHalfLocusLength = new Input<>(
+            "maxHalfLocusLength",
+            "Conversions are restricted to lengths smaller than half of the locus' length.", false);
 
 
     /**
@@ -183,6 +186,17 @@ public class ConversionGraph extends Tree {
 
     public void setEndSiteBetaBinomOn(boolean newVal) {
         betaBinomialEndSiteInput.setValue(newVal, this);
+    }
+
+    /**
+     * Set/Get maxHalfLocusLength value
+     */
+    public boolean maxHalfLocusLengthOn() {
+        return conversionsMaxHalfLocusLength.get();
+    }
+
+    public void setMaxHalfLocusLengthOn(boolean newVal) {
+        conversionsMaxHalfLocusLength.setValue(newVal, this);
     }
 
     /**

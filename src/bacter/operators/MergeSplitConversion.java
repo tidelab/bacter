@@ -159,7 +159,7 @@ public class MergeSplitConversion extends ACGOperator {
         int m1 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
         int m2 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
 
-        // The following accounts for the case of a circular genome                                     //todo: check adjustment for circular genome!
+        // The following accounts for the case of a circular genome             //todo: check adjustment for circular genome!
         m1 = m1 < acg.getTotalConvertibleSequenceLength() ? m1 : m1 - acg.getTotalConvertibleSequenceLength();
         m2 = m2 < acg.getTotalConvertibleSequenceLength() ? m2 : m2 - acg.getTotalConvertibleSequenceLength();
 
@@ -179,7 +179,7 @@ public class MergeSplitConversion extends ACGOperator {
             e2 = conv1.getEndSite();
         }
 
-        if (!acg.circularGenomeModeOn() && (e1<s1 || e2<s2))                       //todo: check adjustment (circular genome)
+        if (!acg.circularGenomeModeOn() && (e1<s1 || e2<s2))             //todo: check adjustment (circular genome)
             return Double.NEGATIVE_INFINITY;
 
         int convLength1 = e1 >= s1 ? (e1 - s1 + 1) : (locus.getSiteCount() - s1 + e1 + 1);
