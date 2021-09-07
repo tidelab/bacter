@@ -83,7 +83,7 @@ public class SimulatedACG extends ConversionGraph {
 
     private double rho, delta;
     private PopulationFunction popFunc;
-    private boolean circularGenomeMode, endSiteBetaBinom;
+    private boolean circularGenomeMode, endSiteBetaBinom; //TODO: check adjustment circular genome
 
     public SimulatedACG() {
         m_taxonset.setRule(Input.Validate.REQUIRED);
@@ -95,7 +95,7 @@ public class SimulatedACG extends ConversionGraph {
         rho = rhoInput.get();
         delta = deltaInput.get();
         popFunc = popFuncInput.get();
-        circularGenomeMode = circularGenomeInput.get();
+        circularGenomeMode = circularGenomeInput.get(); //TODO: check adjustment circular genome
         endSiteBetaBinom = betaBinomialEndSiteInput.get();
 
         // Need to do this here as Tree.processTraits(), which is called
@@ -107,6 +107,13 @@ public class SimulatedACG extends ConversionGraph {
             simulateClonalFrame();
         else
             assignFromWithoutID(clonalFrameInput.get());
+
+        //TODO: check adjustment circular genome
+        if (circularGenomeInput.get()) {
+            if (delta >= 0.5 * getTotalConvertibleSequenceLength())
+                throw new IllegalArgumentException("Delta prior input " +
+                        "must be smaller than half of the genome length.");
+        }
         
         // Need to do this here as this sets the tree object that the nodes
         // point to, so without it they point to the dummy tree created by
@@ -252,6 +259,7 @@ public class SimulatedACG extends ConversionGraph {
     private void generateConversions() {
 
         // Draw number of conversions:
+        //TODO: check adjustment circular genome
         int Nconv = (int) Randomizer.nextPoisson(rho*getClonalFrameLength()*
                 (getTotalConvertibleSequenceLength() + (!circularGenomeMode ? (delta-1.0)* getConvertibleLoci().size() : 0) ));
         int startSite = 0;
@@ -313,7 +321,7 @@ public class SimulatedACG extends ConversionGraph {
         } else {                                                //todo: check adjustment (circular genome)
             MersenneTwister rng = new MersenneTwister();
             int numTrials = (int) Math.floor((getTotalConvertibleSequenceLength() - 1.) * 0.5);
-            rng.setSeed(Randomizer.getSeed());
+            rng.setSeed(Randomizer.nextInt()); //todo: check if ok as replacement of Randomizer.getSeed()
             BetaDistribution beta_dist = new BetaDistribution(rng, numTrials/(numTrials-delta), numTrials/delta, 1.0E-9D);
             int convLength;
 
@@ -415,10 +423,40 @@ public class SimulatedACG extends ConversionGraph {
     }
 
     public static void main(String[] args) {
-        int n = 6343; //3234;
-        double delta = 1200.0;
 
-        long startTime = System.nanoTime();
+        int N1 = 1000;
+
+        for (int j = 0; j < N1; j++) {
+
+            int startSite;
+            int endSite;
+            int Nconv = 5;
+
+            int[] convLengths = new int[Nconv];
+
+            int n = 6343; //3234;
+            double delta = 1200.0;
+
+            MersenneTwister rng = new MersenneTwister();
+            int numTrials = (int) Math.floor((n - 1.) * 0.5);
+            rng.setSeed(Randomizer.nextInt()); //todo: check if alright instead of Randomizer.getSeed()
+            BetaDistribution beta_dist = new BetaDistribution(rng, numTrials / (numTrials - delta), numTrials / delta, 1.0E-9D);
+            int convLength;
+
+            for (int i = 0; i < Nconv; i++) {
+                startSite = Randomizer.nextInt(n);
+
+                BinomialDistribution binom_dist = new BinomialDistribution(rng, numTrials, beta_dist.sample());
+                convLength = binom_dist.sample();
+                endSite = ((startSite + convLength) >= n) ? (startSite - n + convLength) : (startSite + convLength);
+
+                System.out.println(convLength);
+                convLengths[i] = convLength;
+            }
+
+        }
+        ;
+        /*long startTime = System.nanoTime();
         for (int i=0; i<100000; i++) {
 
             MersenneTwister rng = new MersenneTwister();
@@ -427,7 +465,7 @@ public class SimulatedACG extends ConversionGraph {
             BinomialDistribution binom_dist = new BinomialDistribution(rng, n, beta_dist.sample());
             int convLength = binom_dist.sample();
 
-            /*
+
             double RVunif1 = 1.0;
             double RVunif2 = 1.0;
             while (RVunif1 + RVunif2 > 1) {
@@ -439,11 +477,12 @@ public class SimulatedACG extends ConversionGraph {
             for (int j = 0; j < n * 0.5; j++) {
                 numSuccess += (Randomizer.nextDouble() <= probSuccess) ? 1 : 0;
             }
-            */
+
         }
         long endTime = System.nanoTime();
         long duration = (endTime - startTime);
         System.out.println(duration/Math.pow(10,9));
+         */
     }
 
 }

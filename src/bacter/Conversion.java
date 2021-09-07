@@ -231,10 +231,11 @@ public class Conversion {
      * @return total number of sites affected by this conversion.
      */
     public int getSiteCount() {
+        //TODO: check adjustment circular genome
         if (endSite >= startSite) {
             return (int) (endSite - startSite + 1);
         } else {
-            return (int) (acg.getTotalConvertibleSequenceLength() - startSite + endSite + 1); //accounts for the case of a circular genome
+            return (int) (getLocus().getSiteCount() - startSite + endSite + 1); //accounts for the case of a circular genome
         }
     }
     
@@ -266,7 +267,7 @@ public class Conversion {
         if (startSite>endSite && !acg.circularGenomeModeOn())           //todo: check adjustment (circular genome)
             return false;
 
-        if (acg.circularGenomeModeOn() && getSiteCount() >= acg.getTotalConvertibleSequenceLength() * 0.5)
+        if (acg.circularGenomeModeOn() && getSiteCount() >= getLocus().getSiteCount() * 0.5)
             return false;
 
         if (endSite<0 || startSite<0)

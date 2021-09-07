@@ -365,7 +365,10 @@ public class ACGAnnotator {
                             conv.setHeight1(DiscreteStatistics.median(height1s));
                             conv.setHeight2(DiscreteStatistics.median(height2s));
                             conv.setStartSite((int)Math.round(DiscreteStatistics.median(startSites)));
-                            conv.setEndSite((int) Math.round(DiscreteStatistics.median(endSites)));
+                            //TODO: check adjustment (circular genome)
+                            int endCalc = (conv.getStartSite() + Math.round(DiscreteStatistics.median(convLengths))) < locus.getSiteCount() ? (int) Math.round(DiscreteStatistics.median(endSites)) : (conv.getStartSite() - locus.getSiteCount() + (int) Math.round(DiscreteStatistics.median(convLengths)));
+                            conv.setEndSite(endCalc);
+                            //conv.setEndSite((int) Math.round(DiscreteStatistics.median(endSites)));
                         }
 
                         Arrays.sort(height1s);

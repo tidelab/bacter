@@ -202,6 +202,19 @@ public class ACGLikelihoodBeagle extends GenericTreeLikelihood {
                 int [] pat = alignment.getPattern(alignment.getPatternIndex(j));
                 patSet.add(pat);
             }
+
+            //todo: check adjustment (circular genome)
+            if (region.leftBoundary > region.rightBoundary) {
+                for (int j=region.leftBoundary; j<acg.getTotalConvertibleSequenceLength(); j++) {
+                    int[] pat = alignment.getPattern(alignment.getPatternIndex(j));
+                    patSet.add(pat);
+                }
+                for (int j=0; j<region.rightBoundary; j++) {
+                    int[] pat = alignment.getPattern(alignment.getPatternIndex(j));
+                    patSet.add(pat);
+                }
+            }
+
             patterns.put(region, patSet);
 
             // Compute corresponding constant pattern list
