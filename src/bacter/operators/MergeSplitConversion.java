@@ -25,7 +25,7 @@ import beast.util.Randomizer;
  * Merge-split move for the unrestricted model.  The merge move selects
  * two conversions at random, deletes one of them and extends the converted
  * region of the other to include all of the sites (and more) of the other.
- * 
+ *
  * The operator only applies to conversions that attach to identical
  * pairs of clonal frame edges.
  *
@@ -42,25 +42,10 @@ public class MergeSplitConversion extends ACGOperator {
 
         Locus locus = chooseLocus();
 
-        if (Randomizer.nextBoolean()) {
-            //Ariane's suggestion
-            if (acg.getTotalConvCount() >= upperCCBoundInput.get()) {
-                Randomizer.nextInt();
-                Randomizer.nextInt();
-                Randomizer.nextInt();
-                Randomizer.nextBoolean();
-                Randomizer.nextBoolean();
-                Randomizer.nextDouble();
-                Randomizer.nextDouble();
-                Randomizer.nextDouble();
-                return Double.NEGATIVE_INFINITY;
-            }
-
-            return splitProposal(locus);
-        }
-        else
+        if (Randomizer.nextBoolean())
             return mergeProposal(locus);
-
+        else
+            return splitProposal(locus);
     }
 
     /**
@@ -93,12 +78,12 @@ public class MergeSplitConversion extends ACGOperator {
             return Double.NEGATIVE_INFINITY;
 
         Conversion conv1 = acg.getConversions(locus).get(
-            Randomizer.nextInt(acg.getConvCount(locus)));
+                Randomizer.nextInt(acg.getConvCount(locus)));
 
         Conversion conv2;
         do {
             conv2 = acg.getConversions(locus).get(
-                Randomizer.nextInt(acg.getConvCount(locus)));
+                    Randomizer.nextInt(acg.getConvCount(locus)));
         } while (conv2 == conv1);
 
         if (conv2.getNode1() != conv1.getNode1() || conv2.getNode2() != conv1.getNode2())
@@ -107,10 +92,10 @@ public class MergeSplitConversion extends ACGOperator {
         logHGF -= Math.log(1.0/(acg.getConvCount(locus)*(acg.getConvCount(locus)-1)));
 
         int minStart = conv1.getStartSite() < conv2.getStartSite()
-            ? conv1.getStartSite() : conv2.getStartSite();
+                ? conv1.getStartSite() : conv2.getStartSite();
 
         int maxEnd = conv1.getEndSite() > conv2.getEndSite()
-            ? conv1.getEndSite() : conv2.getEndSite();
+                ? conv1.getEndSite() : conv2.getEndSite();
 
         logHGF += 2.0*Math.log(0.5/(maxEnd-minStart+1));
 
@@ -145,20 +130,11 @@ public class MergeSplitConversion extends ACGOperator {
 
         double logHGF = 0.0;
 
-        if (acg.getConvCount(locus) == 0){
-            Randomizer.nextInt();
-            Randomizer.nextInt();
-            Randomizer.nextInt();
-            Randomizer.nextBoolean();
-            Randomizer.nextBoolean();
-            Randomizer.nextDouble();
-            Randomizer.nextDouble();
-            Randomizer.nextDouble();
+        if (acg.getConvCount(locus) == 0)
             return Double.NEGATIVE_INFINITY;
-        }
 
         Conversion conv1 = acg.getConversions(locus).get(
-            Randomizer.nextInt(acg.getConvCount(locus)));
+                Randomizer.nextInt(acg.getConvCount(locus)));
 
         logHGF -= Math.log(1.0/acg.getConvCount(locus));
 
@@ -171,7 +147,7 @@ public class MergeSplitConversion extends ACGOperator {
 
         int m1 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
         int m2 = conv1.getStartSite() + Randomizer.nextInt(conv1.getSiteCount());
-        
+
         if (Randomizer.nextBoolean()) {
             s1 = conv1.getStartSite();
             s2 = m1;
@@ -188,13 +164,16 @@ public class MergeSplitConversion extends ACGOperator {
             e2 = conv1.getEndSite();
         }
 
-        if (e1<s1 || e2<s2){
-            Randomizer.nextDouble();
-            Randomizer.nextDouble();
-            Randomizer.nextDouble();
+        if (e1<s1 || e2<s2)
             return Double.NEGATIVE_INFINITY;
-        }
 
+        //limit to the track length
+        int convLength1 = e1 >= s1 ? (e1 - s1 + 1) : (locus.getSiteCount() - s1 + e1 + 1);
+        int convLength2 = e2 >= s2 ? (e2 - s2 + 1) : (locus.getSiteCount() - s2 + e2 + 1);
+
+        if (convLength1 >= 0.5*locus.getSiteCount() || convLength2 >= 0.5*locus.getSiteCount())
+            return Double.NEGATIVE_INFINITY;
+        //limit to track length
 
         logHGF -= 2.0*Math.log(0.5/(conv1.getSiteCount()));
 
@@ -232,5 +211,5 @@ public class MergeSplitConversion extends ACGOperator {
 
         return logHGF;
     }
-    
+
 }

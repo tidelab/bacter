@@ -41,11 +41,7 @@ public class AddRemoveConversion extends ConversionCreationOperator {
         double logHGF = 0;
 
         if (Randomizer.nextBoolean()) {
-            //Ariane's suggestion
-            if(acg.getTotalConvCount() >= upperCCBoundInput.get()){
-                return Double.NEGATIVE_INFINITY;
-            }
-            
+
             // Add
             
             logHGF += Math.log(1.0/(acg.getTotalConvCount()+1));
