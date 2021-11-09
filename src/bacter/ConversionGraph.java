@@ -978,7 +978,7 @@ public class ConversionGraph extends Tree {
             }
         }.visit(parseTree);
 
-        m_nodes = root.getAllChildNodesAndSelf().toArray(new Node[0]);
+        m_nodes = root.getAllChildNodesAndSelf().toArray(m_nodes);
         nodeCount = m_nodes.length;
         leafNodeCount = root.getAllLeafNodes().size();
 
