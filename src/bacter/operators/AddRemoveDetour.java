@@ -34,8 +34,7 @@ public class AddRemoveDetour extends ConversionCreationOperator {
     @Override
     public double proposal() {
 
-        if ( Randomizer.nextBoolean())
-
+        if (Randomizer.nextBoolean())
             return addDetour();
         else
             return removeDetour();

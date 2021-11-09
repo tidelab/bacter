@@ -66,6 +66,17 @@ public class ConversionGraph extends Tree {
     public Input<Boolean> wholeLocusConversionsInput = new Input<>(
             "wholeLocusConversionsOnly",
             "Force region boundaries to coincide with locus boundaries.", false);
+    public Input<Boolean> circularGenomeInput = new Input<>(    //TODO: check adjustment for circular genome
+            "circularGenome",
+            "The alignment is a circular genome.", false);
+
+    public Input<Boolean> betaBinomialEndSiteInput = new Input<>(
+            "endSiteBetaBinom",
+            "The prior for the end site of a conversion is a beta-binomial distribution.", false);
+    public Input<Boolean> conversionsMaxHalfLocusLength = new Input<>(
+            "maxHalfLocusLength",
+            "Conversions are restricted to lengths smaller than half of the locus' length.", false);
+
 
     /**
      * List of recombinations on graph.
@@ -95,7 +106,7 @@ public class ConversionGraph extends Tree {
 
         loci = lociInput.get();
 
-        // Sort alignment list lexicographically in order of BEASTObject IDs
+        // Sort alignment list lexographically in order of BEASTObject IDs
         loci.sort(Comparator.comparing(BEASTObject::getID));
         convertibleLoci = loci.stream().filter(Locus::conversionsAllowed).collect(Collectors.toList());
 
@@ -105,7 +116,7 @@ public class ConversionGraph extends Tree {
             storedConvs.put(locus, new ArrayList<>());
             totalConvertibleSequenceLength += locus.getSiteCount();
         }
-
+        
         if (fromStringInput.get() != null) {
             fromStringOld(fromStringInput.get());
         }
@@ -155,6 +166,32 @@ public class ConversionGraph extends Tree {
         return convertibleLoci;
     }
 
+    //TODO: check adjustment for circular genome
+    /**
+     * Set/Get circularGenomeMode value
+     */
+    public boolean circularGenomeModeOn() {
+        return circularGenomeInput.get();
+    }
+
+    public void setCircularGenomeMode(boolean newVal) {
+        circularGenomeInput.setValue(newVal, this);
+    }
+
+    /**
+     * Set/Get endSiteBetaBinom value
+     */
+    public boolean endSiteBetaBinomOn() {
+        return betaBinomialEndSiteInput.get();
+    }
+
+    public void setEndSiteBetaBinomOn(boolean newVal) {
+        betaBinomialEndSiteInput.setValue(newVal, this);
+    }
+
+    /**
+     * Set/Get wholeLocusMode value
+     */
     public boolean wholeLocusModeOn() {
         return wholeLocusConversionsInput.get();
     }
@@ -401,7 +438,7 @@ public class ConversionGraph extends Tree {
             parser.offsetInput.setValue(0, parser);
             setRoot(parser.parseNewick(sNewick));
         } catch (Exception ex) {
-            throw new RuntimeException(ex);
+            Logger.getLogger(ConversionGraph.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         initArrays();
@@ -418,7 +455,7 @@ public class ConversionGraph extends Tree {
 
             Locus locus = getLocusByID(elements[0]);
             if (locus == null)
-                throw new RuntimeException("Uknown locus id "
+                throw new RuntimeException("Unknown locus id "
                         + elements[0] + ".  Aborting.");
 
             Node node1 = getNode(Integer.parseInt(elements[1]));
@@ -941,7 +978,7 @@ public class ConversionGraph extends Tree {
             }
         }.visit(parseTree);
 
-        m_nodes = root.getAllChildNodesAndSelf().toArray(new Node[0]);
+        m_nodes = root.getAllChildNodesAndSelf().toArray(m_nodes);
         nodeCount = m_nodes.length;
         leafNodeCount = root.getAllLeafNodes().size();
 
