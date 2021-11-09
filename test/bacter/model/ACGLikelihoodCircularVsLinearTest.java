@@ -4,6 +4,7 @@ import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
 import bacter.TestBase;
+import bacter.acgannotator.ACGAnnotator;
 import beast.evolution.sitemodel.SiteModel;
 import beast.evolution.substitutionmodel.JukesCantor;
 import beast.evolution.tree.Node;

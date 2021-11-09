@@ -148,6 +148,7 @@ public class ACGCladeSystem extends CladeSystem {
                 mergedConvHeight2 += conv.getHeight2();
                 minOverlapStart = Math.min(minOverlapStart, conv.getStartSite());
                 currentMergedConv = conv.getStartSite() <= minOverlapStart ? conv.getCopy() : currentMergedConv;
+                currentMergedConv.acgIndex = conv.acgIndex;
                 convOrderedByStart.remove(indConv);
                 indConv -= 1;
             }
@@ -256,10 +257,12 @@ public class ACGCladeSystem extends CladeSystem {
 
         //TODO: check adjustment (circular genome)
 
+        int numOverlap = 0;
         for (Conversion conv : convOrderedByStart) {
             if (conv.getEndSite() < conv.getStartSite()) {
                 activeConversions.add(conv);
                 includedACGindices.set(conv.acgIndex);
+                numOverlap += 1;
                 //convOrderedByStart.remove(conv);
             }
         }
@@ -309,7 +312,8 @@ public class ACGCladeSystem extends CladeSystem {
                     convSummaryList.remove(conversionSummary);
                     activeConversions.removeIf(conv -> (conv.getEndSite() < conv.getStartSite()));
                     convSummaryList.get(0).addConvs(activeConversions);
-                    convSummaryList.get(0).nIncludedACGs = includedACGindices.cardinality();
+                    convSummaryList.get(0).nIncludedACGs += includedACGindices.cardinality() - numOverlap;
+                    conversionSummary = null;
                 }
                 activeConversions.remove(convOrderedByEnd.get(0));
                 if (activeConversions.size() == thresholdCount-1) {
@@ -320,7 +324,9 @@ public class ACGCladeSystem extends CladeSystem {
                 convOrderedByEnd.remove(0);
             }
         }
-
+        if (conversionSummary != null) {
+            convSummaryList.remove(conversionSummary);
+        }
         return convSummaryList;
     }
 

@@ -144,7 +144,7 @@ public abstract class ConversionCreationOperator extends EdgeCreationOperator {
         } else {                                                                              //todo: check adjustment (circular genome)
             MersenneTwister rng = new MersenneTwister();
             int numTrials = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5);
-            rng.setSeed(Randomizer.nextInt()); //todo: check if ok as replcement of Randomizer.getSeed()
+            rng.setSeed(Randomizer.nextInt()); //todo: check if ok as replacement of Randomizer.getSeed()
             BetaDistribution beta_dist = new BetaDistribution(rng, numTrials/(numTrials-deltaInput.get().getValue()),
                     numTrials/deltaInput.get().getValue(), 1.0E-9D);
             int convLength;

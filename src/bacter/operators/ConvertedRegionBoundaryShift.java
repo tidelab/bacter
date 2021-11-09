@@ -39,7 +39,7 @@ public class ConvertedRegionBoundaryShift extends ACGOperator {
 
     @Override
     public double proposal() {
-        
+
         if (acg.getTotalConvCount()<1 || acg.wholeLocusModeOn())
             return Double.NEGATIVE_INFINITY;
         

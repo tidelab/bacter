@@ -109,7 +109,7 @@ public class SimulatedACG extends ConversionGraph {
             assignFromWithoutID(clonalFrameInput.get());
 
         //TODO: check adjustment circular genome
-        if (circularGenomeInput.get()) {
+        if (circularGenomeMode) {
             if (delta >= 0.5 * getTotalConvertibleSequenceLength())
                 throw new IllegalArgumentException("Delta prior input " +
                         "must be smaller than half of the genome length.");

@@ -166,6 +166,7 @@ public class ConversionGraph extends Tree {
         return convertibleLoci;
     }
 
+    //TODO: check adjustment for circular genome
     /**
      * Set/Get circularGenomeMode value
      */
@@ -186,17 +187,6 @@ public class ConversionGraph extends Tree {
 
     public void setEndSiteBetaBinomOn(boolean newVal) {
         betaBinomialEndSiteInput.setValue(newVal, this);
-    }
-
-    /**
-     * Set/Get maxHalfLocusLength value
-     */
-    public boolean maxHalfLocusLengthOn() {
-        return conversionsMaxHalfLocusLength.get();
-    }
-
-    public void setMaxHalfLocusLengthOn(boolean newVal) {
-        conversionsMaxHalfLocusLength.setValue(newVal, this);
     }
 
     /**
