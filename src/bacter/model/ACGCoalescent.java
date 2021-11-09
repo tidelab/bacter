@@ -77,10 +77,6 @@ public class ACGCoalescent extends TreeDistribution {
     public Input<Boolean> betaBinomialEndSiteInput = new Input<>(
             "endSiteBetaBinom",
             "The prior for the end site of a conversion is a beta-binomial distribution.", false);
-    public Input<Boolean> conversionsMaxHalfLocusLength = new Input<>(
-            "maxHalfLocusLength",
-            "Conversions are restricted to lengths smaller than half of the locus' length.", false);
-
 
     ConversionGraph acg;
     PopulationFunction popFunc;
@@ -101,7 +97,7 @@ public class ACGCoalescent extends TreeDistribution {
 
         acg = (ConversionGraph)treeInput.get();
 
-        // The following condition makes sure that in the case of a circular genome
+        // The following condition makes sure that in the case of a complete genome
         // the mean conversion length is smaller than half of the genome length
         // (following the convention of defining the shorter sequence part as conversion).
         //TODO: check adjustment for circular genome
@@ -134,7 +130,7 @@ public class ACGCoalescent extends TreeDistribution {
                 || acg.getTotalConvCount()>upperCCBoundInput.get())
             return Double.NEGATIVE_INFINITY;
 
-        //TODO: check adjustment for cicurlar genome
+        //TODO: check adjustment for circular genome
         logP = calculateClonalFrameLogP();
         double poissonMean = rhoInput.get().getValue()
                 *acg.getClonalFrameLength()

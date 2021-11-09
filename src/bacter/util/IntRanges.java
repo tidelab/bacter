@@ -178,7 +178,7 @@ public class IntRanges {
             res += as.get(i+1)-as.get(i);
         }
 
-        return res;                            // todo: check if MAth.abs() needed if that does not break anything
+        return res;                            // todo: check if Math.abs() needed if that does not break anything
     }
 
     /**
