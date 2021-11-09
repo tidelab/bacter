@@ -53,7 +53,7 @@ public class AddRemoveRedundantConversion extends ACGOperator {
         double maxL = apertureInput.get()*acg.getRoot().getHeight();
 
         if (Randomizer.nextBoolean()) {
-            
+
             // Add redundant conversion
 
             Conversion newConv = new Conversion();

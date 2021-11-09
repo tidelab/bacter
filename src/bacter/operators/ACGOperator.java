@@ -36,7 +36,8 @@ public abstract class ACGOperator extends Operator {
             "acg",
             "Ancestral conversion graph.",
             Input.Validate.REQUIRED);
-    
+
+   
     protected ConversionGraph acg;
 
     @Override

@@ -41,7 +41,7 @@ public class AddRemoveConversion extends ConversionCreationOperator {
         double logHGF = 0;
 
         if (Randomizer.nextBoolean()) {
-            
+
             // Add
             
             logHGF += Math.log(1.0/(acg.getTotalConvCount()+1));
