@@ -49,7 +49,6 @@ public class CustomConnectors {
             acg.setWholeLocusMode(coalescent.wholeLocusConversionsInput.get());
             acg.setCircularGenomeMode(coalescent.circularGenomeInput.get());
             acg.setEndSiteBetaBinomOn(coalescent.betaBinomialEndSiteInput.get());
-            acg.setMaxHalfLocusLengthOn(coalescent.conversionsMaxHalfLocusLength.get());
         }
     }
 }

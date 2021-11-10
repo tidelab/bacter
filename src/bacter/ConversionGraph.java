@@ -73,10 +73,6 @@ public class ConversionGraph extends Tree {
     public Input<Boolean> betaBinomialEndSiteInput = new Input<>(
             "endSiteBetaBinom",
             "The prior for the end site of a conversion is a beta-binomial distribution.", false);
-    public Input<Boolean> conversionsMaxHalfLocusLength = new Input<>(
-            "maxHalfLocusLength",
-            "Conversions are restricted to lengths smaller than half of the locus' length.", false);
-
 
     /**
      * List of recombinations on graph.
@@ -106,7 +102,7 @@ public class ConversionGraph extends Tree {
 
         loci = lociInput.get();
 
-        // Sort alignment list lexographically in order of BEASTObject IDs
+        // Sort alignment list lexicographically in order of BEASTObject IDs
         loci.sort(Comparator.comparing(BEASTObject::getID));
         convertibleLoci = loci.stream().filter(Locus::conversionsAllowed).collect(Collectors.toList());
 
@@ -438,7 +434,7 @@ public class ConversionGraph extends Tree {
             parser.offsetInput.setValue(0, parser);
             setRoot(parser.parseNewick(sNewick));
         } catch (Exception ex) {
-            Logger.getLogger(ConversionGraph.class.getName()).log(Level.SEVERE, null, ex);
+            throw new RuntimeException(ex);
         }
 
         initArrays();
@@ -978,7 +974,7 @@ public class ConversionGraph extends Tree {
             }
         }.visit(parseTree);
 
-        m_nodes = root.getAllChildNodesAndSelf().toArray(m_nodes);
+        m_nodes = root.getAllChildNodesAndSelf().toArray(new Node[0]);
         nodeCount = m_nodes.length;
         leafNodeCount = root.getAllLeafNodes().size();
 
