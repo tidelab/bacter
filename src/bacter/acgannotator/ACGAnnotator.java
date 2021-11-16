@@ -338,37 +338,40 @@ public class ACGAnnotator {
                         conv.setNode2(acg.getNode(toNr));
 
                         double posteriorSupport = conversionSummary.nIncludedACGs /(double)nACGs;
+                        //TODO: check adjustment (circular genome)
+                        boolean overlapSummary = false;
 
                         double[] height1s = new double[conversionSummary.summarizedConvCount()];
                         double[] height2s = new double[conversionSummary.summarizedConvCount()];
                         double[] startSites = new double[conversionSummary.summarizedConvCount()];
                         double[] endSites = new double[conversionSummary.summarizedConvCount()];
-                        double[] convLengths = new double[conversionSummary.summarizedConvCount()]; //TODO: check adjustment (circular genome)
                         for (int i=0; i<conversionSummary.summarizedConvCount(); i++) {
+                            if (conversionSummary.ends.get(i) < conversionSummary.startSites.get(i)) {
+                                overlapSummary = true;
+                            }
                             height1s[i] = conversionSummary.height1s.get(i);
                             height2s[i] = conversionSummary.height2s.get(i);
-                            startSites[i] = conversionSummary.startSites.get(i);
-                            endSites[i] = conversionSummary.ends.get(i);
                             //TODO: check adjustment (circular genome)
-                            convLengths[i] = conversionSummary.ends.get(i) < conversionSummary.startSites.get(i) ? (conversionSummary.ends.get(i) - conversionSummary.startSites.get(i) + locus.getSiteCount()) : conversionSummary.ends.get(i) - conversionSummary.startSites.get(i);
+                            startSites[i] = overlapSummary  && conversionSummary.startSites.get(i) < 0.5*conv.getLocus().getSiteCount() ? conversionSummary.startSites.get(i) + conv.getLocus().getSiteCount() : conversionSummary.startSites.get(i);
+                            endSites[i] = overlapSummary && conversionSummary.ends.get(i) < 0.5*conv.getLocus().getSiteCount() ? conversionSummary.ends.get(i) + conv.getLocus().getSiteCount() : conversionSummary.ends.get(i);
                         }
 
                         if (summaryStrategy == SummaryStrategy.MEAN) {
                             conv.setHeight1(DiscreteStatistics.mean(height1s));
                             conv.setHeight2(DiscreteStatistics.mean(height2s));
-                            conv.setStartSite((int)Math.round(DiscreteStatistics.mean(startSites)));
                             //TODO: check adjustment (circular genome)
-                            int endCalc = (conv.getStartSite() + Math.round(DiscreteStatistics.mean(convLengths))) < locus.getSiteCount() ? (int) Math.round(DiscreteStatistics.mean(endSites)) : (conv.getStartSite() - locus.getSiteCount() + (int) Math.round(DiscreteStatistics.mean(convLengths)));
-                            conv.setEndSite(endCalc);
-                            //conv.setEndSite((int) Math.round(DiscreteStatistics.mean(endSites)));
+                            int startSite = (int)Math.round(DiscreteStatistics.mean(startSites));
+                            int endSite = (int) Math.round(DiscreteStatistics.mean(endSites));
+                            conv.setStartSite(startSite < conv.getLocus().getSiteCount() ? startSite : startSite - conv.getLocus().getSiteCount());
+                            conv.setEndSite(endSite < conv.getLocus().getSiteCount() ? endSite : endSite - conv.getLocus().getSiteCount());
                         } else {
                             conv.setHeight1(DiscreteStatistics.median(height1s));
                             conv.setHeight2(DiscreteStatistics.median(height2s));
-                            conv.setStartSite((int)Math.round(DiscreteStatistics.median(startSites)));
                             //TODO: check adjustment (circular genome)
-                            int endCalc = (conv.getStartSite() + Math.round(DiscreteStatistics.median(convLengths))) < locus.getSiteCount() ? (int) Math.round(DiscreteStatistics.median(endSites)) : (conv.getStartSite() - locus.getSiteCount() + (int) Math.round(DiscreteStatistics.median(convLengths)));
-                            conv.setEndSite(endCalc);
-                            //conv.setEndSite((int) Math.round(DiscreteStatistics.median(endSites)));
+                            int startSite = (int) Math.round(DiscreteStatistics.median(startSites));
+                            int endSite = (int) Math.round(DiscreteStatistics.median(endSites));
+                            conv.setStartSite(startSite < conv.getLocus().getSiteCount() ? startSite : startSite - conv.getLocus().getSiteCount());
+                            conv.setEndSite(endSite < conv.getLocus().getSiteCount() ? endSite : endSite - conv.getLocus().getSiteCount());
                         }
 
                         Arrays.sort(height1s);
@@ -380,12 +383,18 @@ public class ACGAnnotator {
                         double maxHeight2HPD = height2s[(int)(0.975 * height2s.length)];
 
                         Arrays.sort(startSites);
+                        //TODO: check adjustment (circular genome)
                         int minStartHPD = (int)startSites[(int)(0.025 * startSites.length)];
+                        minStartHPD = minStartHPD < locus.getSiteCount() ? minStartHPD : minStartHPD - locus.getSiteCount();
                         int maxStartHPD = (int)startSites[(int)(0.975 * startSites.length)];
+                        maxStartHPD = maxStartHPD < locus.getSiteCount() ? maxStartHPD : maxStartHPD - locus.getSiteCount();
 
                         Arrays.sort(endSites);
+                        //TODO: check adjustment (circular genome)
                         int minEndHPD = (int)endSites[(int)(0.025 * endSites.length)];
+                        minEndHPD = minEndHPD < locus.getSiteCount() ? minEndHPD : minEndHPD - locus.getSiteCount();
                         int maxEndHPD = (int)endSites[(int)(0.975 * endSites.length)];
+                        maxEndHPD = maxEndHPD < locus.getSiteCount() ? maxEndHPD : maxEndHPD - locus.getSiteCount();
 
                         conv.newickMetaDataBottom = "height_95%_HPD={" + minHeight1HPD + "," + maxHeight1HPD + "}";
                         conv.newickMetaDataMiddle = "posterior=" + posteriorSupport +
