@@ -311,8 +311,15 @@ public class ACGCladeSystem extends CladeSystem {
                 if (overlapRegion && nextEnd > overlapStartBound && nextEnd == maxEndSite) {
                     convSummaryList.remove(conversionSummary);
                     activeConversions.removeIf(conv -> (conv.getEndSite() < conv.getStartSite()));
-                    convSummaryList.get(0).addConvs(activeConversions);
-                    convSummaryList.get(0).nIncludedACGs += includedACGindices.cardinality() - numOverlap;
+                    if (convSummaryList.size() > 0) {
+                        convSummaryList.get(0).addConvs(activeConversions);
+                        convSummaryList.get(0).nIncludedACGs += includedACGindices.cardinality() - numOverlap;
+                    } else {
+                        conversionSummary = new ConversionSummary();
+                        convSummaryList.add(conversionSummary);
+                        conversionSummary.addConvs(activeConversions);
+                        conversionSummary.nIncludedACGs = includedACGindices.cardinality() - numOverlap;
+                    }
                     conversionSummary = null;
                 }
                 activeConversions.remove(convOrderedByEnd.get(0));
