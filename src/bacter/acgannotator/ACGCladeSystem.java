@@ -201,8 +201,8 @@ public class ACGCladeSystem extends CladeSystem {
                 convOrderedByEnd.remove(0);
             }
 
-            if (convOrderedByStart.isEmpty() && (nextEnd >= minOverlapStart)) {
-                if (currentMergedConv != null) {
+            if (convOrderedByEnd.isEmpty() && (nextEnd >= minOverlapStart)) {
+                if (mergedList.size() > 0 && currentMergedConv != null) {
                     mergedList.get(0).setStartSite(currentMergedConv.getStartSite());
                     mergedList.get(0).setHeight1((mergedConvHeight1 + mergedList.get(0).getHeight1()*numFirst)/(mergedConvCount+numFirst) );
                     mergedList.get(0).setHeight2((mergedConvHeight2 + mergedList.get(0).getHeight2()*numFirst)/(mergedConvCount+numFirst) );
@@ -269,8 +269,8 @@ public class ACGCladeSystem extends CladeSystem {
 
         int overlapStartBound = Integer.MAX_VALUE;
         boolean overlapRegion = false;
-        if (activeConversions.size() >= thresholdCount) {
-            overlapStartBound = activeConversions.get(thresholdCount - 1).getStartSite();
+        if (!activeConversions.isEmpty() && activeConversions.size() >= thresholdCount) {
+            overlapStartBound = activeConversions.get(thresholdCount > 0 ? thresholdCount - 1 : 0).getStartSite();
             overlapRegion = true;
             conversionSummary = new ConversionSummary();
             convSummaryList.add(conversionSummary);
@@ -301,24 +301,20 @@ public class ACGCladeSystem extends CladeSystem {
                         for (Conversion conv : activeConversions)
                             includedACGindices.set(conv.acgIndex);
                     } else {
-                        conversionSummary.addConv(convOrderedByStart.get(0));
-                        includedACGindices.set(convOrderedByStart.get(0).acgIndex);
+                        if (convOrderedByStart.get(0).getStartSite() <= convOrderedByStart.get(0).getEndSite()) {
+                            conversionSummary.addConv(convOrderedByStart.get(0));
+                            includedACGindices.set(convOrderedByStart.get(0).acgIndex);
+                        }
                     }
                 }
                 convOrderedByStart.remove(0);
             } else {
                 //TODO: check adjustment (circular genome)
                 if (overlapRegion && nextEnd > overlapStartBound && nextEnd == maxEndSite) {
-                    convSummaryList.remove(conversionSummary);
-                    activeConversions.removeIf(conv -> (conv.getEndSite() < conv.getStartSite()));
-                    if (convSummaryList.size() > 0) {
-                        convSummaryList.get(0).addConvs(activeConversions);
-                        convSummaryList.get(0).nIncludedACGs += includedACGindices.cardinality() - numOverlap;
-                    } else {
-                        conversionSummary = new ConversionSummary();
-                        convSummaryList.add(conversionSummary);
-                        conversionSummary.addConvs(activeConversions);
-                        conversionSummary.nIncludedACGs = includedACGindices.cardinality() - numOverlap;
+                    if (convSummaryList.size() > 1) {
+                        convSummaryList.remove(conversionSummary);
+                        convSummaryList.get(0).mergeConvSum(conversionSummary);
+                        convSummaryList.get(0).nIncludedACGs += conversionSummary.nIncludedACGs;
                     }
                     conversionSummary = null;
                 }
@@ -331,7 +327,7 @@ public class ACGCladeSystem extends CladeSystem {
                 convOrderedByEnd.remove(0);
             }
         }
-        if (conversionSummary != null) {
+        if (conversionSummary != null && thresholdCount > 0) {
             convSummaryList.remove(conversionSummary);
         }
         return convSummaryList;
@@ -443,6 +439,18 @@ public class ACGCladeSystem extends CladeSystem {
         public void addConvs(List<Conversion> convs) {
             for (Conversion conv : convs)
                 addConv(conv);
+        }
+
+        /**
+         * Merge metrics associated in given conversion summary with this summary.
+         *
+         //* @param ConversionSummary convSum
+         */
+        public void mergeConvSum(ConversionSummary convSum) {
+            height1s.addAll(convSum.height1s);
+            height2s.addAll(convSum.height2s);
+            startSites.addAll(convSum.startSites);
+            ends.addAll(convSum.ends);
         }
 
         /**
