@@ -318,6 +318,11 @@ public class ACGAnnotator {
                                         SummaryStrategy summaryStrategy) {
 
         BitSet[] bitSets = cladeSystem.getBitSets(acg);
+
+        if (threshold == 0) {       //TODO: check adjustment circular genome
+            System.out.println("\nWARNING: Support threshold of 0, summarising all sampled conversions on genome to one.");
+        }
+
         for (int fromNr=0; fromNr<acg.getNodeCount(); fromNr++) {
             BitSet from = bitSets[fromNr];
             for (int toNr=0; toNr<acg.getNodeCount(); toNr++) {
