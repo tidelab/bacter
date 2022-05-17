@@ -72,7 +72,8 @@ public class ACGAnnotator {
     public ACGAnnotator(ACGAnnotatorOptions options) throws IOException {
 
         //Initialise randomizer for the receiverBranchMode//TODO: receiverBranchMode
-        Randomizer.setSeed(123456789);
+        if (options.receiverBranchMode)
+            Randomizer.setSeed(123456789);
 
         // Display options:
         System.out.println(options + "\n");

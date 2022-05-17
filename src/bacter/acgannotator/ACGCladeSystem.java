@@ -313,7 +313,7 @@ public class ACGCladeSystem extends CladeSystem {
             convSummaryList.add(conversionSummary);
             conversionSummary.addConvs(activeConversions);
         }
-        int maxEndSite = convOrderedByEnd.get(convOrderedByEnd.size() -1).getEndSite();
+        int maxEndSite = convOrderedByEnd.get(convOrderedByEnd.size() -1).getEndSite();//TODO: check why convOrderedByEnd.size() can be 0 here leading to an ArrayIndexOutofBound
 
         while (!convOrderedByStart.isEmpty() || !convOrderedByEnd.isEmpty()) {
 
