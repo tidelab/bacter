@@ -26,6 +26,7 @@ import beast.util.Randomizer;
 
 import java.util.*;
 import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
 /**
  * Adds conversion summary tools to CladeSystem.
@@ -136,11 +137,17 @@ public class ACGCladeSystem extends CladeSystem {
         int mergedConvCount = 0;//TOREMOVE: conv count of currentMergedConv
         List<Double> mergedConvHeight1 = new ArrayList<>();//we use Lists for the mergedConvHeigths so that we don't have to chose their length (this is actually only useful for the heights2 with the receiverBranchMode //TODO: receiverBranchMode
         List<Double> mergedConvHeight2 = new ArrayList<>();
+        List<Double> mergedConvHeight1First = new ArrayList<Double>();
+        List<Double> mergedConvHeight2First = new ArrayList<Double>();
         List<Node> mergedNodes2 = new ArrayList<>();
+        List<Node> mergedNodes2First = new ArrayList<>();
 
         //TODO: check adjustment (circular genome)
 
-        int numFirst = 0;//TOREMOVE: circulargenome adjustment: initialize numFirst (nb. of conversions in the first merged conversion in case it is overlapping)
+        Map<Node, Integer> node2counts = new HashMap<>();
+        Map<Node, Integer> node2countsFirst = new HashMap<>();
+        int numFirst = 0;
+        //node2countsFirst = node2counts.entrySet().stream().collect(Collectors.toMap(e -> e.getKey(), e -> List.copyOf(e.getValue())));
         boolean firstStep = true;//TOREMOVE: circulargenome adjustment: initialize firstep to true
         int minOverlapStart = Integer.MAX_VALUE;//TOREMOVE: circulargenome adjustment
         int indConv = 0;//TOREMOVE: circulargenome adjustment
@@ -149,8 +156,9 @@ public class ACGCladeSystem extends CladeSystem {
             if (conv.getEndSite() < conv.getStartSite()) {//TOREMOVE: circulargenome adjustment: if it is overlapping we add it to the currentMerged conversion
                 nActive += 1;//TOREMOVE: circulargenome adjustment: increment nActive
                 mergedConvCount += 1;//TOREMOVE: circulargenome adjustment: increment mergedConvcount
-                //mergedConvHeight1 += conv.getHeight1();//TOREMOVE: circulargenome adjustment: increment merged heights
-                //mergedConvHeight2 += conv.getHeight2();//TOREMOVE: circulargenome adjustment:
+                mergedConvHeight1.add(conv.getHeight1());
+                mergedConvHeight2.add(conv.getHeight2());
+                mergedNodes2.add(conv.getNode2());
                 minOverlapStart = Math.min(minOverlapStart, conv.getStartSite());//TOREMOVE: circulargenome adjustment: set min overlap start to the first overlapping conv encountered
                 currentMergedConv = conv.getStartSite() <= minOverlapStart ? conv.getCopy() : currentMergedConv;//TOREMOVE: circulargenome adjustment: if this is the first overlapping conversion encountered, we initialise the currentmerged conv with it
                 currentMergedConv.acgIndex = conv.acgIndex;//TOREMOVE: circulargenome adjustment: set acgIndex
@@ -162,7 +170,7 @@ public class ACGCladeSystem extends CladeSystem {
 
         while (!convOrderedByStart.isEmpty() || !convOrderedByEnd.isEmpty()) {//TOREMOVE: while we still have some conversions in the remaining part of the genome
 
-            int nextStart = convOrderedByStart.isEmpty()//TOREMOVE: set nexstart to the start of the first element of convOrderedByStart (or MAX_VALUE IF IT IS EMPTY)
+            int nextStart = convOrderedByStart.isEmpty()//TOREMOVE: set nextstart to the start of the first element of convOrderedByStart (or MAX_VALUE IF IT IS EMPTY)
                     ? Integer.MAX_VALUE
                     : convOrderedByStart.get(0).getStartSite();
 
@@ -199,7 +207,8 @@ public class ACGCladeSystem extends CladeSystem {
                     assert currentMergedConv != null;//TOREMOVE: check if the currentMergedConv is not null which shouldn't be the case
                     currentMergedConv.setEndSite(nextEnd);//TOREMOVE: set the currentMergedConv end site to the last end site we encountered before leaving the active region
                     //we get the frequency of each donor node in the conversion summary (retaining only nodes that are in the MCC CF). This is only useful for the receiverBranchMode. //TODO: receiverBranchMode
-                    Map<Node, Integer> node2counts = new HashMap<>();
+                    //TODO: declaration moved to beginning
+                    node2counts.clear();
                     for (Node node2 : mergedNodes2) {
                         Integer count = node2counts.get(node2);
                         node2counts.put(node2, count != null ? count+1 : 1);
@@ -229,25 +238,48 @@ public class ACGCladeSystem extends CladeSystem {
                     currentMergedConv.setNode2(selectedNode);
                     mergedList.add(currentMergedConv);//TOREMOVE: add the currentMergedConv to the list
                     if (firstStep) {//TOREMOVE: circulargenome adjustment
-                        numFirst = mergedConvCount;
+                        mergedConvHeight1First = new ArrayList<Double>(mergedConvHeight1);
+                        mergedConvHeight2First = new ArrayList<Double>(mergedConvHeight2);
+                        mergedNodes2First = new ArrayList<Node>(mergedNodes2);
+                        node2counts.forEach((key, value) -> node2countsFirst.merge(key, value, Integer::sum));
+                        numFirst = mergedConvCount; //TOREMOVE: circulargenome adjustment: initialize numFirst (nb. of conversions in the first merged conversion in case it is overlapping)
                         firstStep = false;
                     }
-                    currentMergedConv = null;//TOREMOVE: circulargenome adjustment: why necessary?
                 }
 
                 convOrderedByEnd.remove(0);//TOREMOVE: remove the conversion from the convOrderedByEnd list
             }
-
-            if (convOrderedByEnd.isEmpty() && (nextEnd >= minOverlapStart)) {//TOREMOVE: circulargenome adjustment: if the last conversion the list was overlapping the first conversion overlapping the origin
-                if (mergedList.size() > 0 && currentMergedConv != null) {//TOREMOVE: in case the list merged conversion is not empty and the current merged conversion is not null
-                    mergedList.get(0).setStartSite(currentMergedConv.getStartSite());
-                    //mergedList.get(0).setHeight1((mergedConvHeight1 + mergedList.get(0).getHeight1()*numFirst)/(mergedConvCount+numFirst) );
-                    //mergedList.get(0).setHeight2((mergedConvHeight2 + mergedList.get(0).getHeight2()*numFirst)/(mergedConvCount+numFirst) );
-                }
-                break;
-            }
         }
-
+        if (mergedList.size() > 1 && (currentMergedConv.getEndSite() >= minOverlapStart)) {//TOREMOVE: circulargenome adjustment: if the last conversion the list was overlapping the first conversion overlapping the origin
+            mergedList.remove(mergedList.size()-1);
+            mergedList.get(0).setStartSite(currentMergedConv.getStartSite());
+            node2countsFirst.forEach((key, value) -> node2counts.merge(key, value, Integer::sum));
+            mergedConvHeight1.addAll(mergedConvHeight1First);
+            mergedConvHeight2.addAll(mergedConvHeight2First);
+            mergedNodes2.addAll(mergedNodes2First);
+            //select the most frequent node2 (or a random one among most frequent) /TODO: receiverBranchMode
+            int maxNode2count = 0;
+            Node selectedNode = null;
+            for (Node node2 : node2counts.keySet()){
+                if (node2counts.get(node2) > maxNode2count){
+                    maxNode2count = node2counts.get(node2);
+                    selectedNode = node2;
+                } else if (node2counts.get(node2) == maxNode2count){
+                    selectedNode = Randomizer.nextBoolean() ? node2 : selectedNode;
+                }
+            }
+            //we get the sum of node heights (considering only the selected node2 in the case of height2s /TODO: receiverBranchMode
+            double sumSelectedHeights1 = 0;
+            double sumSelectedHeights2 = 0;
+            for (int i = 0; i <  mergedConvCount; i++ ){
+                if (mergedNodes2.get(i).equals(selectedNode))
+                    sumSelectedHeights2 += mergedConvHeight2.get(i);
+                sumSelectedHeights1 += mergedConvHeight1.get(i);
+            }
+            mergedList.get(0).setHeight1(sumSelectedHeights1 / (mergedConvCount + numFirst));//TOREMOVE: set the heights of the merged conversion to the mean of all included conversions by dividing the sum of heights by the conv count
+            mergedList.get(0).setHeight2(sumSelectedHeights2 / (maxNode2count));
+            mergedList.get(0).setNode2(selectedNode);
+        }
         return mergedList;
     }
 
@@ -313,7 +345,7 @@ public class ACGCladeSystem extends CladeSystem {
             convSummaryList.add(conversionSummary);
             conversionSummary.addConvs(activeConversions);
         }
-        int maxEndSite = convOrderedByEnd.get(convOrderedByEnd.size() -1).getEndSite();//TODO: check why convOrderedByEnd.size() can be 0 here leading to an ArrayIndexOutofBound
+        int maxEndSite = !convOrderedByEnd.isEmpty() ? convOrderedByEnd.get(convOrderedByEnd.size() - 1).getEndSite() : Integer.MAX_VALUE; //TODO: check adjustment (circular genome)
 
         while (!convOrderedByStart.isEmpty() || !convOrderedByEnd.isEmpty()) {
 
