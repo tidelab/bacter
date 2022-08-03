@@ -182,13 +182,14 @@ public class ACGAnnotator {
         System.out.println("\nDone!");
     }
 
-    public ACGAnnotator(File inFile,File outFile, double burninPercentage, double convSupportThresh) throws IOException {
+    public ACGAnnotator(File inFile,File outFile, double burninPercentage, double convSupportThresh, boolean receiverBranchMode) throws IOException {
 
         ACGAnnotatorOptions options=new ACGAnnotatorOptions();
         options.inFile=inFile;
         options.outFile=outFile;
         options.burninPercentage=burninPercentage;
         options.convSupportThresh=convSupportThresh;
+        options.receiverBranchMode=receiverBranchMode;
 
         ACGAnnotator acgAnnotator=new ACGAnnotator(options);
         this.acgBest=acgAnnotator.getSummarizedACG();

@@ -45,11 +45,12 @@ public class SummarizedVsTrueACG {
 
     private static class Options {
         double burninPerc = 20.0;
+        boolean receiverBranchMode = false;
         File logFile, truthFile, aliFile, summarizedAcgOut, outFileSummarizedClade, outFileSummarizedConv, outFileTrueConv;
     }
 
     public static void printUsageAndExit(int exitCode) {
-        System.out.println("Usage: SummarizedVsTrueACG [-burnin b] truth.tree log.trees true_alignment_file output_summarized_ACG output_compare_summarized_clades output_compare_summarized_conversions output_compare_true_conversions");
+        System.out.println("Usage: SummarizedVsTrueACG [-burnin b] [-receiverBranchMode] truth.tree log.trees true_alignment_file output_summarized_ACG output_compare_summarized_clades output_compare_summarized_conversions output_compare_true_conversions");
         System.exit(exitCode);
     }
 
@@ -77,6 +78,12 @@ public class SummarizedVsTrueACG {
                         System.out.println("Argument to -burnin must be a number.");
                         printUsageAndExit(1);
                     }
+                    break;
+
+                case "receiverBranchMode":
+
+                    options.receiverBranchMode = true;
+
                     break;
 
                 default:
@@ -156,16 +163,21 @@ public class SummarizedVsTrueACG {
      //     * @ps print stream
      //     */
     public static void compareSumACGConv(ConversionGraph trueACG, Clade[] trueClades,
-                                         ConversionGraph summarizedACG, PrintStream ps) {
+                                         ConversionGraph summarizedACG, PrintStream ps, boolean receiverBranchMode) {
 
         Clade[] clades = new Clade[summarizedACG.getNodeCount()];
         getClades(clades, summarizedACG.getRoot());
         int convNum = 1;
-        ps.println("ConvNb" + "\t" + "isTrue" + "\t" + "support" + "\t" + "edgeError");
+        if (receiverBranchMode){
+            ps.println("ConvNb" + "\t" + "isTrue" + "\t" + "isTrueBasedOnReceiver" + "\t" + "support" + "\t" + "supportDonor" + "\t" + "edgeError");
+        } else {
+            ps.println("ConvNb" + "\t" + "isTrue" + "\t" + "isTrueBasedOnReceiver" + "\t" + "support" + "\t" + "edgeError");
+        }
 
         for (Conversion conv : summarizedACG.getConversions(summarizedACG.getConvertibleLoci().get(0))) {
 
             int isTrue = 0;
+            int isTrueBasedOnReceiver = 0;
             double edgeError = .0;
 
             //get parent clades of the conversion
@@ -186,6 +198,10 @@ public class SummarizedVsTrueACG {
 
             //get posterior support
             double posterior = Double.parseDouble(conv.newickMetaDataMiddle.replaceAll(".*posterior=([^,]*).*", "$1"));
+            double posteriorDonor = 0;
+            if (receiverBranchMode){
+                posteriorDonor = Double.parseDouble(conv.newickMetaDataTop.replaceAll(".*posterior=([^,]*).*", "$1"));
+            }
 
             for (Conversion trueConv : trueACG.getConversions(trueACG.getConvertibleLoci().get(0))) {
                 Clade trueFromClade = trueClades[trueConv.getNode1().getNr()];
@@ -193,17 +209,23 @@ public class SummarizedVsTrueACG {
                 int trueStartSite = trueConv.getStartSite();
                 int trueEndSite = trueConv.getEndSite();
                 //we define a conversion as true if there is a conversion in the true ACG that have the same parent clades and an overlap of at least 1 bp in the converted region
-                if (fromClade.equals(trueFromClade) && toClade.equals(trueToClade)) {
-                    //if (trueStartSite >= startSite.get("lowHPD") && trueStartSite <= startSite.get("upHPD") && trueEndSite >= endSite.get("lowHPD") && trueEndSite <= endSite.get("upHPD")) {
-                    //if (1.0*Math.abs(trueConv.getStartSite()-conv.getStartSite())/trueConv.getSiteCount() <= 0.5 && 1.0*Math.abs(trueConv.getEndSite()-conv.getEndSite())/trueConv.getSiteCount() <= 0.5){
-                    if (conv.getStartSite() < trueEndSite && conv.getEndSite() > trueStartSite) {
-                        isTrue = 1;
+                if (conv.getStartSite() < trueEndSite && conv.getEndSite() > trueStartSite) {
+                    if ( fromClade.equals(trueFromClade) ) {
+                        isTrueBasedOnReceiver = 1;
                         edgeError = (double) ((Math.abs(trueStartSite - startSite.get("estimate")) + Math.abs(trueEndSite - endSite.get("estimate")))) / (2 * trueConv.getSiteCount());
-                        break;
+                        if (toClade.equals(trueToClade)){
+                            isTrue = 1;
+                            edgeError = (double) ((Math.abs(trueStartSite - startSite.get("estimate")) + Math.abs(trueEndSite - endSite.get("estimate")))) / (2 * trueConv.getSiteCount());
+                            break;
+                        }
                     }
                 }
             }
-            ps.println(convNum++ + "\t" + isTrue + "\t" + posterior + "\t" + edgeError);
+            if (receiverBranchMode){
+                ps.println(convNum++ + "\t" + isTrue+ "\t" + isTrueBasedOnReceiver + "\t" + posterior + "\t" + posteriorDonor + "\t" + edgeError);
+            } else {
+                ps.println(convNum++ + "\t" + isTrue+ "\t" + isTrueBasedOnReceiver + "\t" + posterior + "\t" + edgeError);
+            }
         }
     }
 
@@ -218,7 +240,7 @@ public class SummarizedVsTrueACG {
      //     */
 
     public static void compareTrueConv(ConversionGraph trueACG, Clade[] trueClades,
-                                       ConversionGraph summarizedACG, Alignment trueAlignment, PrintStream ps) {
+                                       ConversionGraph summarizedACG, Alignment trueAlignment, PrintStream ps, boolean receiverBranchMode) {
 
         //get likelihood of simulated data given true parameter value
         Frequencies freqs = new Frequencies();
@@ -239,7 +261,11 @@ public class SummarizedVsTrueACG {
         getClades(clades, summarizedACG.getRoot());
 
         int convNum = 1;
-        ps.println("TrueConvNb" + "\t" + "supportInSummarizedACG" + "\t" + "edgeError" + "\t" + "tractLength" + "\t" + "startHeight" + "\t" + "endHeigth" + "\t" + "likelihoodGain" + "\t" + "distanceBetweenConv");
+        if (receiverBranchMode){
+            ps.println("TrueConvNb" + "\t" + "supportInSummarizedACG" + "\t" + "supportInSummarizedACGBasedOnReceiver" + "\t" + "supportDonorInSummarizedACG" + "\t" + "edgeError" + "\t" + "tractLength" + "\t" + "startHeight" + "\t" + "endHeigth" + "\t" + "likelihoodGain" + "\t" + "distanceBetweenConv");
+        } else {
+            ps.println("TrueConvNb" + "\t" + "supportInSummarizedACG" + "\t" + "supportInSummarizedACGBasedOnReceiver" + "\t" + "edgeError" + "\t" + "tractLength" + "\t" + "startHeight" + "\t" + "endHeigth" + "\t" + "likelihoodGain" + "\t" + "distanceBetweenConv");
+        }
 
         for (Conversion trueConv : trueACG.getConversions(trueACG.getConvertibleLoci().get(0))) {
             Clade trueFromClade = trueClades[trueConv.getNode1().getNr()];
@@ -248,6 +274,8 @@ public class SummarizedVsTrueACG {
             int trueEndSite = trueConv.getEndSite();
             double edgeError = 1;
             double posterior = 0.0;
+            double posteriorBasedOnReceiverBranch = 0.0;
+            double posteriorDonor = 0.0;
             int tractLength = trueConv.getSiteCount();
             double startHeight = trueConv.getHeight2();
             double endHeight = trueConv.getHeight1();
@@ -286,6 +314,11 @@ public class SummarizedVsTrueACG {
 
             //for each true conversion, check if it is present in the summarized ACG and get posterior support as well as tract boundaries relative error
             for (Conversion conv : summarizedACG.getConversions(summarizedACG.getConvertibleLoci().get(0))) {
+                double posteriorSumConv = Double.parseDouble(conv.newickMetaDataMiddle.replaceAll(".*posterior=([^,]*).*", "$1"));
+                double posteriorDonorSumConv = 0;
+                if (receiverBranchMode){
+                    posteriorDonorSumConv = Double.parseDouble(conv.newickMetaDataTop.replaceAll(".*posterior=([^,]*).*", "$1"));
+                }
                 //get start and end clades of the conversion
                 Clade fromClade = clades[conv.getNode1().getNr()];
                 Clade toClade = clades[conv.getNode2().getNr()];
@@ -301,18 +334,29 @@ public class SummarizedVsTrueACG {
                 endSite.put("estimate", conv.getEndSite());
                 endSite.put("lowHPD", Integer.parseInt(conv.newickMetaDataMiddle.replaceAll(".*endSite_95%_HPD=\\{([0-9]*).*", "$1")));
                 endSite.put("upHPD", Integer.parseInt(conv.newickMetaDataMiddle.replaceAll(".*endSite_95%_HPD=\\{[0-9]*,([0-9]*).*", "$1")));
-                //we define a conversion as true if there is a conversion in the true ACG that have the same parent clades and an overlap of at least 1 bp in the converted region
-                if (fromClade.equals(trueFromClade) && toClade.equals(trueToClade)) {
-                    //if (trueStartSite >= startSite.get("lowHPD") && trueStartSite <= startSite.get("upHPD") && trueEndSite >= endSite.get("lowHPD") && trueEndSite <= endSite.get("upHPD")) {
-                    //if (1.0*Math.abs(trueConv.getStartSite()-conv.getStartSite())/trueConv.getSiteCount() <= 0.5 && 1.0*Math.abs(trueConv.getEndSite()-conv.getEndSite())/trueConv.getSiteCount() <= 0.5){
-                    if (conv.getStartSite() < trueEndSite && conv.getEndSite() > trueStartSite) {
-                        posterior = Double.parseDouble(conv.newickMetaDataMiddle.replaceAll(".*posterior=([^,]*).*", "$1"));
-                        edgeError = (double) ((Math.abs(trueStartSite - startSite.get("estimate")) + Math.abs(trueEndSite - endSite.get("estimate")))) / (2 * trueConv.getSiteCount());
-                        break;
+                //we define a conversion as true if there is a conversion in the true ACG that have the same parent clades and an overlap of at least 1 bp in the converted region. If several summarized conversion satisfy this condition, we keep the one with the highest support
+                if (conv.getStartSite() < trueEndSite && conv.getEndSite() > trueStartSite) {
+                    if (fromClade.equals(trueFromClade)) {
+                        if ( posteriorSumConv > posteriorBasedOnReceiverBranch ){
+                            posteriorBasedOnReceiverBranch = posteriorSumConv;
+                            posteriorDonor = posteriorDonorSumConv;
+                            edgeError = (double) ((Math.abs(trueStartSite - startSite.get("estimate")) + Math.abs(trueEndSite - endSite.get("estimate")))) / (2 * trueConv.getSiteCount());
+                        }
+                        if (toClade.equals(trueToClade)){
+                            if ( posteriorSumConv > posterior ){
+                                posterior = posteriorSumConv;
+                                posteriorDonor = posteriorDonorSumConv;
+                                edgeError = (double) ((Math.abs(trueStartSite - startSite.get("estimate")) + Math.abs(trueEndSite - endSite.get("estimate")))) / (2 * trueConv.getSiteCount());
+                            }
+                        }
                     }
                 }
             }
-            ps.println(convNum++ + "\t" + posterior + "\t" + edgeError + "\t" + tractLength + "\t" + startHeight + "\t" + endHeight + "\t" + likelihoodGain + "\t" + convDist);
+            if (receiverBranchMode){
+                ps.println(convNum++ + "\t" + posterior + "\t" + posteriorBasedOnReceiverBranch + "\t" + posteriorDonor + "\t" + edgeError + "\t" + tractLength + "\t" + startHeight + "\t" + endHeight + "\t" + likelihoodGain + "\t" + convDist);
+            } else {
+                ps.println(convNum++ + "\t" + posterior + "\t" + posteriorBasedOnReceiverBranch + "\t" + edgeError + "\t" + tractLength + "\t" + startHeight + "\t" + endHeight + "\t" + likelihoodGain + "\t" + convDist);
+            }
         }
     }
 
@@ -347,7 +391,7 @@ public class SummarizedVsTrueACG {
         trueAlignment = nexusParser.m_alignment;
 
         // Compute summary ACG
-        ACGAnnotator acgAnnotator = new ACGAnnotator(options.logFile, options.summarizedAcgOut, options.burninPerc, 1);
+        ACGAnnotator acgAnnotator = new ACGAnnotator(options.logFile, options.summarizedAcgOut, options.burninPerc, 1, options.receiverBranchMode);
         ConversionGraph summarizedACG = acgAnnotator.getSummarizedACG();
 
         // Assess clades recovered in summarized ACG
@@ -356,12 +400,12 @@ public class SummarizedVsTrueACG {
         }
         // Assess conversions recovered in summarized ACG
         try (PrintStream ps = new PrintStream(options.outFileSummarizedConv)) {
-            compareSumACGConv(trueACG, trueClades, summarizedACG, ps);
+            compareSumACGConv(trueACG, trueClades, summarizedACG, ps, options.receiverBranchMode);
 
         }
         // Check if true conversions were recovered
         try (PrintStream ps = new PrintStream(options.outFileTrueConv)) {
-            compareTrueConv(trueACG, trueClades, summarizedACG, trueAlignment, ps);
+            compareTrueConv(trueACG, trueClades, summarizedACG, trueAlignment, ps, options.receiverBranchMode);
         }
     }
 }
