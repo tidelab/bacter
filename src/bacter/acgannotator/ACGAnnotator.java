@@ -21,10 +21,10 @@ import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
 import bacter.util.BacterACGLogReader;
-import beast.app.util.Utils;
 import beast.core.util.Log;
 import beast.evolution.tree.Node;
 import beast.math.statistic.DiscreteStatistics;
+import beast.util.Randomizer;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
@@ -54,6 +54,7 @@ public class ACGAnnotator {
         SummaryStrategy summaryStrategy = SummaryStrategy.MEAN;
         File geneFlowOutFile = new File("geneFlow.log");
         boolean recordGeneFlow = false;
+        boolean receiverBranchMode = false;
 
         @Override
         public String toString() {
@@ -65,11 +66,16 @@ public class ACGAnnotator {
                     "Node height and conv. site summary: " + summaryStrategy + "\n" +
                     (recordGeneFlow
                             ? "Record gene flow to file " + geneFlowOutFile
-                            : "Gene flow recording disabled.");
+                            : "Gene flow recording disabled.")  + "\n" +
+                    (receiverBranchMode ? "Merging conversions based on receiver branch only" : "");
         }
     }
 
     public ACGAnnotator(ACGAnnotatorOptions options) throws IOException {
+
+        //Initialise randomizer for the receiverBranchMode//TODO: receiverBranchMode
+        if (options.receiverBranchMode)
+            Randomizer.setSeed(123456789);
 
         // Display options:
         System.out.println(options + "\n");
@@ -126,7 +132,7 @@ public class ACGAnnotator {
         cladeSystem = new ACGCladeSystem(acgBest);
         for (ConversionGraph acg : logReader) {
             cladeSystem.collectAttributes(acg, attributeNames);
-            cladeSystem.collectConversions(acg);
+            cladeSystem.collectConversions(acg, options.receiverBranchMode);
         }
         cladeSystem.removeClades(acgBest.getRoot(), true);
         cladeSystem.calculateCladeCredibilities(logReader.getCorrectedACGCount());
@@ -143,7 +149,7 @@ public class ACGAnnotator {
 
         summarizeConversions(cladeSystem, acgBest, logReader.getCorrectedACGCount(),
                 options.convSupportThresh /100.0,
-                options.summaryStrategy);
+                options.summaryStrategy, options.receiverBranchMode);
 
         // Write output
 
@@ -327,55 +333,108 @@ public class ACGAnnotator {
      * @param threshold significance threshold
      * @param summaryStrategy strategy used when summarizing event ages/heights
      */
-    protected static void summarizeConversions(ACGCladeSystem cladeSystem,
-                                               ConversionGraph acg,
-                                               int nACGs,
-                                               double threshold,
-                                               SummaryStrategy summaryStrategy) {
+    protected static void summarizeConversions(ACGCladeSystem cladeSystem,//TOREMOVE: clade system constructed from the complete ACG sample
+                                        ConversionGraph acg,//TOREMOVE: MCC CF
+                                        int nACGs,//TOREMOVE: Nb. of ACGs in the sample
+                                        double threshold,
+                                        SummaryStrategy summaryStrategy,
+                                        boolean receiverBranchMode) {
 
         BitSet[] bitSets = cladeSystem.getBitSets(acg);
+
+        if (threshold == 0) {       //TODO: check adjustment circular genome
+            System.out.println("\nWARNING: Support threshold of 0, summarising all sampled conversions on genome to one.");
+        }
+
         for (int fromNr=0; fromNr<acg.getNodeCount(); fromNr++) {
             BitSet from = bitSets[fromNr];
-            for (int toNr=0; toNr<acg.getNodeCount(); toNr++) {
-                BitSet to = bitSets[toNr];
+            for (int toNr=(receiverBranchMode ? -1 : 0); toNr<(receiverBranchMode ? 0 :acg.getNodeCount()); toNr++) {
+                BitSet to = toNr == -1 ? new BitSet() : bitSets[toNr];//When using the receiverBranchMode, we only loop over the from BitSet and set the to BitSet to empty //TODO: receiverBranchMode
 
                 for (Locus locus : acg.getConvertibleLoci()) {
                     List<ACGCladeSystem.ConversionSummary> conversionSummaries =
                             cladeSystem.getConversionSummaries(from, to, locus,
-                                    nACGs, threshold);
+                                    nACGs, threshold);//TOREMOVE: get the conversion summaries corresponding to this pair of nodes
 
                     for (ACGCladeSystem.ConversionSummary conversionSummary
                             : conversionSummaries) {
 
-
                         Conversion conv = new Conversion();
                         conv.setLocus(locus);
                         conv.setNode1(acg.getNode(fromNr));
-                        conv.setNode2(acg.getNode(toNr));
+
+                        //we get the frequency of each donor node in the conversion summary (retaining only nodes that are in the MCC CF). This is only useful for the receiverBranchMode. //TODO: receiverBranchMode
+                        Map<BitSet, Integer> node2counts = new HashMap<>();
+                        for (BitSet node2bitSet : conversionSummary.node2s) {
+                            if (Arrays.asList(bitSets).contains(node2bitSet)){
+                                Integer count = node2counts.get(node2bitSet);
+                                node2counts.put(node2bitSet, count != null ? count+1 : 1);
+                            }
+                        }
+                        //skip the remaining part of the loop if the conversion summary didn't contain any donor also found in the the MCC CF /TODO: receiverBranchMode
+                        if (node2counts.isEmpty())
+                            continue;
+                        //select the most frequent node2 (or a random one among most frequent) /TODO: receiverBranchMode
+                        int maxNode2count = 0;
+                        BitSet selectedBitSet = null;
+                        for (BitSet node2bitSet : node2counts.keySet()){
+                            if (node2counts.get(node2bitSet) > maxNode2count){
+                                maxNode2count = node2counts.get(node2bitSet);
+                                selectedBitSet = node2bitSet;
+                            } else if (node2counts.get(node2bitSet) == maxNode2count){
+                                selectedBitSet = Randomizer.nextBoolean() ? node2bitSet : selectedBitSet;
+                            }
+                        }
+                        //set node2 of summarized conversion (we need to find the corresponding BitSet first) /TODO: receiverBranchMode
+                        for (int i= 0; i<acg.getNodeCount(); i++){
+                            if (bitSets[i].equals(selectedBitSet)){
+                                conv.setNode2(acg.getNode(i));
+                                break;
+                            }
+                        }
 
                         double posteriorSupport = conversionSummary.nIncludedACGs /(double)nACGs;
+                        double posteriorSupportNode2 = maxNode2count /(double)nACGs; //compute the posterior support of the donor node for the receiverBranchMode /TODO: receiverBranchMode
+                        //TODO: check adjustment (circular genome)
+                        boolean overlapSummary = false;
 
                         double[] height1s = new double[conversionSummary.summarizedConvCount()];
-                        double[] height2s = new double[conversionSummary.summarizedConvCount()];
+                        double[] height2s = new double[maxNode2count];//we will only retain the heights2 corresponding to the selected donor node /TODO: receiverBranchMode
                         double[] startSites = new double[conversionSummary.summarizedConvCount()];
                         double[] endSites = new double[conversionSummary.summarizedConvCount()];
+
+                        int height2sInd=0; //index used for filling up height2s /TODO: receiverBranchMode
+
                         for (int i=0; i<conversionSummary.summarizedConvCount(); i++) {
+                            if (conversionSummary.ends.get(i) < conversionSummary.startSites.get(i)) {
+                                overlapSummary = true;
+                            }
                             height1s[i] = conversionSummary.height1s.get(i);
-                            height2s[i] = conversionSummary.height2s.get(i);
-                            startSites[i] = conversionSummary.startSites.get(i);
-                            endSites[i] = conversionSummary.ends.get(i);
+                            if (conversionSummary.node2s.get(i).equals(selectedBitSet)) { //we add only heights2 corresponding to the selected node2 /TODO: receiverBranchMode
+                                height2s[height2sInd] = conversionSummary.height2s.get(i);
+                                height2sInd++;
+                            }
+                            //TODO: check adjustment (circular genome)
+                            startSites[i] = overlapSummary  && conversionSummary.startSites.get(i) < 0.5*conv.getLocus().getSiteCount() ? conversionSummary.startSites.get(i) + conv.getLocus().getSiteCount() : conversionSummary.startSites.get(i);
+                            endSites[i] = overlapSummary && conversionSummary.ends.get(i) < 0.5*conv.getLocus().getSiteCount() ? conversionSummary.ends.get(i) + conv.getLocus().getSiteCount() : conversionSummary.ends.get(i);
                         }
 
                         if (summaryStrategy == SummaryStrategy.MEAN) {
                             conv.setHeight1(DiscreteStatistics.mean(height1s));
                             conv.setHeight2(DiscreteStatistics.mean(height2s));
-                            conv.setStartSite((int)Math.round(DiscreteStatistics.mean(startSites)));
-                            conv.setEndSite((int) Math.round(DiscreteStatistics.mean(endSites)));
+                            //TODO: check adjustment (circular genome)
+                            int startSite = (int)Math.round(DiscreteStatistics.mean(startSites));
+                            int endSite = (int) Math.round(DiscreteStatistics.mean(endSites));
+                            conv.setStartSite(startSite < conv.getLocus().getSiteCount() ? startSite : startSite - conv.getLocus().getSiteCount());
+                            conv.setEndSite(endSite < conv.getLocus().getSiteCount() ? endSite : endSite - conv.getLocus().getSiteCount());
                         } else {
                             conv.setHeight1(DiscreteStatistics.median(height1s));
                             conv.setHeight2(DiscreteStatistics.median(height2s));
-                            conv.setStartSite((int)Math.round(DiscreteStatistics.median(startSites)));
-                            conv.setEndSite((int) Math.round(DiscreteStatistics.median(endSites)));
+                            //TODO: check adjustment (circular genome)
+                            int startSite = (int) Math.round(DiscreteStatistics.median(startSites));
+                            int endSite = (int) Math.round(DiscreteStatistics.median(endSites));
+                            conv.setStartSite(startSite < conv.getLocus().getSiteCount() ? startSite : startSite - conv.getLocus().getSiteCount());
+                            conv.setEndSite(endSite < conv.getLocus().getSiteCount() ? endSite : endSite - conv.getLocus().getSiteCount());
                         }
 
                         Arrays.sort(height1s);
@@ -387,18 +446,26 @@ public class ACGAnnotator {
                         double maxHeight2HPD = height2s[(int)(0.975 * height2s.length)];
 
                         Arrays.sort(startSites);
+                        //TODO: check adjustment (circular genome)
                         int minStartHPD = (int)startSites[(int)(0.025 * startSites.length)];
+                        minStartHPD = minStartHPD < locus.getSiteCount() ? minStartHPD : minStartHPD - locus.getSiteCount();
                         int maxStartHPD = (int)startSites[(int)(0.975 * startSites.length)];
+                        maxStartHPD = maxStartHPD < locus.getSiteCount() ? maxStartHPD : maxStartHPD - locus.getSiteCount();
 
                         Arrays.sort(endSites);
+                        //TODO: check adjustment (circular genome)
                         int minEndHPD = (int)endSites[(int)(0.025 * endSites.length)];
+                        minEndHPD = minEndHPD < locus.getSiteCount() ? minEndHPD : minEndHPD - locus.getSiteCount();
                         int maxEndHPD = (int)endSites[(int)(0.975 * endSites.length)];
+                        maxEndHPD = maxEndHPD < locus.getSiteCount() ? maxEndHPD : maxEndHPD - locus.getSiteCount();
 
                         conv.newickMetaDataBottom = "height_95%_HPD={" + minHeight1HPD + "," + maxHeight1HPD + "}";
                         conv.newickMetaDataMiddle = "posterior=" + posteriorSupport +
                                 ", startSite_95%_HPD={" + minStartHPD + "," + maxStartHPD + "}" +
                                 ", endSite_95%_HPD={" + minEndHPD + "," + maxEndHPD + "}";
                         conv.newickMetaDataTop = "height_95%_HPD={" + minHeight2HPD + "," + maxHeight2HPD + "}";
+                        if (receiverBranchMode)
+                        conv.newickMetaDataTop += ", posterior=" + posteriorSupportNode2;//we add the posterior support of the donor branch for the receiverBranchMode //TODO: receiverBranchMode
 
                         acg.addConversion(conv);
                     }
@@ -429,6 +496,7 @@ public class ACGAnnotator {
         JLabel summaryMethodLabel = new JLabel("Position summary method:");
         JLabel thresholdLabel = new JLabel("Posterior conversion support threshold:");
         JCheckBox geneFlowCheckBox = new JCheckBox("Record gene flow");
+        JCheckBox receiverBranchModeCheckBox = new JCheckBox("Merge conversions based on receiver branch only");
 
         JTextField inFilename = new JTextField(20);
         inFilename.setEditable(false);
@@ -482,7 +550,8 @@ public class ACGAnnotator {
                         .addComponent(burninLabel)
                         .addComponent(summaryMethodLabel)
                         .addComponent(thresholdLabel)
-                        .addComponent(geneFlowCheckBox))
+                        .addComponent(geneFlowCheckBox)
+                        .addComponent(receiverBranchModeCheckBox))
                 .addGroup(layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
                         .addComponent(inFilename)
                         .addComponent(outFilename)
@@ -531,7 +600,9 @@ public class ACGAnnotator {
                 .addGroup(layout.createParallelGroup()
                         .addComponent(geneFlowCheckBox)
                         .addComponent(gfOutFilename)
-                        .addComponent(gfOutFileButton)));
+                        .addComponent(gfOutFileButton))
+                .addGroup(layout.createParallelGroup()
+                        .addComponent(receiverBranchModeCheckBox)));
 
         mainPanel.setBorder(new EtchedBorder());
         cp.add(mainPanel);
@@ -544,6 +615,7 @@ public class ACGAnnotator {
             options.convSupportThresh = thresholdSlider.getValue();
             options.summaryStrategy = (SummaryStrategy)heightMethodCombo.getSelectedItem();
             options.recordGeneFlow = geneFlowCheckBox.isSelected();
+            options.receiverBranchMode = receiverBranchModeCheckBox.isSelected();
             dialog.setVisible(false);
         });
         runButton.setEnabled(false);
@@ -680,6 +752,11 @@ public class ACGAnnotator {
                     + "                         (Default 50%)\n"
                     + "-recordGeneFlow gfFile   Record posterior distribution of gene\n"
                     + "                         flow in given file.\n"
+                    + "-receiverBranchMode      Activates receiverBranchMode:\n"
+                    + "                         conversions are merged based on the\n"//TODO: receiverBranchMode
+                    + "                         receiver branch only, and the summarized\n"
+                    + "                         conversions are represented with the most\n"
+                    + "                         frequently sampled donor branch.\n"
                     + "\n"
                     + "If no output file is specified, output is written to a file\n"
                     + "named 'summary.tree'.";
@@ -777,6 +854,12 @@ public class ACGAnnotator {
                     options.geneFlowOutFile = new File(args[i+1]);
 
                     i += 1;
+                    break;
+
+                case "-receiverBranchMode":
+
+                    options.receiverBranchMode = true;
+
                     break;
 
                 default:

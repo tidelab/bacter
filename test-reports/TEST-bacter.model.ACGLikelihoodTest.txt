@@ -1,0 +1,4031 @@
+Testsuite: bacter.model.ACGLikelihoodTest
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.978 sec
+------------- Standard Output ---------------
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 100 4
+Lemur_catta: 100 4
+Homo_sapiens: 100 4
+Pan: 100 4
+Gorilla: 100 4
+Pongo: 100 4
+Hylobates: 100 4
+Macaca_fuscata: 100 4
+M_mulatta: 100 4
+M_fascicularis: 100 4
+M_sylvanus: 100 4
+Saimiri_sciureus: 100 4
+Alignment(null)
+  12 taxa
+  100 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 101 4
+Lemur_catta: 101 4
+Homo_sapiens: 101 4
+Pan: 101 4
+Gorilla: 101 4
+Pongo: 101 4
+Hylobates: 101 4
+Macaca_fuscata: 101 4
+M_mulatta: 101 4
+M_fascicularis: 101 4
+M_sylvanus: 101 4
+Saimiri_sciureus: 101 4
+Alignment(null)
+  12 taxa
+  101 sites
+  59 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 697 4
+Lemur_catta: 697 4
+Homo_sapiens: 697 4
+Pan: 697 4
+Gorilla: 697 4
+Pongo: 697 4
+Hylobates: 697 4
+Macaca_fuscata: 697 4
+M_mulatta: 697 4
+M_fascicularis: 697 4
+M_sylvanus: 697 4
+Saimiri_sciureus: 697 4
+Alignment(null)
+  12 taxa
+  697 sites
+  339 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 100 4
+Lemur_catta: 100 4
+Homo_sapiens: 100 4
+Pan: 100 4
+Gorilla: 100 4
+Pongo: 100 4
+Hylobates: 100 4
+Macaca_fuscata: 100 4
+M_mulatta: 100 4
+M_fascicularis: 100 4
+M_sylvanus: 100 4
+Saimiri_sciureus: 100 4
+Alignment(null)
+  12 taxa
+  100 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 101 4
+Lemur_catta: 101 4
+Homo_sapiens: 101 4
+Pan: 101 4
+Gorilla: 101 4
+Pongo: 101 4
+Hylobates: 101 4
+Macaca_fuscata: 101 4
+M_mulatta: 101 4
+M_fascicularis: 101 4
+M_sylvanus: 101 4
+Saimiri_sciureus: 101 4
+Alignment(null)
+  12 taxa
+  101 sites
+  59 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 49 4
+Lemur_catta: 49 4
+Homo_sapiens: 49 4
+Pan: 49 4
+Gorilla: 49 4
+Pongo: 49 4
+Hylobates: 49 4
+Macaca_fuscata: 49 4
+M_mulatta: 49 4
+M_fascicularis: 49 4
+M_sylvanus: 49 4
+Saimiri_sciureus: 49 4
+Alignment(null)
+  12 taxa
+  49 sites
+  36 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 51 4
+Lemur_catta: 51 4
+Homo_sapiens: 51 4
+Pan: 51 4
+Gorilla: 51 4
+Pongo: 51 4
+Hylobates: 51 4
+Macaca_fuscata: 51 4
+M_mulatta: 51 4
+M_fascicularis: 51 4
+M_sylvanus: 51 4
+Saimiri_sciureus: 51 4
+Alignment(null)
+  12 taxa
+  51 sites
+  35 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 597 4
+Lemur_catta: 597 4
+Homo_sapiens: 597 4
+Pan: 597 4
+Gorilla: 597 4
+Pongo: 597 4
+Hylobates: 597 4
+Macaca_fuscata: 597 4
+M_mulatta: 597 4
+M_fascicularis: 597 4
+M_sylvanus: 597 4
+Saimiri_sciureus: 597 4
+Alignment(null)
+  12 taxa
+  597 sites
+  291 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Test 1.  Truth: -6443.8116783386295 Value: -6443.811678338628
+Tarsius_syrichta: 100 4
+Lemur_catta: 100 4
+Homo_sapiens: 100 4
+Pan: 100 4
+Gorilla: 100 4
+Pongo: 100 4
+Hylobates: 100 4
+Macaca_fuscata: 100 4
+M_mulatta: 100 4
+M_fascicularis: 100 4
+M_sylvanus: 100 4
+Saimiri_sciureus: 100 4
+Alignment(null)
+  12 taxa
+  100 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 101 4
+Lemur_catta: 101 4
+Homo_sapiens: 101 4
+Pan: 101 4
+Gorilla: 101 4
+Pongo: 101 4
+Hylobates: 101 4
+Macaca_fuscata: 101 4
+M_mulatta: 101 4
+M_fascicularis: 101 4
+M_sylvanus: 101 4
+Saimiri_sciureus: 101 4
+Alignment(null)
+  12 taxa
+  101 sites
+  59 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 697 4
+Lemur_catta: 697 4
+Homo_sapiens: 697 4
+Pan: 697 4
+Gorilla: 697 4
+Pongo: 697 4
+Hylobates: 697 4
+Macaca_fuscata: 697 4
+M_mulatta: 697 4
+M_fascicularis: 697 4
+M_sylvanus: 697 4
+Saimiri_sciureus: 697 4
+Alignment(null)
+  12 taxa
+  697 sites
+  339 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 100 4
+Lemur_catta: 100 4
+Homo_sapiens: 100 4
+Pan: 100 4
+Gorilla: 100 4
+Pongo: 100 4
+Hylobates: 100 4
+Macaca_fuscata: 100 4
+M_mulatta: 100 4
+M_fascicularis: 100 4
+M_sylvanus: 100 4
+Saimiri_sciureus: 100 4
+Alignment(null)
+  12 taxa
+  100 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 101 4
+Lemur_catta: 101 4
+Homo_sapiens: 101 4
+Pan: 101 4
+Gorilla: 101 4
+Pongo: 101 4
+Hylobates: 101 4
+Macaca_fuscata: 101 4
+M_mulatta: 101 4
+M_fascicularis: 101 4
+M_sylvanus: 101 4
+Saimiri_sciureus: 101 4
+Alignment(null)
+  12 taxa
+  101 sites
+  59 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 49 4
+Lemur_catta: 49 4
+Homo_sapiens: 49 4
+Pan: 49 4
+Gorilla: 49 4
+Pongo: 49 4
+Hylobates: 49 4
+Macaca_fuscata: 49 4
+M_mulatta: 49 4
+M_fascicularis: 49 4
+M_sylvanus: 49 4
+Saimiri_sciureus: 49 4
+Alignment(null)
+  12 taxa
+  49 sites
+  36 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 51 4
+Lemur_catta: 51 4
+Homo_sapiens: 51 4
+Pan: 51 4
+Gorilla: 51 4
+Pongo: 51 4
+Hylobates: 51 4
+Macaca_fuscata: 51 4
+M_mulatta: 51 4
+M_fascicularis: 51 4
+M_sylvanus: 51 4
+Saimiri_sciureus: 51 4
+Alignment(null)
+  12 taxa
+  51 sites
+  35 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 597 4
+Lemur_catta: 597 4
+Homo_sapiens: 597 4
+Pan: 597 4
+Gorilla: 597 4
+Pongo: 597 4
+Hylobates: 597 4
+Macaca_fuscata: 597 4
+M_mulatta: 597 4
+M_fascicularis: 597 4
+M_sylvanus: 597 4
+Saimiri_sciureus: 597 4
+Alignment(null)
+  12 taxa
+  597 sites
+  291 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+((((((((((((((((((((((((((((((((((7:0.13615530616631732,9:0.13615530616631732)13:0.0070657542433278375)#6:0.028296003833296862,((((3:0.05353199806443934,8:0.05353199806443934)11:0.039921420215622644,#27[&conv=27, region={8537,9791}, locus="locus", relSize=0.125500, affectedSites=1255, uselessSiteFraction=0.00000]:0.08789418324924553):0.022946547683054402,#34[&conv=34, region={9619,9999}, locus="locus", relSize=0.0381000, affectedSites=380, uselessSiteFraction=0.00262467]:0.06169669360579394):0.015375573547421056)#12:0.03974152473240458)14:0.006236192157459575,#26[&conv=26, region={8031,8125}, locus="locus", relSize=0.00950000, affectedSites=95, uselessSiteFraction=0.00000]:0.007779837348004359):0.03339534548549786,((1:0.06412938983383834,10:0.06412938983383834)12:0.09154815161404806,#23[&conv=23, region={6429,6847}, locus="locus", relSize=0.0419000, affectedSites=419, uselessSiteFraction=0.00000]:0.10615357126029981):0.05547106043801306)15:0.07390108469015622)#29:0.05093908384605861,((6:0.049523970187586586)#23:0.14948404567635684,#13[&conv=13, region={3320,6778}, locus="locus", relSize=0.345900, affectedSites=3459, uselessSiteFraction=0.00000]:3.920642289156895E-4):0.13698075455817085)16:0.24847168003703213)#5:0.008900964139116674)#32:0.007099572791020137)#17:0.04164561442368342)#35:0.020061011081760838,#32[&conv=32, region={9231,9999}, locus="locus", relSize=0.0769000, affectedSites=768, uselessSiteFraction=0.00130039]:0.0688061982964644):0.029224424383948455,#21[&conv=21, region={5190,5205}, locus="locus", relSize=0.00160000, affectedSites=16, uselessSiteFraction=0.00000]:0.20171256938978):0.004528797792181738,#22[&conv=22, region={6167,6569}, locus="locus", relSize=0.0403000, affectedSites=403, uselessSiteFraction=0.00000]:0.3103930521113071):0.055913690169587804)#2:0.017626079439811093)#30:0.11014347415680259)#4:0.3018482616887128)#16:0.040629627316511874,#4[&conv=4, region={357,634}, locus="locus", relSize=0.0278000, affectedSites=0, uselessSiteFraction=1.00000]:0.3424778890052247):0.02016854806717472,#25[&conv=25, region={7179,7731}, locus="locus", relSize=0.0553000, affectedSites=553, uselessSiteFraction=0.00000]:0.47173118839786055):0.1165828308798289,#18[&conv=18, region={4555,6269}, locus="locus", relSize=0.171500, affectedSites=1715, uselessSiteFraction=0.00000]:0.3064206132370806):0.01852952984273326)#1:0.007755846244070774)#24:0.07866091646028206)#14:0.13758214617223707)#20:0.263001274542763,#17[&conv=17, region={4299,4646}, locus="locus", relSize=0.0348000, affectedSites=348, uselessSiteFraction=0.00000]:1.2639020726620904):0.09848717926766493)#0:0.10415704892524436)#28:0.04446795604969189,(((((((((((((((((((((((((((((((5:0.00895663627043028)#31:0.03669511615629417,#31[&conv=31, region={9164,9999}, locus="locus", relSize=0.0836000, affectedSites=835, uselessSiteFraction=0.00119617]:0.03669511615629417):0.009051519930597995)#34:0.0958709495190612)#7:0.07724855002096831,#7[&conv=7, region={1060,3573}, locus="locus", relSize=0.251400, affectedSites=2514, uselessSiteFraction=0.00000]:0.07724855002096831):0.042264970309146055,#3[&conv=3, region={0,1440}, locus="locus", relSize=0.144100, affectedSites=1441, uselessSiteFraction=0.00000]:0.24651625168751015):0.021510102168457)#19:0.06211965238237932,(((4:0.16997341905239724)#26:0.028642532582630498)#13:0.07442312361607026,#12[&conv=12, region={3261,4711}, locus="locus", relSize=0.145100, affectedSites=1451, uselessSiteFraction=0.00000]:0.14126353574056055):0.08067842150623633)17:0.034550447587121114,#19[&conv=19, region={4845,5430}, locus="locus", relSize=0.0586000, affectedSites=586, uselessSiteFraction=0.00000]:0.09667009996950043):0.15890940151829924,#36[&conv=36, region={9954,9999}, locus="locus", relSize=0.00460000, affectedSites=45, uselessSiteFraction=0.0217391]:0.09646704087954794):0.07862588255528513)#11:0.1447160990935582)#25:0.12982526975661912)#33:0.017158604044192227,#5[&conv=5, region={786,1052}, locus="locus", relSize=0.0267000, affectedSites=267, uselessSiteFraction=0.00000]:0.33304275085326296):0.06089641062823692,#2[&conv=2, region={0,1940}, locus="locus", relSize=0.194100, affectedSites=1674, uselessSiteFraction=0.137558]:0.2265650867002008):0.014481783477947485,(((((((((2:0.005559235030816456)#27:0.018012255488171397)#3:0.2689400980400414,#6[&conv=6, region={1025,2074}, locus="locus", relSize=0.105000, affectedSites=1050, uselessSiteFraction=0.00000]:0.1492905281493841):0.04448315391564994,#29[&conv=29, region={8930,9547}, locus="locus", relSize=0.0618000, affectedSites=618, uselessSiteFraction=0.00000]:0.05194505589862353):0.04853304048487139)#22:0.06518252202365615)#36:0.03896916290568919)#21:0.306871926401618,#11[&conv=11, region={2725,5707}, locus="locus", relSize=0.298300, affectedSites=2983, uselessSiteFraction=0.00000]:0.1707481658724741):0.13856138013572938,#35[&conv=35, region={9758,9999}, locus="locus", relSize=0.0242000, affectedSites=0, uselessSiteFraction=1.00000]:0.29300617261327666):0.05776862099235047)18:0.003339192879562858,#33[&conv=33, region={9249,9899}, locus="locus", relSize=0.0651000, affectedSites=651, uselessSiteFraction=0.00000]:0.09587599102993949):0.05619214525405025)#18:0.14528759675553538,#30[&conv=30, region={8996,9420}, locus="locus", relSize=0.0425000, affectedSites=425, uselessSiteFraction=0.00000]:0.4282397256274857):0.027860319380222265)#37:0.04547415522697129)#9:0.11578203143129251)#8:0.10747171289501889,#8[&conv=8, region={1265,1332}, locus="locus", relSize=0.00680000, affectedSites=68, uselessSiteFraction=0.00000]:0.10747171289501889):0.11463786000341702)#10:0.09962082622424706,#1[&conv=1, region={0,1923}, locus="locus", relSize=0.192400, affectedSites=0, uselessSiteFraction=1.00000]:0.33118435883689057):0.01768647010812119,#9[&conv=9, region={2165,3231}, locus="locus", relSize=0.106700, affectedSites=1067, uselessSiteFraction=0.00000]:0.4551989006620967):0.02655134009960114,#14[&conv=14, region={3342,4917}, locus="locus", relSize=0.157600, affectedSites=900, uselessSiteFraction=0.428934]:0.28900540634026006):0.04635656683017664,#10[&conv=10, region={2504,2555}, locus="locus", relSize=0.00520000, affectedSites=0, uselessSiteFraction=1.00000]:0.19021520326214603):0.05790127238235421)#15:0.06275948121858677,#37[&conv=37, region={9991,9999}, locus="locus", relSize=0.000900000, affectedSites=8, uselessSiteFraction=0.111111]:0.6942417164197867):0.07359201398058235,#15[&conv=15, region={3450,5237}, locus="locus", relSize=0.178800, affectedSites=1468, uselessSiteFraction=0.178971]:0.13635149519916911):0.11808086420564123)19:0.11451305499762565,#20[&conv=20, region={5097,5491}, locus="locus", relSize=0.0395000, affectedSites=395, uselessSiteFraction=0.00000]:0.6246265137829898):0.24135983112858117,#16[&conv=16, region={3879,6207}, locus="locus", relSize=0.232900, affectedSites=1981, uselessSiteFraction=0.149420]:1.2858957898944097):0.17829449871040293,#0[&conv=0, region={0,86}, locus="locus", relSize=0.00870000, affectedSites=0, uselessSiteFraction=1.00000]:0.682792389811546):1.888686806152295,#28[&conv=28, region={8890,9486}, locus="locus", relSize=0.0597000, affectedSites=0, uselessSiteFraction=1.00000]:2.4673221470385966):0.08184550505827914,#24[&conv=24, region={6944,9564}, locus="locus", relSize=0.262100, affectedSites=2196, uselessSiteFraction=0.162152]:3.231056217465067):0.0;
+755 segregating sites in region 0-785 (2 active conversions)
+229 segregating sites in region 786-1024 (3 active conversions)
+27 segregating sites in region 1025-1052 (4 active conversions)
+7 segregating sites in region 1053-1059 (3 active conversions)
+202 segregating sites in region 1060-1264 (4 active conversions)
+67 segregating sites in region 1265-1332 (5 active conversions)
+108 segregating sites in region 1333-1440 (4 active conversions)
+490 segregating sites in region 1441-1940 (3 active conversions)
+132 segregating sites in region 1941-2074 (2 active conversions)
+88 segregating sites in region 2075-2164 (1 active conversions)
+549 segregating sites in region 2165-2724 (2 active conversions)
+497 segregating sites in region 2725-3231 (3 active conversions)
+29 segregating sites in region 3232-3260 (2 active conversions)
+59 segregating sites in region 3261-3319 (3 active conversions)
+22 segregating sites in region 3320-3341 (4 active conversions)
+107 segregating sites in region 3342-3449 (5 active conversions)
+123 segregating sites in region 3450-3573 (6 active conversions)
+301 segregating sites in region 3574-3878 (5 active conversions)
+417 segregating sites in region 3879-4298 (6 active conversions)
+250 segregating sites in region 4299-4554 (7 active conversions)
+91 segregating sites in region 4555-4646 (8 active conversions)
+64 segregating sites in region 4647-4711 (7 active conversions)
+132 segregating sites in region 4712-4844 (6 active conversions)
+72 segregating sites in region 4845-4917 (7 active conversions)
+174 segregating sites in region 4918-5096 (6 active conversions)
+90 segregating sites in region 5097-5189 (7 active conversions)
+15 segregating sites in region 5190-5205 (8 active conversions)
+32 segregating sites in region 5206-5237 (7 active conversions)
+188 segregating sites in region 5238-5430 (6 active conversions)
+60 segregating sites in region 5431-5491 (5 active conversions)
+208 segregating sites in region 5492-5707 (4 active conversions)
+455 segregating sites in region 5708-6166 (3 active conversions)
+41 segregating sites in region 6167-6207 (4 active conversions)
+60 segregating sites in region 6208-6269 (3 active conversions)
+156 segregating sites in region 6270-6428 (2 active conversions)
+136 segregating sites in region 6429-6569 (3 active conversions)
+202 segregating sites in region 6570-6778 (2 active conversions)
+68 segregating sites in region 6779-6847 (1 active conversions)
+95 segregating sites in region 6848-6943 (CF)
+234 segregating sites in region 6944-7178 (1 active conversions)
+546 segregating sites in region 7179-7731 (2 active conversions)
+297 segregating sites in region 7732-8030 (1 active conversions)
+95 segregating sites in region 8031-8125 (2 active conversions)
+406 segregating sites in region 8126-8536 (1 active conversions)
+379 segregating sites in region 8537-8929 (2 active conversions)
+66 segregating sites in region 8930-8995 (3 active conversions)
+167 segregating sites in region 8996-9163 (4 active conversions)
+66 segregating sites in region 9164-9230 (5 active conversions)
+17 segregating sites in region 9231-9248 (6 active conversions)
+170 segregating sites in region 9249-9420 (7 active conversions)
+124 segregating sites in region 9421-9547 (6 active conversions)
+16 segregating sites in region 9548-9564 (5 active conversions)
+53 segregating sites in region 9565-9618 (4 active conversions)
+161 segregating sites in region 9619-9791 (5 active conversions)
+106 segregating sites in region 9792-9899 (4 active conversions)
+53 segregating sites in region 9900-9953 (3 active conversions)
+36 segregating sites in region 9954-9990 (4 active conversions)
+9 segregating sites in region 9991-9999 (5 active conversions)
+t0: 10000 4
+t1: 10000 4
+t2: 10000 4
+t3: 10000 4
+t4: 10000 4
+t5: 10000 4
+t6: 10000 4
+t7: 10000 4
+t8: 10000 4
+t9: 10000 4
+SimulatedAlignment(null)
+  10 taxa
+  10000 sites
+  6252 patterns
+
+t0: 786 4
+t1: 786 4
+t2: 786 4
+t3: 786 4
+t4: 786 4
+t5: 786 4
+t6: 786 4
+t7: 786 4
+t8: 786 4
+t9: 786 4
+Alignment(null)
+  10 taxa
+  786 sites
+  650 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 239 4
+t1: 239 4
+t2: 239 4
+t3: 239 4
+t4: 239 4
+t5: 239 4
+t6: 239 4
+t7: 239 4
+t8: 239 4
+t9: 239 4
+Alignment(null)
+  10 taxa
+  239 sites
+  217 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 28 4
+t1: 28 4
+t2: 28 4
+t3: 28 4
+t4: 28 4
+t5: 28 4
+t6: 28 4
+t7: 28 4
+t8: 28 4
+t9: 28 4
+Alignment(null)
+  10 taxa
+  28 sites
+  28 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 7 4
+t1: 7 4
+t2: 7 4
+t3: 7 4
+t4: 7 4
+t5: 7 4
+t6: 7 4
+t7: 7 4
+t8: 7 4
+t9: 7 4
+Alignment(null)
+  10 taxa
+  7 sites
+  7 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 205 4
+t1: 205 4
+t2: 205 4
+t3: 205 4
+t4: 205 4
+t5: 205 4
+t6: 205 4
+t7: 205 4
+t8: 205 4
+t9: 205 4
+Alignment(null)
+  10 taxa
+  205 sites
+  200 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 68 4
+t1: 68 4
+t2: 68 4
+t3: 68 4
+t4: 68 4
+t5: 68 4
+t6: 68 4
+t7: 68 4
+t8: 68 4
+t9: 68 4
+Alignment(null)
+  10 taxa
+  68 sites
+  68 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 108 4
+t1: 108 4
+t2: 108 4
+t3: 108 4
+t4: 108 4
+t5: 108 4
+t6: 108 4
+t7: 108 4
+t8: 108 4
+t9: 108 4
+Alignment(null)
+  10 taxa
+  108 sites
+  107 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 500 4
+t1: 500 4
+t2: 500 4
+t3: 500 4
+t4: 500 4
+t5: 500 4
+t6: 500 4
+t7: 500 4
+t8: 500 4
+t9: 500 4
+Alignment(null)
+  10 taxa
+  500 sites
+  468 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 134 4
+t1: 134 4
+t2: 134 4
+t3: 134 4
+t4: 134 4
+t5: 134 4
+t6: 134 4
+t7: 134 4
+t8: 134 4
+t9: 134 4
+Alignment(null)
+  10 taxa
+  134 sites
+  132 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 90 4
+t1: 90 4
+t2: 90 4
+t3: 90 4
+t4: 90 4
+t5: 90 4
+t6: 90 4
+t7: 90 4
+t8: 90 4
+t9: 90 4
+Alignment(null)
+  10 taxa
+  90 sites
+  85 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 560 4
+t1: 560 4
+t2: 560 4
+t3: 560 4
+t4: 560 4
+t5: 560 4
+t6: 560 4
+t7: 560 4
+t8: 560 4
+t9: 560 4
+Alignment(null)
+  10 taxa
+  560 sites
+  497 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 507 4
+t1: 507 4
+t2: 507 4
+t3: 507 4
+t4: 507 4
+t5: 507 4
+t6: 507 4
+t7: 507 4
+t8: 507 4
+t9: 507 4
+Alignment(null)
+  10 taxa
+  507 sites
+  442 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 29 4
+t1: 29 4
+t2: 29 4
+t3: 29 4
+t4: 29 4
+t5: 29 4
+t6: 29 4
+t7: 29 4
+t8: 29 4
+t9: 29 4
+Alignment(null)
+  10 taxa
+  29 sites
+  29 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 59 4
+t1: 59 4
+t2: 59 4
+t3: 59 4
+t4: 59 4
+t5: 59 4
+t6: 59 4
+t7: 59 4
+t8: 59 4
+t9: 59 4
+Alignment(null)
+  10 taxa
+  59 sites
+  59 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 22 4
+t1: 22 4
+t2: 22 4
+t3: 22 4
+t4: 22 4
+t5: 22 4
+t6: 22 4
+t7: 22 4
+t8: 22 4
+t9: 22 4
+Alignment(null)
+  10 taxa
+  22 sites
+  22 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 108 4
+t1: 108 4
+t2: 108 4
+t3: 108 4
+t4: 108 4
+t5: 108 4
+t6: 108 4
+t7: 108 4
+t8: 108 4
+t9: 108 4
+Alignment(null)
+  10 taxa
+  108 sites
+  102 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 124 4
+t1: 124 4
+t2: 124 4
+t3: 124 4
+t4: 124 4
+t5: 124 4
+t6: 124 4
+t7: 124 4
+t8: 124 4
+t9: 124 4
+Alignment(null)
+  10 taxa
+  124 sites
+  116 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 305 4
+t1: 305 4
+t2: 305 4
+t3: 305 4
+t4: 305 4
+t5: 305 4
+t6: 305 4
+t7: 305 4
+t8: 305 4
+t9: 305 4
+Alignment(null)
+  10 taxa
+  305 sites
+  286 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 420 4
+t1: 420 4
+t2: 420 4
+t3: 420 4
+t4: 420 4
+t5: 420 4
+t6: 420 4
+t7: 420 4
+t8: 420 4
+t9: 420 4
+Alignment(null)
+  10 taxa
+  420 sites
+  401 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 256 4
+t1: 256 4
+t2: 256 4
+t3: 256 4
+t4: 256 4
+t5: 256 4
+t6: 256 4
+t7: 256 4
+t8: 256 4
+t9: 256 4
+Alignment(null)
+  10 taxa
+  256 sites
+  234 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 92 4
+t1: 92 4
+t2: 92 4
+t3: 92 4
+t4: 92 4
+t5: 92 4
+t6: 92 4
+t7: 92 4
+t8: 92 4
+t9: 92 4
+Alignment(null)
+  10 taxa
+  92 sites
+  91 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 65 4
+t1: 65 4
+t2: 65 4
+t3: 65 4
+t4: 65 4
+t5: 65 4
+t6: 65 4
+t7: 65 4
+t8: 65 4
+t9: 65 4
+Alignment(null)
+  10 taxa
+  65 sites
+  65 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 133 4
+t1: 133 4
+t2: 133 4
+t3: 133 4
+t4: 133 4
+t5: 133 4
+t6: 133 4
+t7: 133 4
+t8: 133 4
+t9: 133 4
+Alignment(null)
+  10 taxa
+  133 sites
+  129 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 73 4
+t1: 73 4
+t2: 73 4
+t3: 73 4
+t4: 73 4
+t5: 73 4
+t6: 73 4
+t7: 73 4
+t8: 73 4
+t9: 73 4
+Alignment(null)
+  10 taxa
+  73 sites
+  70 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 179 4
+t1: 179 4
+t2: 179 4
+t3: 179 4
+t4: 179 4
+t5: 179 4
+t6: 179 4
+t7: 179 4
+t8: 179 4
+t9: 179 4
+Alignment(null)
+  10 taxa
+  179 sites
+  160 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 93 4
+t1: 93 4
+t2: 93 4
+t3: 93 4
+t4: 93 4
+t5: 93 4
+t6: 93 4
+t7: 93 4
+t8: 93 4
+t9: 93 4
+Alignment(null)
+  10 taxa
+  93 sites
+  88 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 16 4
+t1: 16 4
+t2: 16 4
+t3: 16 4
+t4: 16 4
+t5: 16 4
+t6: 16 4
+t7: 16 4
+t8: 16 4
+t9: 16 4
+Alignment(null)
+  10 taxa
+  16 sites
+  16 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 32 4
+t1: 32 4
+t2: 32 4
+t3: 32 4
+t4: 32 4
+t5: 32 4
+t6: 32 4
+t7: 32 4
+t8: 32 4
+t9: 32 4
+Alignment(null)
+  10 taxa
+  32 sites
+  32 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 193 4
+t1: 193 4
+t2: 193 4
+t3: 193 4
+t4: 193 4
+t5: 193 4
+t6: 193 4
+t7: 193 4
+t8: 193 4
+t9: 193 4
+Alignment(null)
+  10 taxa
+  193 sites
+  179 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 61 4
+t1: 61 4
+t2: 61 4
+t3: 61 4
+t4: 61 4
+t5: 61 4
+t6: 61 4
+t7: 61 4
+t8: 61 4
+t9: 61 4
+Alignment(null)
+  10 taxa
+  61 sites
+  60 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 216 4
+t1: 216 4
+t2: 216 4
+t3: 216 4
+t4: 216 4
+t5: 216 4
+t6: 216 4
+t7: 216 4
+t8: 216 4
+t9: 216 4
+Alignment(null)
+  10 taxa
+  216 sites
+  200 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 459 4
+t1: 459 4
+t2: 459 4
+t3: 459 4
+t4: 459 4
+t5: 459 4
+t6: 459 4
+t7: 459 4
+t8: 459 4
+t9: 459 4
+Alignment(null)
+  10 taxa
+  459 sites
+  378 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 41 4
+t1: 41 4
+t2: 41 4
+t3: 41 4
+t4: 41 4
+t5: 41 4
+t6: 41 4
+t7: 41 4
+t8: 41 4
+t9: 41 4
+Alignment(null)
+  10 taxa
+  41 sites
+  41 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 62 4
+t1: 62 4
+t2: 62 4
+t3: 62 4
+t4: 62 4
+t5: 62 4
+t6: 62 4
+t7: 62 4
+t8: 62 4
+t9: 62 4
+Alignment(null)
+  10 taxa
+  62 sites
+  61 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 159 4
+t1: 159 4
+t2: 159 4
+t3: 159 4
+t4: 159 4
+t5: 159 4
+t6: 159 4
+t7: 159 4
+t8: 159 4
+t9: 159 4
+Alignment(null)
+  10 taxa
+  159 sites
+  146 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 141 4
+t1: 141 4
+t2: 141 4
+t3: 141 4
+t4: 141 4
+t5: 141 4
+t6: 141 4
+t7: 141 4
+t8: 141 4
+t9: 141 4
+Alignment(null)
+  10 taxa
+  141 sites
+  134 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 209 4
+t1: 209 4
+t2: 209 4
+t3: 209 4
+t4: 209 4
+t5: 209 4
+t6: 209 4
+t7: 209 4
+t8: 209 4
+t9: 209 4
+Alignment(null)
+  10 taxa
+  209 sites
+  194 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 69 4
+t1: 69 4
+t2: 69 4
+t3: 69 4
+t4: 69 4
+t5: 69 4
+t6: 69 4
+t7: 69 4
+t8: 69 4
+t9: 69 4
+Alignment(null)
+  10 taxa
+  69 sites
+  66 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 96 4
+t1: 96 4
+t2: 96 4
+t3: 96 4
+t4: 96 4
+t5: 96 4
+t6: 96 4
+t7: 96 4
+t8: 96 4
+t9: 96 4
+Alignment(null)
+  10 taxa
+  96 sites
+  93 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 235 4
+t1: 235 4
+t2: 235 4
+t3: 235 4
+t4: 235 4
+t5: 235 4
+t6: 235 4
+t7: 235 4
+t8: 235 4
+t9: 235 4
+Alignment(null)
+  10 taxa
+  235 sites
+  224 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 553 4
+t1: 553 4
+t2: 553 4
+t3: 553 4
+t4: 553 4
+t5: 553 4
+t6: 553 4
+t7: 553 4
+t8: 553 4
+t9: 553 4
+Alignment(null)
+  10 taxa
+  553 sites
+  492 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 299 4
+t1: 299 4
+t2: 299 4
+t3: 299 4
+t4: 299 4
+t5: 299 4
+t6: 299 4
+t7: 299 4
+t8: 299 4
+t9: 299 4
+Alignment(null)
+  10 taxa
+  299 sites
+  276 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 95 4
+t1: 95 4
+t2: 95 4
+t3: 95 4
+t4: 95 4
+t5: 95 4
+t6: 95 4
+t7: 95 4
+t8: 95 4
+t9: 95 4
+Alignment(null)
+  10 taxa
+  95 sites
+  92 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 411 4
+t1: 411 4
+t2: 411 4
+t3: 411 4
+t4: 411 4
+t5: 411 4
+t6: 411 4
+t7: 411 4
+t8: 411 4
+t9: 411 4
+Alignment(null)
+  10 taxa
+  411 sites
+  379 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 393 4
+t1: 393 4
+t2: 393 4
+t3: 393 4
+t4: 393 4
+t5: 393 4
+t6: 393 4
+t7: 393 4
+t8: 393 4
+t9: 393 4
+Alignment(null)
+  10 taxa
+  393 sites
+  315 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 66 4
+t1: 66 4
+t2: 66 4
+t3: 66 4
+t4: 66 4
+t5: 66 4
+t6: 66 4
+t7: 66 4
+t8: 66 4
+t9: 66 4
+Alignment(null)
+  10 taxa
+  66 sites
+  64 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 168 4
+t1: 168 4
+t2: 168 4
+t3: 168 4
+t4: 168 4
+t5: 168 4
+t6: 168 4
+t7: 168 4
+t8: 168 4
+t9: 168 4
+Alignment(null)
+  10 taxa
+  168 sites
+  158 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 67 4
+t1: 67 4
+t2: 67 4
+t3: 67 4
+t4: 67 4
+t5: 67 4
+t6: 67 4
+t7: 67 4
+t8: 67 4
+t9: 67 4
+Alignment(null)
+  10 taxa
+  67 sites
+  67 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 18 4
+t1: 18 4
+t2: 18 4
+t3: 18 4
+t4: 18 4
+t5: 18 4
+t6: 18 4
+t7: 18 4
+t8: 18 4
+t9: 18 4
+Alignment(null)
+  10 taxa
+  18 sites
+  18 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 172 4
+t1: 172 4
+t2: 172 4
+t3: 172 4
+t4: 172 4
+t5: 172 4
+t6: 172 4
+t7: 172 4
+t8: 172 4
+t9: 172 4
+Alignment(null)
+  10 taxa
+  172 sites
+  159 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 127 4
+t1: 127 4
+t2: 127 4
+t3: 127 4
+t4: 127 4
+t5: 127 4
+t6: 127 4
+t7: 127 4
+t8: 127 4
+t9: 127 4
+Alignment(null)
+  10 taxa
+  127 sites
+  123 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 17 4
+t1: 17 4
+t2: 17 4
+t3: 17 4
+t4: 17 4
+t5: 17 4
+t6: 17 4
+t7: 17 4
+t8: 17 4
+t9: 17 4
+Alignment(null)
+  10 taxa
+  17 sites
+  16 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 54 4
+t1: 54 4
+t2: 54 4
+t3: 54 4
+t4: 54 4
+t5: 54 4
+t6: 54 4
+t7: 54 4
+t8: 54 4
+t9: 54 4
+Alignment(null)
+  10 taxa
+  54 sites
+  50 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 173 4
+t1: 173 4
+t2: 173 4
+t3: 173 4
+t4: 173 4
+t5: 173 4
+t6: 173 4
+t7: 173 4
+t8: 173 4
+t9: 173 4
+Alignment(null)
+  10 taxa
+  173 sites
+  130 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 108 4
+t1: 108 4
+t2: 108 4
+t3: 108 4
+t4: 108 4
+t5: 108 4
+t6: 108 4
+t7: 108 4
+t8: 108 4
+t9: 108 4
+Alignment(null)
+  10 taxa
+  108 sites
+  103 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 54 4
+t1: 54 4
+t2: 54 4
+t3: 54 4
+t4: 54 4
+t5: 54 4
+t6: 54 4
+t7: 54 4
+t8: 54 4
+t9: 54 4
+Alignment(null)
+  10 taxa
+  54 sites
+  51 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 37 4
+t1: 37 4
+t2: 37 4
+t3: 37 4
+t4: 37 4
+t5: 37 4
+t6: 37 4
+t7: 37 4
+t8: 37 4
+t9: 37 4
+Alignment(null)
+  10 taxa
+  37 sites
+  36 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 9 4
+t1: 9 4
+t2: 9 4
+t3: 9 4
+t4: 9 4
+t5: 9 4
+t6: 9 4
+t7: 9 4
+t8: 9 4
+t9: 9 4
+Alignment(null)
+  10 taxa
+  9 sites
+  9 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+logP=-94489.0
+logPprime=-94489.0
+relError=0.00000
+((((((((((((((((7:0.09995119750017534)#11:0.10588215709203916)#1:0.09358399507434331)#4:0.2837260735969697,((((((((10:0.04730460424272072,6:0.04730460424272072)12:0.21313790597795867,#11[&conv=11, region={5476,6724}, locus="locus", relSize=0.124900, affectedSites=1249, uselessSiteFraction=0.00000]:0.16049131272050404):0.059871458171797454)#14:0.06085090138706245,#7[&conv=7, region={4114,4545}, locus="locus", relSize=0.0432000, affectedSites=432, uselessSiteFraction=0.00000]:0.16527164519380064):0.0756334536174677)#16:0.04569710116247583,#6[&conv=6, region={3109,6209}, locus="locus", relSize=0.310100, affectedSites=2669, uselessSiteFraction=0.139310]:0.17449593423854765):0.060034198380482184)#0:0.016944795205768193,#3[&conv=3, region={0,510}, locus="locus", relSize=0.0511000, affectedSites=511, uselessSiteFraction=0.00000]:0.3567183692893835):0.003669005117794333)18:0.03897532856327668,#14[&conv=14, region={6925,7435}, locus="locus", relSize=0.0511000, affectedSites=511, uselessSiteFraction=0.00000]:0.3018047834343274):0.049007315947051766,#16[&conv=16, region={8828,9770}, locus="locus", relSize=0.0943000, affectedSites=943, uselessSiteFraction=0.00000]:0.21432774437684898):0.008530760208896426,#19[&conv=19, region={9848,9999}, locus="locus", relSize=0.0152000, affectedSites=151, uselessSiteFraction=0.00657895]:0.47980838508696577):0.038239907581570476,#9[&conv=9, region={4527,6287}, locus="locus", relSize=0.176100, affectedSites=1761, uselessSiteFraction=0.00000]:0.4364980751636737):0.07516093699846005,#18[&conv=18, region={9798,9841}, locus="locus", relSize=0.00440000, affectedSites=0, uselessSiteFraction=1.00000]:0.0630738012398776):0.051509395716758055,#8[&conv=8, region={4444,4476}, locus="locus", relSize=0.00330000, affectedSites=33, uselessSiteFraction=0.00000]:0.4735170257501117):0.04115587110470198,(((((((((((2:0.09917778155744375)#5:0.13334361818562213,((4:0.19984844289578665)#19:0.02290760596056307)#3:0.009765350886716151)14:0.013939421021716941,((8:0.07620633849951047)#2:0.05568514184321441,#5[&conv=5, region={446,2597}, locus="locus", relSize=0.215200, affectedSites=2152, uselessSiteFraction=0.00000]:0.03271369878528113):0.11456934042205794)15:0.06813856291904341,(((((1:0.052298351095162114,3:0.052298351095162114)13:0.03163098481670818)#17:0.012439066938019078,#2[&conv=2, region={0,1222}, locus="locus", relSize=0.122300, affectedSites=1223, uselessSiteFraction=0.00000]:0.0201620643503789):0.13134096357866903,#17[&conv=17, region={9397,9984}, locus="locus", relSize=0.0588000, affectedSites=588, uselessSiteFraction=0.00000]:0.1437800305166881):0.05368929397209074)#9:0.03320072328317708)16:0.056450658845603074)#8:0.02553345823117148,(((((5:0.025771708479431825,9:0.025771708479431825)11:0.19012151610630681)#7:0.09703100766721581)#13:0.01003357840300606,#13[&conv=13, region={6157,7404}, locus="locus", relSize=0.124800, affectedSites=1248, uselessSiteFraction=0.00000]:0.01003357840300606):0.005041679664974652)#6:0.06858401043966561)17:0.17165460857764936,#0[&conv=0, region={0,143}, locus="locus", relSize=0.0144000, affectedSites=144, uselessSiteFraction=0.00000]:0.00570848639828514):0.07692134449086874)#15:0.014162215737445472)#10:0.014131952483285026)#12:0.056530249273055944)#18:0.15573906806133764)19:0.1772705541785602,#1[&conv=1, region={0,158}, locus="locus", relSize=0.0159000, affectedSites=159, uselessSiteFraction=0.00000]:0.8571601389705886):0.4440433134883135,#10[&conv=10, region={5354,5758}, locus="locus", relSize=0.0405000, affectedSites=405, uselessSiteFraction=0.00000]:0.8477151374845523):0.023134121259743567,#12[&conv=12, region={5938,6741}, locus="locus", relSize=0.0804000, affectedSites=804, uselessSiteFraction=0.00000]:0.8567173062610108):0.9060972358519437,#15[&conv=15, region={8523,9999}, locus="locus", relSize=0.147700, affectedSites=1476, uselessSiteFraction=0.000677048]:1.7911087103336851):0.7351480486021118,#4[&conv=4, region={0,92}, locus="locus", relSize=0.00930000, affectedSites=0, uselessSiteFraction=1.00000]:2.8719988630983577):0.0;
+141 segregating sites in region 0-143 (4 active conversions)
+14 segregating sites in region 144-158 (3 active conversions)
+279 segregating sites in region 159-445 (2 active conversions)
+61 segregating sites in region 446-510 (3 active conversions)
+677 segregating sites in region 511-1222 (2 active conversions)
+1320 segregating sites in region 1223-2597 (1 active conversions)
+490 segregating sites in region 2598-3108 (CF)
+969 segregating sites in region 3109-4113 (1 active conversions)
+319 segregating sites in region 4114-4443 (2 active conversions)
+33 segregating sites in region 4444-4476 (3 active conversions)
+47 segregating sites in region 4477-4526 (2 active conversions)
+19 segregating sites in region 4527-4545 (3 active conversions)
+786 segregating sites in region 4546-5353 (2 active conversions)
+120 segregating sites in region 5354-5475 (3 active conversions)
+279 segregating sites in region 5476-5758 (4 active conversions)
+173 segregating sites in region 5759-5937 (3 active conversions)
+217 segregating sites in region 5938-6156 (4 active conversions)
+53 segregating sites in region 6157-6209 (5 active conversions)
+76 segregating sites in region 6210-6287 (4 active conversions)
+425 segregating sites in region 6288-6724 (3 active conversions)
+17 segregating sites in region 6725-6741 (2 active conversions)
+174 segregating sites in region 6742-6924 (1 active conversions)
+462 segregating sites in region 6925-7404 (2 active conversions)
+29 segregating sites in region 7405-7435 (1 active conversions)
+1048 segregating sites in region 7436-8522 (CF)
+304 segregating sites in region 8523-8827 (1 active conversions)
+557 segregating sites in region 8828-9396 (2 active conversions)
+368 segregating sites in region 9397-9770 (3 active conversions)
+76 segregating sites in region 9771-9847 (2 active conversions)
+137 segregating sites in region 9848-9984 (3 active conversions)
+15 segregating sites in region 9985-9999 (2 active conversions)
+t0: 10000 4
+t1: 10000 4
+t2: 10000 4
+t3: 10000 4
+t4: 10000 4
+t5: 10000 4
+t6: 10000 4
+t7: 10000 4
+t8: 10000 4
+t9: 10000 4
+SimulatedAlignment(null)
+  10 taxa
+  10000 sites
+  5648 patterns
+
+t0: 144 4
+t1: 144 4
+t2: 144 4
+t3: 144 4
+t4: 144 4
+t5: 144 4
+t6: 144 4
+t7: 144 4
+t8: 144 4
+t9: 144 4
+Alignment(null)
+  10 taxa
+  144 sites
+  140 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 15 4
+t1: 15 4
+t2: 15 4
+t3: 15 4
+t4: 15 4
+t5: 15 4
+t6: 15 4
+t7: 15 4
+t8: 15 4
+t9: 15 4
+Alignment(null)
+  10 taxa
+  15 sites
+  15 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 287 4
+t1: 287 4
+t2: 287 4
+t3: 287 4
+t4: 287 4
+t5: 287 4
+t6: 287 4
+t7: 287 4
+t8: 287 4
+t9: 287 4
+Alignment(null)
+  10 taxa
+  287 sites
+  268 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 65 4
+t1: 65 4
+t2: 65 4
+t3: 65 4
+t4: 65 4
+t5: 65 4
+t6: 65 4
+t7: 65 4
+t8: 65 4
+t9: 65 4
+Alignment(null)
+  10 taxa
+  65 sites
+  64 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 712 4
+t1: 712 4
+t2: 712 4
+t3: 712 4
+t4: 712 4
+t5: 712 4
+t6: 712 4
+t7: 712 4
+t8: 712 4
+t9: 712 4
+Alignment(null)
+  10 taxa
+  712 sites
+  571 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1375 4
+t1: 1375 4
+t2: 1375 4
+t3: 1375 4
+t4: 1375 4
+t5: 1375 4
+t6: 1375 4
+t7: 1375 4
+t8: 1375 4
+t9: 1375 4
+Alignment(null)
+  10 taxa
+  1375 sites
+  1025 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 511 4
+t1: 511 4
+t2: 511 4
+t3: 511 4
+t4: 511 4
+t5: 511 4
+t6: 511 4
+t7: 511 4
+t8: 511 4
+t9: 511 4
+Alignment(null)
+  10 taxa
+  511 sites
+  443 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1005 4
+t1: 1005 4
+t2: 1005 4
+t3: 1005 4
+t4: 1005 4
+t5: 1005 4
+t6: 1005 4
+t7: 1005 4
+t8: 1005 4
+t9: 1005 4
+Alignment(null)
+  10 taxa
+  1005 sites
+  848 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 330 4
+t1: 330 4
+t2: 330 4
+t3: 330 4
+t4: 330 4
+t5: 330 4
+t6: 330 4
+t7: 330 4
+t8: 330 4
+t9: 330 4
+Alignment(null)
+  10 taxa
+  330 sites
+  308 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 33 4
+t1: 33 4
+t2: 33 4
+t3: 33 4
+t4: 33 4
+t5: 33 4
+t6: 33 4
+t7: 33 4
+t8: 33 4
+t9: 33 4
+Alignment(null)
+  10 taxa
+  33 sites
+  33 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 50 4
+t1: 50 4
+t2: 50 4
+t3: 50 4
+t4: 50 4
+t5: 50 4
+t6: 50 4
+t7: 50 4
+t8: 50 4
+t9: 50 4
+Alignment(null)
+  10 taxa
+  50 sites
+  49 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 19 4
+t1: 19 4
+t2: 19 4
+t3: 19 4
+t4: 19 4
+t5: 19 4
+t6: 19 4
+t7: 19 4
+t8: 19 4
+t9: 19 4
+Alignment(null)
+  10 taxa
+  19 sites
+  19 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 808 4
+t1: 808 4
+t2: 808 4
+t3: 808 4
+t4: 808 4
+t5: 808 4
+t6: 808 4
+t7: 808 4
+t8: 808 4
+t9: 808 4
+Alignment(null)
+  10 taxa
+  808 sites
+  720 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 122 4
+t1: 122 4
+t2: 122 4
+t3: 122 4
+t4: 122 4
+t5: 122 4
+t6: 122 4
+t7: 122 4
+t8: 122 4
+t9: 122 4
+Alignment(null)
+  10 taxa
+  122 sites
+  118 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 283 4
+t1: 283 4
+t2: 283 4
+t3: 283 4
+t4: 283 4
+t5: 283 4
+t6: 283 4
+t7: 283 4
+t8: 283 4
+t9: 283 4
+Alignment(null)
+  10 taxa
+  283 sites
+  270 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 179 4
+t1: 179 4
+t2: 179 4
+t3: 179 4
+t4: 179 4
+t5: 179 4
+t6: 179 4
+t7: 179 4
+t8: 179 4
+t9: 179 4
+Alignment(null)
+  10 taxa
+  179 sites
+  175 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 219 4
+t1: 219 4
+t2: 219 4
+t3: 219 4
+t4: 219 4
+t5: 219 4
+t6: 219 4
+t7: 219 4
+t8: 219 4
+t9: 219 4
+Alignment(null)
+  10 taxa
+  219 sites
+  210 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 53 4
+t1: 53 4
+t2: 53 4
+t3: 53 4
+t4: 53 4
+t5: 53 4
+t6: 53 4
+t7: 53 4
+t8: 53 4
+t9: 53 4
+Alignment(null)
+  10 taxa
+  53 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 78 4
+t1: 78 4
+t2: 78 4
+t3: 78 4
+t4: 78 4
+t5: 78 4
+t6: 78 4
+t7: 78 4
+t8: 78 4
+t9: 78 4
+Alignment(null)
+  10 taxa
+  78 sites
+  76 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 437 4
+t1: 437 4
+t2: 437 4
+t3: 437 4
+t4: 437 4
+t5: 437 4
+t6: 437 4
+t7: 437 4
+t8: 437 4
+t9: 437 4
+Alignment(null)
+  10 taxa
+  437 sites
+  380 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 17 4
+t1: 17 4
+t2: 17 4
+t3: 17 4
+t4: 17 4
+t5: 17 4
+t6: 17 4
+t7: 17 4
+t8: 17 4
+t9: 17 4
+Alignment(null)
+  10 taxa
+  17 sites
+  17 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 183 4
+t1: 183 4
+t2: 183 4
+t3: 183 4
+t4: 183 4
+t5: 183 4
+t6: 183 4
+t7: 183 4
+t8: 183 4
+t9: 183 4
+Alignment(null)
+  10 taxa
+  183 sites
+  169 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 480 4
+t1: 480 4
+t2: 480 4
+t3: 480 4
+t4: 480 4
+t5: 480 4
+t6: 480 4
+t7: 480 4
+t8: 480 4
+t9: 480 4
+Alignment(null)
+  10 taxa
+  480 sites
+  419 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 31 4
+t1: 31 4
+t2: 31 4
+t3: 31 4
+t4: 31 4
+t5: 31 4
+t6: 31 4
+t7: 31 4
+t8: 31 4
+t9: 31 4
+Alignment(null)
+  10 taxa
+  31 sites
+  31 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1087 4
+t1: 1087 4
+t2: 1087 4
+t3: 1087 4
+t4: 1087 4
+t5: 1087 4
+t6: 1087 4
+t7: 1087 4
+t8: 1087 4
+t9: 1087 4
+Alignment(null)
+  10 taxa
+  1087 sites
+  875 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 305 4
+t1: 305 4
+t2: 305 4
+t3: 305 4
+t4: 305 4
+t5: 305 4
+t6: 305 4
+t7: 305 4
+t8: 305 4
+t9: 305 4
+Alignment(null)
+  10 taxa
+  305 sites
+  281 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 569 4
+t1: 569 4
+t2: 569 4
+t3: 569 4
+t4: 569 4
+t5: 569 4
+t6: 569 4
+t7: 569 4
+t8: 569 4
+t9: 569 4
+Alignment(null)
+  10 taxa
+  569 sites
+  493 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 374 4
+t1: 374 4
+t2: 374 4
+t3: 374 4
+t4: 374 4
+t5: 374 4
+t6: 374 4
+t7: 374 4
+t8: 374 4
+t9: 374 4
+Alignment(null)
+  10 taxa
+  374 sites
+  340 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 77 4
+t1: 77 4
+t2: 77 4
+t3: 77 4
+t4: 77 4
+t5: 77 4
+t6: 77 4
+t7: 77 4
+t8: 77 4
+t9: 77 4
+Alignment(null)
+  10 taxa
+  77 sites
+  77 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 137 4
+t1: 137 4
+t2: 137 4
+t3: 137 4
+t4: 137 4
+t5: 137 4
+t6: 137 4
+t7: 137 4
+t8: 137 4
+t9: 137 4
+Alignment(null)
+  10 taxa
+  137 sites
+  135 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 15 4
+t1: 15 4
+t2: 15 4
+t3: 15 4
+t4: 15 4
+t5: 15 4
+t6: 15 4
+t7: 15 4
+t8: 15 4
+t9: 15 4
+Alignment(null)
+  10 taxa
+  15 sites
+  15 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+logP=-92132.0
+logPprime=-92132.0
+relError=1.57946e-16
+t0: 144 4
+t1: 144 4
+t2: 144 4
+t3: 144 4
+t4: 144 4
+t5: 144 4
+t6: 144 4
+t7: 144 4
+t8: 144 4
+t9: 144 4
+Alignment(null)
+  10 taxa
+  144 sites
+  140 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 15 4
+t1: 15 4
+t2: 15 4
+t3: 15 4
+t4: 15 4
+t5: 15 4
+t6: 15 4
+t7: 15 4
+t8: 15 4
+t9: 15 4
+Alignment(null)
+  10 taxa
+  15 sites
+  15 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 287 4
+t1: 287 4
+t2: 287 4
+t3: 287 4
+t4: 287 4
+t5: 287 4
+t6: 287 4
+t7: 287 4
+t8: 287 4
+t9: 287 4
+Alignment(null)
+  10 taxa
+  287 sites
+  268 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 54 4
+t1: 54 4
+t2: 54 4
+t3: 54 4
+t4: 54 4
+t5: 54 4
+t6: 54 4
+t7: 54 4
+t8: 54 4
+t9: 54 4
+Alignment(null)
+  10 taxa
+  54 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 11 4
+t1: 11 4
+t2: 11 4
+t3: 11 4
+t4: 11 4
+t5: 11 4
+t6: 11 4
+t7: 11 4
+t8: 11 4
+t9: 11 4
+Alignment(null)
+  10 taxa
+  11 sites
+  11 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 90 4
+t1: 90 4
+t2: 90 4
+t3: 90 4
+t4: 90 4
+t5: 90 4
+t6: 90 4
+t7: 90 4
+t8: 90 4
+t9: 90 4
+Alignment(null)
+  10 taxa
+  90 sites
+  85 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 622 4
+t1: 622 4
+t2: 622 4
+t3: 622 4
+t4: 622 4
+t5: 622 4
+t6: 622 4
+t7: 622 4
+t8: 622 4
+t9: 622 4
+Alignment(null)
+  10 taxa
+  622 sites
+  513 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1375 4
+t1: 1375 4
+t2: 1375 4
+t3: 1375 4
+t4: 1375 4
+t5: 1375 4
+t6: 1375 4
+t7: 1375 4
+t8: 1375 4
+t9: 1375 4
+Alignment(null)
+  10 taxa
+  1375 sites
+  1025 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 511 4
+t1: 511 4
+t2: 511 4
+t3: 511 4
+t4: 511 4
+t5: 511 4
+t6: 511 4
+t7: 511 4
+t8: 511 4
+t9: 511 4
+Alignment(null)
+  10 taxa
+  511 sites
+  443 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1005 4
+t1: 1005 4
+t2: 1005 4
+t3: 1005 4
+t4: 1005 4
+t5: 1005 4
+t6: 1005 4
+t7: 1005 4
+t8: 1005 4
+t9: 1005 4
+Alignment(null)
+  10 taxa
+  1005 sites
+  848 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 330 4
+t1: 330 4
+t2: 330 4
+t3: 330 4
+t4: 330 4
+t5: 330 4
+t6: 330 4
+t7: 330 4
+t8: 330 4
+t9: 330 4
+Alignment(null)
+  10 taxa
+  330 sites
+  308 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 33 4
+t1: 33 4
+t2: 33 4
+t3: 33 4
+t4: 33 4
+t5: 33 4
+t6: 33 4
+t7: 33 4
+t8: 33 4
+t9: 33 4
+Alignment(null)
+  10 taxa
+  33 sites
+  33 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 50 4
+t1: 50 4
+t2: 50 4
+t3: 50 4
+t4: 50 4
+t5: 50 4
+t6: 50 4
+t7: 50 4
+t8: 50 4
+t9: 50 4
+Alignment(null)
+  10 taxa
+  50 sites
+  49 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 19 4
+t1: 19 4
+t2: 19 4
+t3: 19 4
+t4: 19 4
+t5: 19 4
+t6: 19 4
+t7: 19 4
+t8: 19 4
+t9: 19 4
+Alignment(null)
+  10 taxa
+  19 sites
+  19 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 808 4
+t1: 808 4
+t2: 808 4
+t3: 808 4
+t4: 808 4
+t5: 808 4
+t6: 808 4
+t7: 808 4
+t8: 808 4
+t9: 808 4
+Alignment(null)
+  10 taxa
+  808 sites
+  720 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 122 4
+t1: 122 4
+t2: 122 4
+t3: 122 4
+t4: 122 4
+t5: 122 4
+t6: 122 4
+t7: 122 4
+t8: 122 4
+t9: 122 4
+Alignment(null)
+  10 taxa
+  122 sites
+  118 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 283 4
+t1: 283 4
+t2: 283 4
+t3: 283 4
+t4: 283 4
+t5: 283 4
+t6: 283 4
+t7: 283 4
+t8: 283 4
+t9: 283 4
+Alignment(null)
+  10 taxa
+  283 sites
+  270 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 179 4
+t1: 179 4
+t2: 179 4
+t3: 179 4
+t4: 179 4
+t5: 179 4
+t6: 179 4
+t7: 179 4
+t8: 179 4
+t9: 179 4
+Alignment(null)
+  10 taxa
+  179 sites
+  175 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 219 4
+t1: 219 4
+t2: 219 4
+t3: 219 4
+t4: 219 4
+t5: 219 4
+t6: 219 4
+t7: 219 4
+t8: 219 4
+t9: 219 4
+Alignment(null)
+  10 taxa
+  219 sites
+  210 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 53 4
+t1: 53 4
+t2: 53 4
+t3: 53 4
+t4: 53 4
+t5: 53 4
+t6: 53 4
+t7: 53 4
+t8: 53 4
+t9: 53 4
+Alignment(null)
+  10 taxa
+  53 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 78 4
+t1: 78 4
+t2: 78 4
+t3: 78 4
+t4: 78 4
+t5: 78 4
+t6: 78 4
+t7: 78 4
+t8: 78 4
+t9: 78 4
+Alignment(null)
+  10 taxa
+  78 sites
+  76 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 437 4
+t1: 437 4
+t2: 437 4
+t3: 437 4
+t4: 437 4
+t5: 437 4
+t6: 437 4
+t7: 437 4
+t8: 437 4
+t9: 437 4
+Alignment(null)
+  10 taxa
+  437 sites
+  380 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 17 4
+t1: 17 4
+t2: 17 4
+t3: 17 4
+t4: 17 4
+t5: 17 4
+t6: 17 4
+t7: 17 4
+t8: 17 4
+t9: 17 4
+Alignment(null)
+  10 taxa
+  17 sites
+  17 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 183 4
+t1: 183 4
+t2: 183 4
+t3: 183 4
+t4: 183 4
+t5: 183 4
+t6: 183 4
+t7: 183 4
+t8: 183 4
+t9: 183 4
+Alignment(null)
+  10 taxa
+  183 sites
+  169 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 480 4
+t1: 480 4
+t2: 480 4
+t3: 480 4
+t4: 480 4
+t5: 480 4
+t6: 480 4
+t7: 480 4
+t8: 480 4
+t9: 480 4
+Alignment(null)
+  10 taxa
+  480 sites
+  419 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 31 4
+t1: 31 4
+t2: 31 4
+t3: 31 4
+t4: 31 4
+t5: 31 4
+t6: 31 4
+t7: 31 4
+t8: 31 4
+t9: 31 4
+Alignment(null)
+  10 taxa
+  31 sites
+  31 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1087 4
+t1: 1087 4
+t2: 1087 4
+t3: 1087 4
+t4: 1087 4
+t5: 1087 4
+t6: 1087 4
+t7: 1087 4
+t8: 1087 4
+t9: 1087 4
+Alignment(null)
+  10 taxa
+  1087 sites
+  875 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 305 4
+t1: 305 4
+t2: 305 4
+t3: 305 4
+t4: 305 4
+t5: 305 4
+t6: 305 4
+t7: 305 4
+t8: 305 4
+t9: 305 4
+Alignment(null)
+  10 taxa
+  305 sites
+  281 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 569 4
+t1: 569 4
+t2: 569 4
+t3: 569 4
+t4: 569 4
+t5: 569 4
+t6: 569 4
+t7: 569 4
+t8: 569 4
+t9: 569 4
+Alignment(null)
+  10 taxa
+  569 sites
+  493 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 374 4
+t1: 374 4
+t2: 374 4
+t3: 374 4
+t4: 374 4
+t5: 374 4
+t6: 374 4
+t7: 374 4
+t8: 374 4
+t9: 374 4
+Alignment(null)
+  10 taxa
+  374 sites
+  340 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 77 4
+t1: 77 4
+t2: 77 4
+t3: 77 4
+t4: 77 4
+t5: 77 4
+t6: 77 4
+t7: 77 4
+t8: 77 4
+t9: 77 4
+Alignment(null)
+  10 taxa
+  77 sites
+  77 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 137 4
+t1: 137 4
+t2: 137 4
+t3: 137 4
+t4: 137 4
+t5: 137 4
+t6: 137 4
+t7: 137 4
+t8: 137 4
+t9: 137 4
+Alignment(null)
+  10 taxa
+  137 sites
+  135 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 15 4
+t1: 15 4
+t2: 15 4
+t3: 15 4
+t4: 15 4
+t5: 15 4
+t6: 15 4
+t7: 15 4
+t8: 15 4
+t9: 15 4
+Alignment(null)
+  10 taxa
+  15 sites
+  15 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+logP=-92147.9
+logPprime=-92147.9
+relError=3.15838e-16
+t0: 144 4
+t1: 144 4
+t2: 144 4
+t3: 144 4
+t4: 144 4
+t5: 144 4
+t6: 144 4
+t7: 144 4
+t8: 144 4
+t9: 144 4
+Alignment(null)
+  10 taxa
+  144 sites
+  140 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 15 4
+t1: 15 4
+t2: 15 4
+t3: 15 4
+t4: 15 4
+t5: 15 4
+t6: 15 4
+t7: 15 4
+t8: 15 4
+t9: 15 4
+Alignment(null)
+  10 taxa
+  15 sites
+  15 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 287 4
+t1: 287 4
+t2: 287 4
+t3: 287 4
+t4: 287 4
+t5: 287 4
+t6: 287 4
+t7: 287 4
+t8: 287 4
+t9: 287 4
+Alignment(null)
+  10 taxa
+  287 sites
+  268 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 65 4
+t1: 65 4
+t2: 65 4
+t3: 65 4
+t4: 65 4
+t5: 65 4
+t6: 65 4
+t7: 65 4
+t8: 65 4
+t9: 65 4
+Alignment(null)
+  10 taxa
+  65 sites
+  64 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 712 4
+t1: 712 4
+t2: 712 4
+t3: 712 4
+t4: 712 4
+t5: 712 4
+t6: 712 4
+t7: 712 4
+t8: 712 4
+t9: 712 4
+Alignment(null)
+  10 taxa
+  712 sites
+  571 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1375 4
+t1: 1375 4
+t2: 1375 4
+t3: 1375 4
+t4: 1375 4
+t5: 1375 4
+t6: 1375 4
+t7: 1375 4
+t8: 1375 4
+t9: 1375 4
+Alignment(null)
+  10 taxa
+  1375 sites
+  1025 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 511 4
+t1: 511 4
+t2: 511 4
+t3: 511 4
+t4: 511 4
+t5: 511 4
+t6: 511 4
+t7: 511 4
+t8: 511 4
+t9: 511 4
+Alignment(null)
+  10 taxa
+  511 sites
+  443 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1005 4
+t1: 1005 4
+t2: 1005 4
+t3: 1005 4
+t4: 1005 4
+t5: 1005 4
+t6: 1005 4
+t7: 1005 4
+t8: 1005 4
+t9: 1005 4
+Alignment(null)
+  10 taxa
+  1005 sites
+  848 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 330 4
+t1: 330 4
+t2: 330 4
+t3: 330 4
+t4: 330 4
+t5: 330 4
+t6: 330 4
+t7: 330 4
+t8: 330 4
+t9: 330 4
+Alignment(null)
+  10 taxa
+  330 sites
+  308 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 33 4
+t1: 33 4
+t2: 33 4
+t3: 33 4
+t4: 33 4
+t5: 33 4
+t6: 33 4
+t7: 33 4
+t8: 33 4
+t9: 33 4
+Alignment(null)
+  10 taxa
+  33 sites
+  33 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 50 4
+t1: 50 4
+t2: 50 4
+t3: 50 4
+t4: 50 4
+t5: 50 4
+t6: 50 4
+t7: 50 4
+t8: 50 4
+t9: 50 4
+Alignment(null)
+  10 taxa
+  50 sites
+  49 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 19 4
+t1: 19 4
+t2: 19 4
+t3: 19 4
+t4: 19 4
+t5: 19 4
+t6: 19 4
+t7: 19 4
+t8: 19 4
+t9: 19 4
+Alignment(null)
+  10 taxa
+  19 sites
+  19 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 808 4
+t1: 808 4
+t2: 808 4
+t3: 808 4
+t4: 808 4
+t5: 808 4
+t6: 808 4
+t7: 808 4
+t8: 808 4
+t9: 808 4
+Alignment(null)
+  10 taxa
+  808 sites
+  720 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 122 4
+t1: 122 4
+t2: 122 4
+t3: 122 4
+t4: 122 4
+t5: 122 4
+t6: 122 4
+t7: 122 4
+t8: 122 4
+t9: 122 4
+Alignment(null)
+  10 taxa
+  122 sites
+  118 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 283 4
+t1: 283 4
+t2: 283 4
+t3: 283 4
+t4: 283 4
+t5: 283 4
+t6: 283 4
+t7: 283 4
+t8: 283 4
+t9: 283 4
+Alignment(null)
+  10 taxa
+  283 sites
+  270 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 179 4
+t1: 179 4
+t2: 179 4
+t3: 179 4
+t4: 179 4
+t5: 179 4
+t6: 179 4
+t7: 179 4
+t8: 179 4
+t9: 179 4
+Alignment(null)
+  10 taxa
+  179 sites
+  175 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 219 4
+t1: 219 4
+t2: 219 4
+t3: 219 4
+t4: 219 4
+t5: 219 4
+t6: 219 4
+t7: 219 4
+t8: 219 4
+t9: 219 4
+Alignment(null)
+  10 taxa
+  219 sites
+  210 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 53 4
+t1: 53 4
+t2: 53 4
+t3: 53 4
+t4: 53 4
+t5: 53 4
+t6: 53 4
+t7: 53 4
+t8: 53 4
+t9: 53 4
+Alignment(null)
+  10 taxa
+  53 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 78 4
+t1: 78 4
+t2: 78 4
+t3: 78 4
+t4: 78 4
+t5: 78 4
+t6: 78 4
+t7: 78 4
+t8: 78 4
+t9: 78 4
+Alignment(null)
+  10 taxa
+  78 sites
+  76 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 437 4
+t1: 437 4
+t2: 437 4
+t3: 437 4
+t4: 437 4
+t5: 437 4
+t6: 437 4
+t7: 437 4
+t8: 437 4
+t9: 437 4
+Alignment(null)
+  10 taxa
+  437 sites
+  380 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 17 4
+t1: 17 4
+t2: 17 4
+t3: 17 4
+t4: 17 4
+t5: 17 4
+t6: 17 4
+t7: 17 4
+t8: 17 4
+t9: 17 4
+Alignment(null)
+  10 taxa
+  17 sites
+  17 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 183 4
+t1: 183 4
+t2: 183 4
+t3: 183 4
+t4: 183 4
+t5: 183 4
+t6: 183 4
+t7: 183 4
+t8: 183 4
+t9: 183 4
+Alignment(null)
+  10 taxa
+  183 sites
+  169 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 480 4
+t1: 480 4
+t2: 480 4
+t3: 480 4
+t4: 480 4
+t5: 480 4
+t6: 480 4
+t7: 480 4
+t8: 480 4
+t9: 480 4
+Alignment(null)
+  10 taxa
+  480 sites
+  419 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 31 4
+t1: 31 4
+t2: 31 4
+t3: 31 4
+t4: 31 4
+t5: 31 4
+t6: 31 4
+t7: 31 4
+t8: 31 4
+t9: 31 4
+Alignment(null)
+  10 taxa
+  31 sites
+  31 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 1087 4
+t1: 1087 4
+t2: 1087 4
+t3: 1087 4
+t4: 1087 4
+t5: 1087 4
+t6: 1087 4
+t7: 1087 4
+t8: 1087 4
+t9: 1087 4
+Alignment(null)
+  10 taxa
+  1087 sites
+  875 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 305 4
+t1: 305 4
+t2: 305 4
+t3: 305 4
+t4: 305 4
+t5: 305 4
+t6: 305 4
+t7: 305 4
+t8: 305 4
+t9: 305 4
+Alignment(null)
+  10 taxa
+  305 sites
+  281 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 569 4
+t1: 569 4
+t2: 569 4
+t3: 569 4
+t4: 569 4
+t5: 569 4
+t6: 569 4
+t7: 569 4
+t8: 569 4
+t9: 569 4
+Alignment(null)
+  10 taxa
+  569 sites
+  493 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 374 4
+t1: 374 4
+t2: 374 4
+t3: 374 4
+t4: 374 4
+t5: 374 4
+t6: 374 4
+t7: 374 4
+t8: 374 4
+t9: 374 4
+Alignment(null)
+  10 taxa
+  374 sites
+  340 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 77 4
+t1: 77 4
+t2: 77 4
+t3: 77 4
+t4: 77 4
+t5: 77 4
+t6: 77 4
+t7: 77 4
+t8: 77 4
+t9: 77 4
+Alignment(null)
+  10 taxa
+  77 sites
+  77 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 137 4
+t1: 137 4
+t2: 137 4
+t3: 137 4
+t4: 137 4
+t5: 137 4
+t6: 137 4
+t7: 137 4
+t8: 137 4
+t9: 137 4
+Alignment(null)
+  10 taxa
+  137 sites
+  135 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+t0: 15 4
+t1: 15 4
+t2: 15 4
+t3: 15 4
+t4: 15 4
+t5: 15 4
+t6: 15 4
+t7: 15 4
+t8: 15 4
+t9: 15 4
+Alignment(null)
+  10 taxa
+  15 sites
+  15 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+logP=-92132.0
+logPprime=-92132.0
+relError=1.57946e-16
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+Tarsius_syrichta: 898 4
+Lemur_catta: 898 4
+Homo_sapiens: 898 4
+Pan: 898 4
+Gorilla: 898 4
+Pongo: 898 4
+Hylobates: 898 4
+Macaca_fuscata: 898 4
+M_mulatta: 898 4
+M_fascicularis: 898 4
+M_sylvanus: 898 4
+Saimiri_sciureus: 898 4
+Alignment(null)
+  12 taxa
+  898 sites
+  418 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 100 4
+Lemur_catta: 100 4
+Homo_sapiens: 100 4
+Pan: 100 4
+Gorilla: 100 4
+Pongo: 100 4
+Hylobates: 100 4
+Macaca_fuscata: 100 4
+M_mulatta: 100 4
+M_fascicularis: 100 4
+M_sylvanus: 100 4
+Saimiri_sciureus: 100 4
+Alignment(null)
+  12 taxa
+  100 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 101 4
+Lemur_catta: 101 4
+Homo_sapiens: 101 4
+Pan: 101 4
+Gorilla: 101 4
+Pongo: 101 4
+Hylobates: 101 4
+Macaca_fuscata: 101 4
+M_mulatta: 101 4
+M_fascicularis: 101 4
+M_sylvanus: 101 4
+Saimiri_sciureus: 101 4
+Alignment(null)
+  12 taxa
+  101 sites
+  59 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 697 4
+Lemur_catta: 697 4
+Homo_sapiens: 697 4
+Pan: 697 4
+Gorilla: 697 4
+Pongo: 697 4
+Hylobates: 697 4
+Macaca_fuscata: 697 4
+M_mulatta: 697 4
+M_fascicularis: 697 4
+M_sylvanus: 697 4
+Saimiri_sciureus: 697 4
+Alignment(null)
+  12 taxa
+  697 sites
+  339 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 100 4
+Lemur_catta: 100 4
+Homo_sapiens: 100 4
+Pan: 100 4
+Gorilla: 100 4
+Pongo: 100 4
+Hylobates: 100 4
+Macaca_fuscata: 100 4
+M_mulatta: 100 4
+M_fascicularis: 100 4
+M_sylvanus: 100 4
+Saimiri_sciureus: 100 4
+Alignment(null)
+  12 taxa
+  100 sites
+  53 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 101 4
+Lemur_catta: 101 4
+Homo_sapiens: 101 4
+Pan: 101 4
+Gorilla: 101 4
+Pongo: 101 4
+Hylobates: 101 4
+Macaca_fuscata: 101 4
+M_mulatta: 101 4
+M_fascicularis: 101 4
+M_sylvanus: 101 4
+Saimiri_sciureus: 101 4
+Alignment(null)
+  12 taxa
+  101 sites
+  59 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 49 4
+Lemur_catta: 49 4
+Homo_sapiens: 49 4
+Pan: 49 4
+Gorilla: 49 4
+Pongo: 49 4
+Hylobates: 49 4
+Macaca_fuscata: 49 4
+M_mulatta: 49 4
+M_fascicularis: 49 4
+M_sylvanus: 49 4
+Saimiri_sciureus: 49 4
+Alignment(null)
+  12 taxa
+  49 sites
+  36 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 51 4
+Lemur_catta: 51 4
+Homo_sapiens: 51 4
+Pan: 51 4
+Gorilla: 51 4
+Pongo: 51 4
+Hylobates: 51 4
+Macaca_fuscata: 51 4
+M_mulatta: 51 4
+M_fascicularis: 51 4
+M_sylvanus: 51 4
+Saimiri_sciureus: 51 4
+Alignment(null)
+  12 taxa
+  51 sites
+  35 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+Tarsius_syrichta: 597 4
+Lemur_catta: 597 4
+Homo_sapiens: 597 4
+Pan: 597 4
+Gorilla: 597 4
+Pongo: 597 4
+Hylobates: 597 4
+Macaca_fuscata: 597 4
+M_mulatta: 597 4
+M_fascicularis: 597 4
+M_sylvanus: 597 4
+Saimiri_sciureus: 597 4
+Alignment(null)
+  12 taxa
+  597 sites
+  291 patterns
+
+  Using BEAGLE version: 1.x resource 0: CPU
+    with instance flags:  PRECISION_DOUBLE COMPUTATION_SYNCH EIGEN_REAL SCALING_MANUAL SCALERS_RAW VECTOR_NONE THREADING_NONE PROCESSOR_CPU
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 418 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 59 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 339 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 59 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 36 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 35 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 291 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 418 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 59 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 339 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 59 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 36 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 35 unique site patterns.
+  Using rescaling scheme : dynamic
+  Using ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 291 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 650 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 217 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 28 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 7 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 200 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 68 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 107 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 468 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 132 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 85 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 497 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 442 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 29 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 59 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 22 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 102 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 116 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 286 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 401 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 234 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 91 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 65 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 129 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 70 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 160 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 88 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 16 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 32 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 179 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 60 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 200 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 378 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 41 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 61 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 146 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 134 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 194 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 66 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 93 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 224 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 492 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 276 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 92 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 379 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 315 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 64 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 158 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 67 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 18 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 159 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 123 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 16 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 50 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 130 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 103 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 51 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 36 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 9 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 140 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 15 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 268 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 64 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 571 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 1025 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 443 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 848 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 308 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 33 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 49 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 19 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 720 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 118 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 270 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 175 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 210 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 76 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 380 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 17 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 169 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 419 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 31 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 875 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 281 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 493 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 340 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 77 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 135 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 15 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 140 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 15 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 268 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 11 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 85 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 513 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 1025 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 443 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 848 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 308 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 33 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 49 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 19 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 720 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 118 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 270 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 175 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 210 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 76 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 380 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 17 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 169 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 419 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 31 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 875 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 281 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 493 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 340 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 77 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 135 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 15 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 140 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 15 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 268 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 64 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 571 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 1025 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 443 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 848 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 308 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 33 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 49 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 19 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 720 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 118 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 270 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 175 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 210 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 76 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 380 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 17 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 169 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 419 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 31 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 875 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 281 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 493 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 340 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 77 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 135 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 15 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 418 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 59 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 339 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 53 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 59 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 36 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 35 unique site patterns.
+  Using rescaling scheme : dynamic
+  Ignoring ambiguities in tree likelihood.
+  Ignoring character uncertainty in tree likelihood.
+  With 291 unique site patterns.
+  Using rescaling scheme : dynamic
+------------- ---------------- ---------------
+
+Testcase: testLikelihoodFixedData took 0.372 sec
+Testcase: testLikelihoodAmbiguities took 0.066 sec
+Testcase: testLikelihoodUsingSimulatedData took 0.251 sec
+Testcase: testLikelihoodCaching took 0.255 sec
+Testcase: testBeagleLikelihood took 0.023 sec

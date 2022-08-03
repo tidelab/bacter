@@ -26,17 +26,29 @@ import beast.core.Input;
 import beast.evolution.tree.Node;
 import beast.evolution.tree.Tree;
 import beast.evolution.tree.coalescent.PopulationFunction;
+import beast.math.Binomial;
+import beast.math.GammaFunction;
 import beast.util.Randomizer;
 import feast.nexus.NexusBlock;
 import feast.nexus.NexusBuilder;
 import feast.nexus.TaxaBlock;
 import feast.nexus.TreesBlock;
+//import org.apache.commons.math.distribution.BetaDistribution; //difference math and math3?
+import org.apache.commons.math3.distribution.BetaDistribution;
+import org.apache.commons.math.distribution.BetaDistributionImpl;
+import org.apache.commons.math3.distribution.BinomialDistribution;
+import org.apache.commons.math3.random.RandomGenerator;
 
 import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
+
+import org.apache.commons.math3.special.Beta;
+import org.apache.commons.math3.util.CombinatoricsUtils;
+import org.apache.commons.math3.random.MersenneTwister;
 
 /**
  * @author Tim Vaughan <tgvaughan@gmail.com>
@@ -68,8 +80,10 @@ public class SimulatedACG extends ConversionGraph {
             "outputFileName",
             "If provided, simulated ARG is additionally written to this file.");
 
+
     private double rho, delta;
     private PopulationFunction popFunc;
+    private boolean circularGenomeMode, endSiteBetaBinom; //TODO: check adjustment circular genome
 
     public SimulatedACG() {
         m_taxonset.setRule(Input.Validate.REQUIRED);
@@ -81,16 +95,25 @@ public class SimulatedACG extends ConversionGraph {
         rho = rhoInput.get();
         delta = deltaInput.get();
         popFunc = popFuncInput.get();
+        circularGenomeMode = circularGenomeInput.get(); //TODO: check adjustment circular genome
+        endSiteBetaBinom = betaBinomialEndSiteInput.get();
 
         // Need to do this here as Tree.processTraits(), which is called
         // by hasDateTrait() and hence simulateClonalFrame(), expects a
         // tree with nodes.
         super.initAndValidate();
-        
+
         if (clonalFrameInput.get() == null)
             simulateClonalFrame();
         else
             assignFromWithoutID(clonalFrameInput.get());
+
+        //TODO: check adjustment circular genome
+        if (circularGenomeMode) {
+            if (delta >= 0.5 * getTotalConvertibleSequenceLength())
+                throw new IllegalArgumentException("Delta prior input " +
+                        "must be smaller than half of the genome length.");
+        }
         
         // Need to do this here as this sets the tree object that the nodes
         // point to, so without it they point to the dummy tree created by
@@ -236,43 +259,87 @@ public class SimulatedACG extends ConversionGraph {
     private void generateConversions() {
 
         // Draw number of conversions:
+        //TODO: check adjustment circular genome
         int Nconv = (int) Randomizer.nextPoisson(rho*getClonalFrameLength()*
-            (getTotalConvertibleSequenceLength()+(delta-1.0)* getConvertibleLoci().size()));
+                (getTotalConvertibleSequenceLength() + (!circularGenomeMode ? (delta-1.0)* getConvertibleLoci().size() : 0) ));
+        int startSite = 0;
+        int endSite = 0;
+        Locus affectedLocus = getConvertibleLoci().get(0);
 
         // Generate conversions:
-        for (int i=0; i<Nconv; i++) {
-            // Choose alignment
-            double u = Randomizer.nextDouble()*(getTotalConvertibleSequenceLength()
-                    + (delta-1.0)* getConvertibleLoci().size());
+        if (!circularGenomeMode) {
+            for (int i=0; i<Nconv; i++) {
+                // Choose alignment
+                double u = Randomizer.nextDouble() * (getTotalConvertibleSequenceLength()
+                        + (delta - 1.0) * getConvertibleLoci().size());
 
-            Locus affectedLocus = null;
-            for (Locus locus : getConvertibleLoci()) {
-                if (u < locus.getSiteCount() + delta - 1.0) {
-                    affectedLocus = locus;
-                    break;
-                } else
-                    u -= locus.getSiteCount() + delta - 1.0;
+                affectedLocus = null;
+                for (Locus locus : getConvertibleLoci()) {
+                    if (u < locus.getSiteCount() + delta - 1.0) {
+                        affectedLocus = locus;
+                        break;
+                    } else
+                        u -= locus.getSiteCount() + delta - 1.0;
+                }
+
+                if (affectedLocus == null)
+                    throw new IllegalStateException("Programmer error: " +
+                            "locus choice loop fell through.");
+
+                if (u < delta) {
+                    startSite = 0;
+                } else {
+                    startSite = (int) Math.ceil(u - delta);
+                }
+                endSite = startSite + (int) Randomizer.nextGeometric(1.0 / delta);
+                endSite = Math.min(endSite, affectedLocus.getSiteCount() - 1);
+
+                Conversion conv = new Conversion();
+                conv.setLocus(affectedLocus);
+                conv.setStartSite(startSite);
+                conv.setEndSite(endSite);
+                associateConversionWithCF(conv);
+                addConversion(conv);
+            }
+        } else if (!endSiteBetaBinom) {                         //todo: check adjustment (circular genome)
+            int convLength;
+            for (int i = 0; i < Nconv; i++) {
+                startSite = Randomizer.nextInt(getTotalConvertibleSequenceLength());
+                convLength = getTotalConvertibleSequenceLength();
+                while (convLength >= 0.5*getTotalConvertibleSequenceLength()){
+                    convLength = (int) Randomizer.nextGeometric(1.0 / delta);
+                }
+                endSite = ((startSite + convLength) >= getTotalConvertibleSequenceLength()) ? (startSite - getTotalConvertibleSequenceLength() + convLength) : (startSite + convLength);
+
+                Conversion conv = new Conversion();
+                conv.setLocus(affectedLocus);
+                conv.setStartSite(startSite);
+                conv.setEndSite(endSite);
+                associateConversionWithCF(conv);
+                addConversion(conv);
+            }
+        } else {                                                //todo: check adjustment (circular genome)
+            MersenneTwister rng = new MersenneTwister();
+            int numTrials = (int) Math.floor((getTotalConvertibleSequenceLength() - 1.) * 0.5);
+            rng.setSeed(Randomizer.nextInt()); //todo: check if ok as replacement of Randomizer.getSeed()
+            BetaDistribution beta_dist = new BetaDistribution(rng, numTrials/(numTrials-delta), numTrials/delta, 1.0E-9D);
+            int convLength;
+
+            for (int i = 0; i < Nconv; i++) {
+                startSite = Randomizer.nextInt(getTotalConvertibleSequenceLength());
+
+                BinomialDistribution binom_dist = new BinomialDistribution(rng, numTrials, beta_dist.sample());
+                convLength = binom_dist.sample();
+                endSite = ((startSite + convLength) >= getTotalConvertibleSequenceLength()) ? (startSite - getTotalConvertibleSequenceLength() + convLength) : (startSite + convLength);
+
+                Conversion conv = new Conversion();
+                conv.setLocus(affectedLocus);
+                conv.setStartSite(startSite);
+                conv.setEndSite(endSite);
+                associateConversionWithCF(conv);
+                addConversion(conv);
             }
 
-            if (affectedLocus == null)
-                throw new IllegalStateException("Programmer error: " +
-                        "locus choice loop fell through.");
-
-            int startSite, endSite;
-            if (u<delta) {
-                startSite = 0;
-            } else {
-                startSite = (int)Math.ceil(u-delta);
-            }
-            endSite = startSite + (int)Randomizer.nextGeometric(1.0/delta);
-            endSite = Math.min(endSite, affectedLocus.getSiteCount()-1);
-
-            Conversion conv = new Conversion();
-            conv.setLocus(affectedLocus);
-            conv.setStartSite(startSite);
-            conv.setEndSite(endSite);
-            associateConversionWithCF(conv);
-            addConversion(conv);
         }
     }
     
@@ -354,4 +421,68 @@ public class SimulatedACG extends ConversionGraph {
             }
         }
     }
+
+    public static void main(String[] args) {
+
+        int N1 = 1000;
+
+        for (int j = 0; j < N1; j++) {
+
+            int startSite;
+            int endSite;
+            int Nconv = 5;
+
+            int[] convLengths = new int[Nconv];
+
+            int n = 6343; //3234;
+            double delta = 1200.0;
+
+            MersenneTwister rng = new MersenneTwister();
+            int numTrials = (int) Math.floor((n - 1.) * 0.5);
+            rng.setSeed(Randomizer.nextInt()); //todo: check if alright instead of Randomizer.getSeed()
+            BetaDistribution beta_dist = new BetaDistribution(rng, numTrials / (numTrials - delta), numTrials / delta, 1.0E-9D);
+            int convLength;
+
+            for (int i = 0; i < Nconv; i++) {
+                startSite = Randomizer.nextInt(n);
+
+                BinomialDistribution binom_dist = new BinomialDistribution(rng, numTrials, beta_dist.sample());
+                convLength = binom_dist.sample();
+                endSite = ((startSite + convLength) >= n) ? (startSite - n + convLength) : (startSite + convLength);
+
+                System.out.println(convLength);
+                convLengths[i] = convLength;
+            }
+
+        }
+        ;
+        /*long startTime = System.nanoTime();
+        for (int i=0; i<100000; i++) {
+
+            MersenneTwister rng = new MersenneTwister();
+            rng.setSeed(Randomizer.getSeed());
+            BetaDistribution beta_dist = new BetaDistribution(rng, n / (n - delta), n / delta, 1.0E-9D);
+            BinomialDistribution binom_dist = new BinomialDistribution(rng, n, beta_dist.sample());
+            int convLength = binom_dist.sample();
+
+
+            double RVunif1 = 1.0;
+            double RVunif2 = 1.0;
+            while (RVunif1 + RVunif2 > 1) {
+                RVunif1 = Math.pow(Randomizer.nextDouble(), (n * 0.5 - delta) / (n * 0.5));
+                RVunif2 = Math.pow(Randomizer.nextDouble(), (delta / (n * 0.5)));
+            }
+            double probSuccess = RVunif1 / (RVunif1 + RVunif2); //random sample from Beta distribution
+            int numSuccess = 0;
+            for (int j = 0; j < n * 0.5; j++) {
+                numSuccess += (Randomizer.nextDouble() <= probSuccess) ? 1 : 0;
+            }
+
+        }
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration/Math.pow(10,9));
+         */
+    }
+
 }

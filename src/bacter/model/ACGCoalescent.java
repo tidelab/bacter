@@ -21,13 +21,21 @@ import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
 import beast.core.Description;
+import beast.core.Distribution;
 import beast.core.Input;
 import beast.core.State;
 import beast.core.parameter.RealParameter;
 import beast.evolution.tree.TreeDistribution;
 import beast.evolution.tree.coalescent.PopulationFunction;
+import beast.math.Binomial;
+import beast.math.GammaFunction;
+//import beast.math.distributions.Beta;
+import beast.util.Randomizer;
+import cern.jet.random.Distributions;
 import org.apache.commons.math.MathException;
 import org.apache.commons.math.distribution.PoissonDistributionImpl;
+import org.apache.commons.math3.special.Beta;
+import org.apache.commons.math3.util.CombinatoricsUtils;
 
 import java.util.List;
 import java.util.Random;
@@ -35,15 +43,15 @@ import java.util.Random;
 /**
  * @author Tim Vaughan <tgvaughan@gmail.com>
  */
-@Description("Appoximation to the coalescent with gene conversion.")
+@Description("Approximation to the coalescent with gene conversion.")
 public class ACGCoalescent extends TreeDistribution {
 
     public Input<PopulationFunction> popFuncInput = new Input<>(
             "populationModel", "Population model.", Input.Validate.REQUIRED);
-    
+
     public Input<RealParameter> rhoInput = new Input<>("rho",
             "Recombination rate parameter.", Input.Validate.REQUIRED);
-    
+
     public Input<RealParameter> deltaInput = new Input<>("delta",
             "Tract length parameter.", Input.Validate.REQUIRED);
 
@@ -62,6 +70,13 @@ public class ACGCoalescent extends TreeDistribution {
     public Input<Boolean> wholeLocusConversionsInput = new Input<>(
             "wholeLocusConversionsOnly",
             "Only allow whole loci to be converted.", false);
+    //TODO: check adjustment for circular genome
+    public Input<Boolean> circularGenomeInput = new Input<>(
+            "circularGenome",
+            "The alignment is a circular genome", false);
+    public Input<Boolean> betaBinomialEndSiteInput = new Input<>(
+            "endSiteBetaBinom",
+            "The prior for the end site of a conversion is a beta-binomial distribution.", false);
 
     ConversionGraph acg;
     PopulationFunction popFunc;
@@ -69,7 +84,7 @@ public class ACGCoalescent extends TreeDistribution {
     public ACGCoalescent() {
         treeInput.setRule(Input.Validate.REQUIRED);
     }
-    
+
     @Override
     public void initAndValidate() {
         if (!(treeInput.get() instanceof ConversionGraph))
@@ -81,9 +96,32 @@ public class ACGCoalescent extends TreeDistribution {
                     "the treeIntervals input.");
 
         acg = (ConversionGraph)treeInput.get();
+
+        // The following condition makes sure that in the case of a complete genome
+        // the mean conversion length is smaller than half of the genome length
+        // (following the convention of defining the shorter sequence part as conversion).
+        //TODO: check adjustment for circular genome
+        if (circularGenomeInput.get()){
+            if (deltaInput.get().getValue() >= 0.5 * acg.getTotalConvertibleSequenceLength())
+                throw new IllegalArgumentException("Delta prior input " +
+                        "must be smaller than half of the genome length.");
+            if (deltaInput.get().getUpper()>= 0.5 * acg.getTotalConvertibleSequenceLength()) {
+                deltaInput.get().setUpper(Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5));                                //todo: check adjustment (circular genome)
+                System.out.println("Upper bound of delta is set to " + (Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5)));
+            }
+            if (!acg.circularGenomeModeOn()) {
+                throw new IllegalArgumentException("Error: Circular genome mode turned on in ACGCoalescent but not in ConversionGraph (acg). Aborting. ");
+            }
+        }
+
+        if (!circularGenomeInput.get() && acg.circularGenomeModeOn()) {
+            throw new IllegalArgumentException("Error: Circular genome mode turned on in ConversionGraph (acg) but not in ACGCoalescent. Aborting. ");
+        }
+
+        //acg = (ConversionGraph)treeInput.get();
         popFunc = popFuncInput.get();
     }
-    
+
     @Override
     public double calculateLogP() {
 
@@ -92,10 +130,13 @@ public class ACGCoalescent extends TreeDistribution {
                 || acg.getTotalConvCount()>upperCCBoundInput.get())
             return Double.NEGATIVE_INFINITY;
 
+        //TODO: check adjustment for circular genome
         logP = calculateClonalFrameLogP();
         double poissonMean = rhoInput.get().getValue()
                 *acg.getClonalFrameLength()
-                *(acg.getTotalConvertibleSequenceLength() + acg.getConvertibleLoci().size()*(deltaInput.get().getValue()-1.0));
+                *(acg.getTotalConvertibleSequenceLength()
+                + ( acg.circularGenomeModeOn() ? 0 :  acg.getConvertibleLoci().size()*(deltaInput.get().getValue()-1.0) )
+        );
 
         // Probability of conversion count:
         if (poissonMean>0.0) {
@@ -105,12 +146,12 @@ public class ACGCoalescent extends TreeDistribution {
             if (acg.getTotalConvCount()>0)
                 logP = Double.NEGATIVE_INFINITY;
         }
-        
+
 
         for (Locus locus : acg.getConvertibleLoci())
             for (Conversion conv : acg.getConversions(locus))
                 logP += calculateConversionLogP(conv);
-        
+
         // This N! takes into account the permutation invariance of
         // the individual conversions, and cancels with the N! in the
         // denominator of the Poissonian above.
@@ -133,15 +174,15 @@ public class ACGCoalescent extends TreeDistribution {
 
     /**
      * Compute probability of clonal frame under coalescent.
-     * 
+     *
      * @return log(P)
      */
     public double calculateClonalFrameLogP() {
-        
+
         List<CFEventList.Event> events = acg.getCFEvents();
-        
+
         double thisLogP = 0.0;
-        
+
         for (int i=0; i<events.size()-1; i++) {
             double timeA = events.get(i).getHeight();
             double timeB = events.get(i+1).getHeight();
@@ -149,14 +190,14 @@ public class ACGCoalescent extends TreeDistribution {
             double intervalArea = popFunc.getIntegral(timeA, timeB);
             int k = events.get(i).getLineageCount();
             thisLogP += -0.5*k*(k-1)*intervalArea;
-            
+
             if (events.get(i+1).getType()==CFEventList.EventType.COALESCENCE)
                 thisLogP += Math.log(1.0/popFunc.getPopSize(timeB));
         }
-        
+
         return thisLogP;
     }
-    
+
     /**
      * Compute probability of recombinant edges under conditional coalescent.
      * @param conv conversion with which edge is associated
@@ -193,8 +234,10 @@ public class ACGCoalescent extends TreeDistribution {
         // Probability of single coalescence event
         thisLogP += Math.log(1.0/popFunc.getPopSize(conv.getHeight2()));
 
-        // Probability of start site:
-        if (conv.getStartSite()==0) {
+        // Probability of start site:               //TODO: check adjustment (circular genome)
+        if (acg.circularGenomeModeOn()) {
+            thisLogP += Math.log(1.0 / acg.getTotalConvertibleSequenceLength());
+        } else if (conv.getStartSite()==0) {
             thisLogP += Math.log(deltaInput.get().getValue()
                     / (acg.getConvertibleLoci().size() * (deltaInput.get().getValue() - 1)
                     + acg.getTotalConvertibleSequenceLength()));
@@ -208,7 +251,25 @@ public class ACGCoalescent extends TreeDistribution {
         }
 
         // Probability of end site:
-        if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
+        if (acg.circularGenomeModeOn()) {
+            if (acg.endSiteBetaBinomOn()) {
+                int halfGenomeLength = (int) Math.floor((acg.getTotalConvertibleSequenceLength() - 1.) * 0.5); //max int being smaller than half of the genome length
+                int kBetaBinom = conv.getSiteCount() - 1;
+                double aBetaBinom = halfGenomeLength / (halfGenomeLength - deltaInput.get().getValue());
+                double bBetaBinom = halfGenomeLength / deltaInput.get().getValue();
+                thisLogP += GammaFunction.lnGamma(halfGenomeLength + 1) - GammaFunction.lnGamma(kBetaBinom + 1)
+                        - GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + 1)
+                        + GammaFunction.lnGamma(kBetaBinom + aBetaBinom)
+                        + GammaFunction.lnGamma(halfGenomeLength - kBetaBinom + bBetaBinom) - GammaFunction.lnGamma(bBetaBinom)
+                        - GammaFunction.lnGamma(halfGenomeLength + aBetaBinom + bBetaBinom)
+                        + GammaFunction.lnGamma(aBetaBinom + bBetaBinom) - GammaFunction.lnGamma(aBetaBinom);
+            } else {
+                thisLogP += (conv.getSiteCount() - 1)
+                        *Math.log(1.0 - 1.0/deltaInput.get().getValue())
+                        -Math.log(deltaInput.get().getValue())
+                        -Math.log(1.0-Math.pow(1.0-1.0/deltaInput.get().getValue(), (int) Math.floor((acg.getTotalConvertibleSequenceLength()) * 0.5)));
+            }
+        } else if (conv.getEndSite() == conv.getLocus().getSiteCount()-1) {
             thisLogP += (conv.getLocus().getSiteCount()-1-conv.getStartSite())
                     *Math.log(1.0 - 1.0/deltaInput.get().getValue());
         } else {
@@ -219,7 +280,6 @@ public class ACGCoalescent extends TreeDistribution {
             else
                 return Double.NEGATIVE_INFINITY;
         }
-
         return thisLogP;
     }
 
@@ -241,5 +301,25 @@ public class ACGCoalescent extends TreeDistribution {
     @Override
     public void sample(State state, Random random) {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public static void main(String[] args) {
+
+        int n = 3754;
+        int k = 456;
+        double delt = 410.0;
+        double alpha = n/(n-delt);
+        double beta = n/delt;
+
+        long startTime = System.nanoTime();
+        for(int j=0; j<1000000; j++) {
+            double probConvGamma = GammaFunction.lnGamma(n + 1) - GammaFunction.lnGamma(k + 1) - GammaFunction.lnGamma(n - k + 1)
+                    + GammaFunction.lnGamma(k + alpha) + GammaFunction.lnGamma(n - k + beta) - GammaFunction.lnGamma(beta)
+                    - GammaFunction.lnGamma(n + alpha + beta) + GammaFunction.lnGamma(alpha + beta) - GammaFunction.lnGamma(alpha);
+            //double probConvBeta = CombinatoricsUtils.binomialCoefficientLog(n, k) + Beta.logBeta(alpha+k, beta+n-k) - Beta.logBeta(alpha, beta);
+        }
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        System.out.println(duration/Math.pow(10,9));
     }
 }

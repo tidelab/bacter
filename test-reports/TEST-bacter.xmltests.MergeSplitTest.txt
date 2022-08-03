@@ -1,0 +1,48 @@
+Testsuite: bacter.xmltests.MergeSplitTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.323 sec
+------------- Standard Output ---------------
+===============================================================================
+Citations for this model:
+
+Bouckaert RR, Heled J, Kuehnert D, Vaughan TG, Wu C-H, Xie D, Suchard MA,
+  Rambaut A, Drummond AJ (2014) BEAST 2: A software platform for Bayesian
+  evolutionary analysis. PLoS Computational Biology 10(4): e1003537
+
+TG Vaughan, D Welch, AJ Drummond, PJ Biggs, T George, NP French
+Inferring Ancestral Recombination Graphs from Bacterial Genomic Data,
+Genetics, 205(2):857 (2017)
+
+===============================================================================
+Start likelihood: -221.2568252605596 
+Writing file mergeSplitTest5taxon.trees
+Writing file mergeSplitTest5taxon.converted
+Writing file mergeSplitTest5taxon.stats
+
+Operator                                              Tuning    #accept    #reject      Pr(m)  Pr(acc|m)
+bacter.operators.AddRemoveConversion(addRemove)            -     861419      92832    0.04762    0.90272 
+bacter.operators.MergeSplitConversion(mergeSplit)          -       2224     949235    0.04762    0.00234 
+bacter.operators.ACGScaler(scale)                          -     677542     275036    0.04762    0.71127 
+bacter.operators.ACGValidityWrapper(Uniform)               -    2053601    7475213    0.47619    0.21551 
+bacter.operators.ACGValidityWrapper(STS)                   -     189508    4568377    0.23810    0.03983 
+bacter.operators.ACGValidityWrapper(STXnarrow)             -     194533     758844    0.04762    0.20405 
+bacter.operators.ACGValidityWrapper(STXwide)               -      87456     863733    0.04762    0.09194 
+bacter.operators.ACGValidityWrapper(WB)                    -      14883     935565    0.04762    0.01566 
+
+     Tuning: The value of the operator's tuning parameter, or '-' if the operator can't be optimized.
+    #accept: The total number of times a proposal by this operator has been accepted.
+    #reject: The total number of times a proposal by this operator has been rejected.
+      Pr(m): The probability this operator is chosen in a step of the MCMC (i.e. the normalized weight).
+  Pr(acc|m): The acceptance probability (#accept as a fraction of the total proposals for this operator).
+
+
+Total calculation time: 43.2 seconds
+acg.CFheight : 1.6923864195972047 +- 0.07678923975345109, ESS = 245.14627125256962, expectation is 1.606 +- 0.2
+acg.CFlength : 4.371193996446254 +- 0.1558438541025534, ESS = 287.7509861849666, expectation is 4.181 +- 0.5
+acg.nConv : 22.007388478417866 +- 0.8339299624245484, ESS = 293.919911644466, expectation is 21.0 +- 0.5
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+WARNING: If nothing seems to be happening on screen this is because none of the loggers give feedback to screen.
+End likelihood: -295.41411680495685
+------------- ---------------- ---------------
+
+Testcase: test took 44.315 sec

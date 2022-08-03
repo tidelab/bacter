@@ -16,6 +16,7 @@
  */
 package bacter;
 
+import beast.core.Input;
 import beast.evolution.alignment.Alignment;
 import beast.evolution.tree.Node;
 
@@ -31,7 +32,7 @@ import java.util.Objects;
  * @author Tim Vaughan <tgvaughan@gmail.com>
  */
 public class Conversion {
-    
+
     protected ConversionGraph acg;
 
     /**
@@ -55,7 +56,7 @@ public class Conversion {
     protected Locus locus;
 
     /**
-     * Used by ACGAnnotator to incoroporate additional metadata into
+     * Used by ACGAnnotator to incorporate additional metadata into
      * the summary ACG.
      */
     public String newickMetaDataBottom, newickMetaDataMiddle, newickMetaDataTop;
@@ -89,6 +90,7 @@ public class Conversion {
         this.startSite = startSite;
         this.endSite = endSite;
         this.locus = locus;
+        this.acg = acg;                     //todo: check adjustment (circular genome)
     }
 
     /**
@@ -229,7 +231,12 @@ public class Conversion {
      * @return total number of sites affected by this conversion.
      */
     public int getSiteCount() {
-        return (int)(endSite - startSite + 1);
+        //TODO: check adjustment circular genome
+        if (endSite >= startSite) {
+            return (int) (endSite - startSite + 1);
+        } else {
+            return (int) (getLocus().getSiteCount() - startSite + endSite + 1); //accounts for the case of a circular genome
+        }
     }
     
     /**
@@ -257,7 +264,10 @@ public class Conversion {
         if (!node2.isRoot() && node2.getParent().getHeight()<height2)
             return false;
         
-        if (startSite>endSite)
+        if (startSite>endSite && !acg.circularGenomeModeOn())           //todo: check adjustment (circular genome)
+            return false;
+
+        if (acg.circularGenomeModeOn() && getSiteCount() >= getLocus().getSiteCount() * 0.5)
             return false;
 
         if (endSite<0 || startSite<0)
