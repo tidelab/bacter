@@ -39,7 +39,7 @@ import java.io.PrintStream;
 import java.util.*;
 
 /**
- * @author Tim Vaughan <tgvaughan@gmail.com>
+ * @author Arthur Kocher
  */
 public class SummarizedVsTrueACG {
 
