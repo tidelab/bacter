@@ -379,7 +379,7 @@ public class ACGCladeSystem extends CladeSystem {
                 convOrderedByStart.remove(0);
             } else {
                 //TODO: check adjustment (circular genome)
-                if (overlapRegion && nextEnd > overlapStartBound && nextEnd == maxEndSite) {
+                if (conversionSummary != null && overlapRegion && nextEnd > overlapStartBound && nextEnd == maxEndSite) {
                     if (convSummaryList.size() > 1) {
                         convSummaryList.remove(conversionSummary);
                         convSummaryList.get(0).mergeConvSum(conversionSummary);
