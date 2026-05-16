@@ -20,9 +20,9 @@ package bacter.acgannotator;
 import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
-import beast.app.treeannotator.CladeSystem;
-import beast.evolution.tree.Node;
-import beast.util.Randomizer;
+import beast.base.evolution.tree.Node;
+import beastfx.app.treeannotator.CladeSystem;
+import beast.base.util.Randomizer;
 
 import java.util.*;
 import java.util.function.BiFunction;

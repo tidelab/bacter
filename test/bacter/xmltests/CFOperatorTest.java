@@ -18,8 +18,8 @@
 package bacter.xmltests;
 
 import bacter.TestBase;
-import beast.util.Randomizer;
-import beast.util.XMLParser;
+import beast.base.util.Randomizer;
+import beast.base.parser.XMLParser;
 import org.junit.Test;
 import test.beast.beast2vs1.trace.Expectation;
 import test.beast.beast2vs1.trace.LogAnalyser;
@@ -42,9 +42,9 @@ public class CFOperatorTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/CFOperatorTests/CFUniformTest5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();
@@ -72,9 +72,9 @@ public class CFOperatorTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/CFOperatorTests/CFWilsonBaldingTest5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();
@@ -101,9 +101,9 @@ public class CFOperatorTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/CFOperatorTests/CFConversionSwapTest5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();
@@ -130,9 +130,9 @@ public class CFOperatorTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/CFOperatorTests/CFSubtreeSlideTest5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();
@@ -157,9 +157,9 @@ public class CFOperatorTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/CFOperatorTests/CFSubtreeExchangeTest5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();

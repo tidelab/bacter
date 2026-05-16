@@ -17,13 +17,15 @@
 
 package bacter;
 
-import beast.core.*;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.Sequence;
-import beast.evolution.alignment.Taxon;
-import beast.evolution.alignment.TaxonSet;
-import beast.evolution.tree.Node;
-import beast.evolution.tree.Tree;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.Sequence;
+import beast.base.evolution.alignment.Taxon;
+import beast.base.evolution.alignment.TaxonSet;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.Tree;
+import beast.base.inference.Logger;
+import beast.base.inference.MCMC;
+
 import com.google.common.collect.Lists;
 
 import java.util.*;
@@ -232,10 +234,11 @@ public abstract class TestBase {
      * Remove screen log (if it exists) from given runnable, if that
      * runnable is of dynamic type MCMC.  This prevents needlessly
      * verbose test log output.
+     * Also, cause loggers to overwrite existing files by default.
      *
      * @param runnable from which to remove log.
      */
-    public void disableScreenLog(beast.core.Runnable runnable) {
+    public void setupTestLoggers(beast.base.inference.Runnable runnable) {
         if (runnable instanceof MCMC) {
             MCMC mcmc = (MCMC)runnable;
 
@@ -250,5 +253,7 @@ public abstract class TestBase {
             if (screenLog != null)
                 mcmc.loggersInput.get().remove(screenLog);
         }
+
+        Logger.FILE_MODE = Logger.LogFileMode.overwrite;
     }
 }

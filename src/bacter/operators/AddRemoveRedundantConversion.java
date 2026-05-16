@@ -18,11 +18,11 @@ package bacter.operators;
 
 import bacter.Conversion;
 import bacter.Locus;
-import beast.core.Description;
-import beast.core.Input;
-import beast.evolution.tree.Node;
-import beast.math.GammaFunction;
-import beast.util.Randomizer;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.evolution.tree.Node;
+import beast.base.util.GammaFunction;
+import beast.base.util.Randomizer;
 import org.apache.commons.math3.distribution.BetaDistribution;
 import org.apache.commons.math3.random.MersenneTwister;
 

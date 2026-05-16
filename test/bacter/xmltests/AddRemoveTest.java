@@ -18,9 +18,8 @@
 package bacter.xmltests;
 
 import bacter.TestBase;
-import beast.core.MCMC;
-import beast.util.Randomizer;
-import beast.util.XMLParser;
+import beast.base.util.Randomizer;
+import beast.base.parser.XMLParser;
 import org.junit.Test;
 import test.beast.beast2vs1.trace.Expectation;
 import test.beast.beast2vs1.trace.LogAnalyser;
@@ -43,9 +42,9 @@ public class AddRemoveTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/addRemoveTests/addRemoveTest2taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();
@@ -73,9 +72,9 @@ public class AddRemoveTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/addRemoveTests/addRemoveTest5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();
@@ -103,9 +102,9 @@ public class AddRemoveTest extends TestBase {
         Randomizer.setSeed(2);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/addRemoveTests/addRemoveDynamicPopSize5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();
@@ -133,9 +132,9 @@ public class AddRemoveTest extends TestBase {
         Randomizer.setSeed(1);
 
         XMLParser parser = new XMLParser();
-        beast.core.Runnable runnable = parser.parseFile(
+        beast.base.inference.Runnable runnable = parser.parseFile(
                 new File("examples/addRemoveTests/addRemoveSerialSamplingTest5taxon.xml"));
-        disableScreenLog(runnable);
+        setupTestLoggers(runnable);
         runnable.run();
 
         List<Expectation> expectations = new ArrayList<>();

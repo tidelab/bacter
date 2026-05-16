@@ -18,10 +18,10 @@ package bacter.operators;
 
 import bacter.Conversion;
 import bacter.Locus;
-import beast.core.Input;
-import beast.core.parameter.RealParameter;
-import beast.math.GammaFunction;
-import beast.util.Randomizer;
+import beast.base.core.Input;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.util.Randomizer;
+import beast.base.util.GammaFunction;
 import org.apache.commons.math3.distribution.BetaDistribution;
 import org.apache.commons.math3.distribution.BinomialDistribution;
 import org.apache.commons.math3.random.MersenneTwister;

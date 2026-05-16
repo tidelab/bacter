@@ -21,10 +21,10 @@ import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
 import bacter.util.BacterACGLogReader;
-import beast.core.util.Log;
-import beast.evolution.tree.Node;
-import beast.math.statistic.DiscreteStatistics;
-import beast.util.Randomizer;
+import beast.base.core.Log;
+import beast.base.evolution.tree.Node;
+import beast.base.util.DiscreteStatistics;
+import beast.base.util.Randomizer;
 
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
