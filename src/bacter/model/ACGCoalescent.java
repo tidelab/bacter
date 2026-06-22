@@ -21,7 +21,7 @@ import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
 import beast.base.core.Description;
-import beast.base.core.Distribution;
+import beast.base.inference.Distribution;
 import beast.base.core.Input;
 import beast.base.inference.State;
 import beast.base.inference.parameter.RealParameter;
