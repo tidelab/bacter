@@ -5,10 +5,10 @@ import bacter.ConversionGraph;
 import bacter.Locus;
 import bacter.TestBase;
 import bacter.acgannotator.ACGAnnotator;
-import beast.evolution.sitemodel.SiteModel;
-import beast.evolution.substitutionmodel.JukesCantor;
-import beast.evolution.tree.Node;
-import beast.util.ClusterTree;
+import beast.base.evolution.sitemodel.SiteModel;
+import beast.base.evolution.substitutionmodel.JukesCantor;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.ClusterTree;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;

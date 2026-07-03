@@ -4,10 +4,10 @@ import bacter.Conversion;
 import bacter.ConversionGraph;
 import bacter.Locus;
 import bacter.TestBase;
-import beast.core.parameter.RealParameter;
-import beast.evolution.tree.Node;
-import beast.evolution.tree.coalescent.ConstantPopulation;
-import beast.util.ClusterTree;
+import beast.base.inference.parameter.RealParameter;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.coalescent.ConstantPopulation;
+import beast.base.evolution.tree.ClusterTree;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
